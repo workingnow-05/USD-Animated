@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { gsap } from 'gsap';
 import './styles.css';
+import InvestmentSection from './InvestmentSection';
 
 const programs = ['Applied AI', 'Cyber Security'];
 const defaultJourney = { name: '', program: '', origin: 'Delhi', destination: 'San Diego', term: 'Spring 2027', classType: 'Admit' };
@@ -57,15 +58,201 @@ function Flight({ journey }) { const plane = useRef(null); const cloudA = useRef
 
 const reasons = ['Professors who know your name', 'Aligned to the federal RACE framework', 'Thoughtful people who do the work', 'Finish with what you can show', 'Mentors who have been there', 'Help from the first day']; const outcomes = ['AI Product Manager', 'Cybersecurity Architect', 'Applied AI Strategist', 'Data Science Lead', 'Technology Consultant', 'Innovation Director']; const alumni = [['Matthew Demczyk, Class of 2005', 'Founder, global tech and innovation leader'], ['Jony Gens, Class of 2012', 'Designing the future of intelligent systems'], ['Jim Phelan, MBA 2001', 'Building teams that make a difference'], ['Huda B., Class of 2019', 'From USD to a career without limits'], ['Yee Hernandez, 2010', 'Making change in every room']];
 
-function Landing({ journey }) { const [activeFaq, setActiveFaq] = useState(0); return <main className="landing"><Header light /><section className="landing-hero"><div className="hero-copy"><p className="eyebrow">YOUR SEAT TO SAN DIEGO</p><h1>YOUR SEAT TO SAN<br /><em>USD IS WAITING.</em></h1><p>That boarding pass is ready. Check your details, then send your name to USD, from India to San Diego, and make this whole new chapter official.</p><a className="outline-cta" href="#why">EXPLORE THE USD EXPERIENCE ↘</a></div><div className="hero-ticket-wrap"><div className="ticket-label">YOUR PERSONALIZED ADMIT</div><BoardingPass journey={journey} update={() => {}} errors={{}} takeOff={(e) => e.preventDefault()} compact /></div></section>
-<section id="why" className="why section section-blue"><div className="eyebrow">01 / THE USD EXPERIENCE</div><h2>PREVIEW, THIS IS WHY USD.</h2><p>The program feels built with curiosity in mind — the people you’ll work with, the ideas you’ll explore, and the questions you’ll take home.</p><div className="stat-row"><div><strong>87,000+</strong><span>graduates in the USD community</span></div><div><strong>40,000</strong><span>ideas waiting to be challenged</span></div></div></section>
-<section className="reasons section"><div className="eyebrow">02 / YOUR USD DIFFERENCE</div><h2>SIX REASONS STUDENTS<br />CHOOSE USD.</h2><div className="reason-grid">{reasons.map((reason, i) => <article key={reason}><span>0{i + 1}</span><h3>{reason}</h3><p>Build confidence, sharpen your thinking, and leave with work you’re proud to put your name on.</p></article>)}</div></section>
-<section className="days section"><div className="eyebrow">03 / THE DAY TO DAY</div><h2>PICTURE YOUR DAYS AT USD.</h2><p>Labs, people, real-world work and San Diego energy. This is what your future feels like.</p><div className="photo-strip">{[[images.class, 'FOREIGN EXCHANGE'], [images.studio, 'BLACK BOX PROJECT'], [images.students, 'SMALL GROUPS'], [images.sunset, 'SUNSET SESSIONS']].map(([src, label]) => <figure key={label}><img src={src} alt={label} /><figcaption>{label}</figcaption></figure>)}</div><a className="small-cta" href="#program">DISCOVER THE CAMPUS EXPERIENCE ↗</a></section>
-<section id="program" className="outcomes section section-sky"><div className="eyebrow">04 / YOUR NEXT MOVE</div><h2>WHERE THIS DEGREE CAN<br />TAKE YOU.</h2><div className="outcome-tags">{outcomes.map((outcome) => <span key={outcome}>{outcome}</span>)}</div><p className="eyebrow outcome-caption">USD GRADUATES WORK AT</p><div className="company-tags"><span>GOOGLE</span><span>MICROSOFT</span><span>APPLE</span><span>DELOITTE</span><span>ACCENTURE</span></div></section>
-<section className="alumni section"><div className="eyebrow">05 / THE PROOF</div><h2>TORERO ALUMNI DOING<br />EXTRAORDINARY THINGS.</h2><div className="alumni-grid">{alumni.map(([name, desc], i) => <article className={i === 0 ? 'alumni-feature' : ''} key={name}><div className="alumni-art" style={i === 0 ? { backgroundImage: `url(${images.city})` } : undefined}><span>{i === 0 ? 'FEATURED STORY' : 'USD ALUMNI'}</span></div><div><h3>{name}</h3><p>{desc}</p></div></article>)}</div></section>
-<section id="people" className="people section section-navy"><div className="eyebrow">06 / THE PEOPLE BEHIND IT</div><h2>THE PEOPLE BEHIND YOUR<br />PROGRAM.</h2><div className="people-grid">{['Dr. Cheryl R. Rios', 'Dr. Hayat Majeed', 'Vikram Whitmore', 'Randi Farnady, PhD', 'Nicholas Bean', 'Pradeep Patel'].map((name) => <article key={name}><h3>{name}</h3><p>Faculty, mentor, and advocate for your next chapter.</p></article>)}</div></section>
-<section className="dean section"><div><div className="eyebrow">07 / FROM THE DEAN</div><h2>HI, I’M YOUR<br /><em>DEAN ROBERTS.</em></h2><p>We’re building an experience where your questions matter, your work travels with you, and your future feels a little closer every day.</p><button className="outline-cta">MEET WITH ME ↗</button></div><div className="video-card"><img src={images.campus} alt="University of San Diego campus" /><button aria-label="Play Dean Roberts message">▶</button><span>WATCH THE WELCOME</span></div></section>
-<section className="faq section section-dark"><div className="eyebrow">08 / BEFORE YOU DECIDE</div><h2>STRAIGHT ANSWERS ON COST<br />AND VISA.</h2><div className="faq-grid">{[['WHAT WILL IT COST?', 'Your admit includes a clear view of tuition, housing and what comes next.'], ['WHAT ABOUT MY VISA?', 'We’ll guide you with the right documents, preparation and support from day one.']].map(([q, a], i) => <button key={q} className={activeFaq === i ? 'active' : ''} onClick={() => setActiveFaq(i)}><span>{q}</span><p>{a}</p><b>↗</b></button>)}</div></section>
-<section id="ready" className="ready section" style={{ backgroundImage: `linear-gradient(rgba(3,37,77,.62),rgba(3,37,77,.8)),url(${images.hero})` }}><div className="eyebrow">09 / YOUR SEAT IS READY</div><h2>READY WHEN YOU ARE,<br /><em>{journey.name.toUpperCase()}.</em></h2><p>Confirm your details and keep your boarding pass close.</p><BoardingPass journey={journey} update={() => {}} errors={{}} takeOff={(e) => e.preventDefault()} compact /><div className="destination-back"><img src="/USD_Boarding Pass back.png" alt="San Diego destination artwork from the USD boarding pass" /><div><span className="eyebrow">ARRIVAL NOTES</span><h3>San Diego is waiting.</h3><p>A sun-drenched coastal city where the ocean meets endless possibility.</p></div></div><footer><span>UNIVERSITY OF SAN DIEGO / SPRING 2027</span><span>YOUR NEXT CHAPTER STARTS HERE</span></footer></section></main>; }
+const rankingCards = [
+  ['#47', 'Best Colleges in the U.S.', 'The Wall Street Journal 2025'],
+  ['#1', 'Most Beautiful Campus', 'The Princeton Review, 2027 Edition'],
+  ['#11', 'Best Career Services', 'The Princeton Review, 2027 Edition'],
+  ['#45', 'Best Value Schools', 'U.S. News & World Report'],
+];
+
+const usdReasons = [
+  'Join 87,000+ USD alumni across all 50 states and 100 countries – a global community that opens doors long after graduation.',
+  'Curriculum written by the people hiring you. Learn from courses shaped by leaders from Meta, Microsoft, Netflix, Qualcomm and Cisco - where Agentic AI and LLM Engineering are core courses, not electives.',
+  'Professors who know your name. Study in an average class of 23 with a 13:1 student-faculty ratio - personalized attention, mentorship and support from day one.',
+  "A career office with real connections. Step into 40,000+ employers on USD's job portal - guided by 3,300+ alumni mentors and Torero Treks that take you inside real companies.",
+];
+
+const landingAlumni = [
+  ['Prashant Khare', 'Director, Data Science', 'Morgan Stanley', 'Principal Data Scientist, Agentic AI Lead'],
+  ['Vikrant Tiwari', 'AVP, Digital Transformation', 'AXA XL', 'Head, AI & Intelligent Automation'],
+  ['Richa Jha', 'System Simulation Lead Engineer', 'Intel Habana', 'Technical Leader, Data Center & AI Group'],
+  ['Puneet Chopra', 'Head of Technology, Data Science', 'RADCOM', 'Principal Advisor, AI & Networks'],
+];
+
+const landingFaculty = [
+  ['Dr. Ebrahim Tarshizi', 'Academic Director, Applied AI & Data Science', 'Former senior technical advisor at CDC/NIOSH. Pioneers generative architectures & large agentic networks.'],
+  ['Vitor Carvalho, PhD', 'Principal Applied Science Manager, Microsoft', 'Works on Copilot, LLMs, and multimodal AI. Former Principal Data Scientist at Intuit.'],
+  ['Eric Colson', 'DS & ML Advisor', 'Led data science and algorithmic platforms at Netflix and Stitch Fix.'],
+  ['Dr. Chell Roberts', 'Founding Dean', 'Recognized by the National Academy of Engineering for innovations in engineering education.'],
+];
+
+const employerBrands = {
+  amazon: ['/landing/logos/amazon-wordmark.svg'],
+  Google: ['/landing/logos/google-wordmark.svg'],
+  NVIDIA: ['/landing/logos/nvidia-wordmark.svg'],
+  CISCO: ['/landing/logos/cisco-wordmark.svg'],
+  Apple: ['/landing/logos/apple.svg', true],
+  ORACLE: ['/landing/logos/oracle-wordmark.svg'],
+  'Capital One': ['/landing/logos/capitalone-wordmark.svg'],
+  Fidelity: ['/landing/logos/fidelity-wordmark.svg'],
+  'WELLS FARGO': ['/landing/logos/wellsfargo.svg', true],
+  'T-Mobile': ['/landing/logos/tmobile-wordmark.svg'],
+  PEPSICO: ['/landing/logos/pepsico-wordmark.svg'],
+  DELTA: ['/landing/logos/delta-wordmark.svg', true],
+  Microsoft: ['/landing/logos/microsoft-wordmark.svg'],
+  Meta: ['/landing/logos/meta.svg', true],
+  Netflix: ['/landing/logos/netflix-wordmark.svg'],
+  Qualcomm: ['/landing/logos/qualcomm-wordmark.svg'],
+  Deloitte: ['/landing/logos/deloitte-wordmark.svg'],
+  accenture: ['/landing/logos/accenture-wordmark.svg'],
+};
+
+const primaryEmployers = ['amazon', 'Google', 'NVIDIA', 'CISCO', 'Apple', 'ORACLE', 'Capital One', 'Fidelity', 'WELLS FARGO', 'T-Mobile', 'PEPSICO', 'DELTA'];
+const featuredEmployers = ['Google', 'amazon', 'NVIDIA', 'Apple', 'Microsoft', 'ORACLE'];
+const widerNetwork = ['Meta', 'Netflix', 'Qualcomm', 'CISCO', 'Deloitte', 'accenture'];
+
+function BrandLogo({ name }) {
+  const [src, iconOnly = false] = employerBrands[name];
+  return <span className={`fl-brand-logo${iconOnly ? ' fl-brand-logo--icon' : ''}`} title={name}>
+    <img src={src} alt={`${name} logo`} />
+    {iconOnly && <span>{name}</span>}
+  </span>;
+}
+
+function FigmaLandingPass({ name }) {
+  return <div className="fl-pass" aria-label={`Boarding pass for ${name}`}>
+    <img src="/USD_Boarding Pass front.png" alt="University of San Diego boarding pass from India to San Diego" />
+    <div className="fl-pass-name">{(name || 'Future Torero').toUpperCase()}</div>
+  </div>;
+}
+
+function ArrowButton({ direction, label }) {
+  return <button className="fl-circle-button" type="button" aria-label={label}>
+    <img src={`/landing/chevron-${direction}.svg`} alt="" />
+  </button>;
+}
+
+function LandingFooter() {
+  const social = [
+    ['facebook', 'Facebook', '#'], ['x', 'X', '#'], ['instagram', 'Instagram', '#'],
+    ['linkedin-in', 'LinkedIn', '#'], ['vimeo', 'Vimeo', '#'], ['youtube', 'YouTube', '#'],
+  ];
+  return <footer className="fl-footer">
+    <div className="fl-footer__grid">
+      <div className="fl-footer__brand">
+        <img className="fl-footer__logo" src="/usd-logo-frame.png" alt="University of San Diego" />
+        <p className="fl-footer__ranking">Ranked in the Top 50<br />Best Colleges in the US</p>
+        <small>(Wall Street Journal Annual Ranking 2025)</small>
+        <div className="fl-footer__accreditation"><span>Accredited by</span><div className="fl-wasc"><b>❮</b><strong>WASC</strong><b>❯</b><small>ACCREDITING COMMISSION FOR SCHOOLS</small></div></div>
+      </div>
+      <nav className="fl-footer__links" aria-label="Footer links"><h3>LINKS</h3><a href="#privacy">Privacy</a><a href="#terms">Terms and Conditions</a><a href="#campus">Main Campus Site</a></nav>
+      <div className="fl-footer__contact"><h3>CONTACT</h3><a href="https://maps.google.com/?q=5998+Alcalá+Park,+San+Diego,+CA+92110" target="_blank" rel="noreferrer"><span className="fl-footer__pin">⌖</span>5998 Alcalá Park, San Diego, CA 92110</a><a href="tel:+917428144436"><img src="/landing/phone.svg" alt="" />+91 7428144436</a><a href="mailto:indiaonlineadmission@sandiego.edu"><img src="/landing/mail.svg" alt="" />indiaonlineadmission@sandiego.edu</a></div>
+    </div>
+    <div className="fl-footer__bottom"><div className="fl-footer__socials">{social.map(([icon, label, href]) => <a key={icon} href={href} aria-label={label}><img src={`/landing/social/${icon}.svg`} alt="" /></a>)}</div><span>Copyright © 2026</span></div>
+  </footer>;
+}
+
+function LandingFaq() {
+  const [open, setOpen] = useState(0);
+  const items = [
+    ['How long are the programs?', 'These programs are designed for students in their pre-final or final year.'],
+    ['What are the admission requirements?', 'Review your program requirements with the USD admissions team.'],
+    ['Can I apply for scholarships?', 'Eligible students are automatically considered for merit scholarships.'],
+    ['Is the program STEM-designated?', 'Both programs are designed to support STEM-focused careers in the United States.'],
+    ['What kind of career support is available?', 'You will have access to career coaching, employer connections, and applied project work.'],
+    ['When should I confirm my seat?', 'Confirm before the application deadline to keep your place in the cohort.'],
+  ];
+  return <section className="fl-faq">
+    <div className="fl-faq__top fl-shell">
+      <div className="fl-faq__intro"><h2>Your concerns, <span>answered</span>.</h2><p>These are the questions students asked most during the last intake. Straight answers from USD's own guidance - and a direct line to the team when you need more.</p></div>
+      <div className="fl-faq__list">{items.map(([question, answer], index) => <button className={open === index ? 'is-open' : ''} type="button" key={question} onClick={() => setOpen(open === index ? -1 : index)}><span className="fl-faq__question">{question}</span><span className="fl-faq__toggle">{open === index ? '−' : '+'}</span>{open === index && <p>{answer}</p>}</button>)}</div>
+    </div>
+    <div className="fl-dean fl-shell"><div className="fl-dean__video"><img src="/landing/updated/dean.png" alt="Dr. Chell Roberts" /><span>▶</span></div><div className="fl-dean__copy"><span className="fl-label">A WORD FROM USD</span><h3>A word from Dean Chell Roberts before you decide.</h3><p>“You are not just choosing a degree. You are choosing the people, the place, and the opportunities that will shape your next chapter.”</p><a href="#investment">Watch Dr. Roberts' Message <img src="/landing/arrow-right.svg" alt="" /></a></div></div>
+  </section>;
+}
+
+function LandingFinalCta({ name }) {
+  return <section className="fl-final-cta"><div className="fl-final-cta__glow fl-final-cta__glow--one" /><div className="fl-final-cta__glow fl-final-cta__glow--two" /><div className="fl-final-cta__inner"><div className="fl-final-cta__copy"><h2>A year from now, you’ll be glad you <span>started today.</span></h2><p>Applications close <b>November 1, 2026.</b></p><p>Take the next step toward USD. We’ll help you navigate what comes next.</p><a className="fl-button fl-button-blue" href="#investment">Confirm Your Seat <img src="/landing/arrow-right.svg" alt="" /></a><small>Admitted Torero: <b>{name}</b> · Spring 2027 Cohort</small><div className="fl-final-cta__checks"><span>✓ Priority I-20 processing</span><span>·</span><span>✓ Merit scholarship locked</span></div></div><div className="fl-final-cta__collage"><figure className="fl-final-cta__main"><img src="/landing/updated/cta-1.png" alt="USD Alcalá Park" /><figcaption><span>USD Alcalá Park</span><span>SAN DIEGO, CA</span></figcaption></figure><figure className="fl-final-cta__small fl-final-cta__coast"><img src="/landing/updated/cta-2.png" alt="San Diego Coast" /><figcaption>San Diego Coast</figcaption></figure><figure className="fl-final-cta__small fl-final-cta__clubs"><img src="/landing/updated/cta-3.png" alt="180+ Student Clubs" /><figcaption>180+ Student Clubs</figcaption></figure><div className="fl-final-cta__tag">Your next chapter starts here.<small>Torero Community · 87k+ Alumni</small></div></div></div></section>;
+}
+
+function Landing({ journey }) {
+  const [program, setProgram] = useState(journey.program === 'Cyber Security' ? 'Cybersecurity (CSE)' : 'MS in Applied AI (AAI)');
+  const studentName = journey.name.trim() || 'Aarav Sharma';
+  const brochure = (event) => event.preventDefault();
+
+  return <main className="figma-landing">
+    <section className="fl-hero">
+      <header className="fl-header">
+        <img className="fl-logo" src="/usd-logo-frame.png" alt="University of San Diego" />
+        <a className="fl-button fl-button-white" href="#investment" onClick={brochure}>Download Brochure <img src="/landing/download.svg" alt="" /></a>
+      </header>
+      <div className="fl-hero-copy">
+        <h1>Welcome to USD, {studentName}!</h1>
+        <p>Everything you need to know before you make your decision.</p>
+        <div className="fl-actions">
+          <a className="fl-button fl-button-blue" href="#investment">Confirm your seat</a>
+          <a className="fl-button fl-button-white" href="#investment" onClick={brochure}>Download Brochure <img src="/landing/download.svg" alt="" /></a>
+        </div>
+      </div>
+      <FigmaLandingPass name={studentName} />
+    </section>
+
+    <section className="fl-rankings">
+      <div className="fl-shell">
+        <div className="fl-section-heading">
+          <h2>One of America’s best and it <span>shows from day one.</span></h2>
+          <p>Consistently ranked among the top private universities in the United States for campus experience, high-impact career services, and graduate ROI.</p>
+        </div>
+        <div className="fl-ranking-grid">
+          {rankingCards.map(([rank, title, source]) => <article key={rank + title}><strong>{rank}</strong><h3>{title}</h3><p>{source}</p></article>)}
+        </div>
+        <div className="fl-reason-grid">
+          {usdReasons.map((reason, index) => <article key={reason}><p>{reason}</p><span>0{index + 1}</span></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="fl-careers" id="program">
+      <div className="fl-shell fl-careers-shell">
+        <div className="fl-career-heading">
+          <div className="fl-section-heading"><h2>Built to get you <span>hired</span></h2><p>Consistently ranked among the top private universities in the United States for campus experience, high-impact career services, and graduate ROI.</p></div>
+          <div className="fl-tabs" role="tablist" aria-label="Program outcomes">
+            {['MS in Applied AI (AAI)', 'Cybersecurity (CSE)'].map((item) => <button key={item} type="button" className={program === item ? 'active' : ''} onClick={() => setProgram(item)}>{item}</button>)}
+          </div>
+        </div>
+
+        <article className="fl-outcomes-card">
+          <div className="fl-salary"><span>GRADUATE OUTCOMES</span><strong>{program.includes('Cybersecurity') ? '$121,500' : '$129,000'}</strong><p>Average salary reported by graduates of USD’s <b>{program.includes('Cybersecurity') ? 'MS in Cybersecurity Engineering.' : 'MS in Applied Artificial Intelligence.'}</b></p><small>Source: USD program page</small></div>
+          <div className="fl-employers"><span>{program.includes('Cybersecurity') ? 'CSE' : 'MS-AAI'} GRADUATES WORK AT</span><div>{primaryEmployers.map((name) => <BrandLogo key={name} name={name} />)}</div></div>
+        </article>
+
+        <article className="fl-career-card">
+          <div className="fl-jobs"><span className="fl-label">CAREER OPPORTUNITIES</span><h3>Where could your skills take you?</h3>{[['AI Engineer', '$164,769'], ['ML Applied Researcher', '$139,795'], ['AI Programmer', '$126,472'], ['Applied ML Specialist', '$121,299']].map(([role, salary]) => <div className="fl-job" key={role}><span>{role}</span><b>{salary}</b></div>)}<small>U.S. salary benchmarks from the Career Outcomes Brochure.</small></div>
+          <div className="fl-network"><p>MS-AAI graduates work at</p><div className="fl-company-row">{featuredEmployers.map((name) => <BrandLogo key={name} name={name} />)}</div><div className="fl-wider"><p>And your wider network includes professionals at</p><div>{widerNetwork.map((name) => <BrandLogo key={name} name={name} />)}</div></div></div>
+        </article>
+
+        <article className="fl-people-panel fl-alumni-panel">
+          <div className="fl-panel-heading"><div><span className="fl-label">ALUMNI JOURNEY</span><h3>Meet the Indian alumni in your network.</h3><p>Graduates from USD’s on-campus, online and part-time programs — people who stood where you’re standing.</p></div><div className="fl-carousel-buttons"><ArrowButton direction="left" label="Previous alumni" /><ArrowButton direction="right" label="Next alumni" /></div></div>
+          <div className="fl-person-grid">{landingAlumni.map(([name, before, company, now]) => <div className="fl-alumni-card" key={name}><div className="fl-person-head"><span className="fl-avatar">●</span><div><h4>{name}</h4><p>{before}</p></div></div><strong className="fl-company">{company}</strong><div className="fl-down">↓</div><div className="fl-now"><span>NOW</span><p>{now}</p></div></div>)}</div>
+        </article>
+
+        <article className="fl-people-panel fl-faculty-panel">
+          <div className="fl-panel-heading"><div><span className="fl-label">FACULTY</span><h3>Learn from people who build AI for a living.</h3></div><div className="fl-carousel-buttons"><ArrowButton direction="left" label="Previous faculty" /><ArrowButton direction="right" label="Next faculty" /></div></div>
+          <div className="fl-person-grid">{landingFaculty.map(([name, role, description]) => <div className="fl-faculty-card" key={name}><div className="fl-person-head"><span className="fl-avatar">●</span><div><h4>{name}</h4><p>{role}</p></div></div><p className="fl-bio">{description}</p></div>)}</div>
+        </article>
+
+        <article className="fl-capstone">
+          <div><h3>Your capstone is an AI solution to a real-world problem.</h3><p>Bring your AI skills together to solve an enterprise challenge. Work you can put directly in front of an employer, not just a transcript.</p><a className="fl-button fl-button-white" href="#investment" onClick={brochure}>Download Brochure <img src="/landing/download.svg" alt="" /></a></div>
+          <img src="/landing/capstone-campus.png" alt="University of San Diego campus" />
+        </article>
+      </div>
+    </section>
+
+    <InvestmentSection />
+    <LandingFaq />
+    <LandingFinalCta name={studentName} />
+    <LandingFooter />
+  </main>;
+}
 
 createRoot(document.getElementById('root')).render(<App />);
