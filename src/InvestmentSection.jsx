@@ -3,8 +3,8 @@ import './investment.css';
 
 const assets = '/landing/investment-';
 
-export default function InvestmentSection() {
-  const [values, setValues] = useState({ program: '', funding: '', scholarship: '' });
+export default function InvestmentSection({ selectedProgram }) {
+  const [values, setValues] = useState({ program: selectedProgram || 'MS in Applied AI (AAI)', funding: '', scholarship: '' });
   const [result, setResult] = useState(null);
 
   function update(field, value) {

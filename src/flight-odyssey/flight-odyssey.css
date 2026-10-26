@@ -1,0 +1,31 @@
+.flight-odyssey { position: relative; width: 100%; height: 100vh; min-height: 100dvh; overflow: hidden; user-select: none; background: #0284c7; font-family: Arial, sans-serif; isolation: isolate; }
+.flight-odyssey .absolute { position: absolute; }
+.flight-odyssey .relative { position: relative; }
+.flight-odyssey .inset-0 { inset: 0; }
+.flight-odyssey .top-0 { top: 0; }
+.flight-odyssey .bottom-0 { bottom: 0; }
+.flight-odyssey .left-0 { left: 0; }
+.flight-odyssey .bottom-40 { bottom: 10rem; }
+.flight-odyssey .right-1\/4 { right: 25%; }
+.flight-odyssey .w-full { width: 100%; }
+.flight-odyssey .h-full { height: 100%; }
+.flight-odyssey .w-\[420px\] { width: 420px; }
+.flight-odyssey .h-\[165px\] { height: 165px; }
+.flight-odyssey .w-\[800px\] { width: 800px; }
+.flight-odyssey .h-\[500px\] { height: 500px; }
+.flight-odyssey .w-\[2400px\] { width: 2400px; }
+.flight-odyssey .w-\[2800px\] { width: 2800px; }
+.flight-odyssey .w-\[3840px\] { width: 3840px; }
+.flight-odyssey .h-\[320px\] { height: 320px; }
+.flight-odyssey .h-\[160px\] { height: 160px; }
+.flight-odyssey .h-\[240px\] { height: 240px; }
+.flight-odyssey .h-\[110px\] { height: 110px; }
+.flight-odyssey .overflow-hidden { overflow: hidden; }
+.flight-odyssey .overflow-visible { overflow: visible; }
+.flight-odyssey .pointer-events-none { pointer-events: none; }
+.flight-odyssey .select-none { user-select: none; }
+.flight-odyssey .will-change-transform { will-change: transform; }
+.flight-odyssey .opacity-30 { opacity: .3; }
+.flight-odyssey .z-20 { z-index: 20; }
+.flight-odyssey .drop-shadow-xl { filter: drop-shadow(0 12px 12px rgba(15, 23, 42, .2)); }
+.flight-odyssey .transition-opacity { transition: opacity .3s ease; }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@500;600&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@500;600&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
 :root{--navy:#063b71;--deep:#042c58;--blue:#0d67ad;--sky:#c8eafa;--ink:#063b71;--paper:#fff;--muted:#5f7186;--sans:'Inter',Arial,sans-serif;--mono:'DM Mono',monospace}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);color:var(--ink);background:#fff}button,input,select{font:inherit}button{cursor:pointer}.topbar{height:44px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:5;color:#fff;background:rgba(2,37,77,.95);font-family:var(--mono);font-size:8px;letter-spacing:.1em}.topbar--light{background:#fff;color:var(--ink);border-bottom:1px solid #e7eef4}.wordmark{font-weight:800;font-size:13px;letter-spacing:.02em}.wordmark span{color:#47a8e7;margin:0 4px}.topbar nav{display:flex;align-items:center;gap:28px}.topbar nav a{color:inherit;text-decoration:none}.nav-cta{background:#0d80c9;color:#fff!important;padding:9px 13px}.menu-btn{display:none;background:none;border:0}.onboarding{min-height:100dvh;position:relative;background:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=88') center/cover;color:#fff}.onboarding-shade{position:absolute;inset:44px 0 0;background:linear-gradient(90deg,rgba(3,36,74,.9),rgba(3,36,74,.5) 62%,rgba(3,36,74,.15))}.onboarding-content{position:relative;z-index:1;max-width:1280px;margin:auto;padding:clamp(70px,8vw,125px) 5vw 60px;display:grid;grid-template-columns:1.06fr .94fr;gap:7vw;align-items:center}.usd-mark,.eyebrow,.ticket-route span,.boarding-pass label,.ticket-details span{font-family:var(--mono);font-size:9px;letter-spacing:.16em}.usd-mark{color:#9ed7f5;margin-bottom:54px}.intro-copy h1,.flight-title,.landing-hero h1,.landing h2{font-weight:900;letter-spacing:-.07em;line-height:.92}.intro-copy h1{font-size:clamp(48px,5.4vw,82px);margin:0 0 28px}.intro-copy h1 em,.flight-title em,.landing-hero h1 em,.landing h2 em{font-style:normal;color:#84c8ee}.intro-lede{font-size:17px;line-height:1.65;max-width:610px;margin:0;color:#f1f8fe}.boarding-pass{color:var(--ink);background:#f8fbfd;padding:26px 26px 18px;position:relative;border-radius:5px;box-shadow:0 26px 80px rgba(0,0,0,.28);max-width:550px}.boarding-pass--compact{max-width:430px;box-shadow:none}.ticket-route{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;border-bottom:1px solid #d9e3ec;padding-bottom:18px}.ticket-route strong{font-size:40px;line-height:1.05;display:block;letter-spacing:-.07em}.ticket-route small{font-size:10px;color:#6b7d91}.align-right{text-align:right}.route-line{height:1px;border-top:2px dotted #8dbbdc;text-align:center;position:relative}.route-line span{position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:17px;color:var(--blue);background:#f8fbfd;padding:0 5px}.ticket-heading{font-family:var(--mono);font-size:10px;letter-spacing:.16em;font-weight:600;margin:17px 0 20px}.boarding-pass label{display:block;margin-bottom:16px;color:var(--blue)}.boarding-pass input,.boarding-pass select{display:block;width:100%;border:0;border-bottom:3px solid #9fcce9;background:transparent;outline:0;padding:9px 0;color:var(--ink);font-size:22px;font-weight:800;text-transform:uppercase}.boarding-pass input::placeholder{color:#9cb7cd}.boarding-pass select{border:2px solid #3f88c6;border-radius:24px;padding:12px 16px;font-family:var(--mono);font-size:10px;letter-spacing:.08em}.boarding-pass input:focus,.boarding-pass select:focus{box-shadow:0 3px 0 #2a80bd}.error{display:block;color:#bd3f46;font-size:9px!important;letter-spacing:0!important;margin-top:5px}.ticket-divider{height:27px;border-top:2px dotted #b7cbd9;margin:20px -26px 17px;position:relative}.ticket-divider i{position:absolute;width:25px;height:25px;background:var(--navy);border-radius:50%;top:-13px}.ticket-divider i:first-child{left:-12px}.ticket-divider i:last-child{right:-12px}.ticket-details{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.ticket-details strong{display:block;font-size:15px;margin-top:5px}.barcode{height:38px;margin:17px 0 14px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px)}.boarding-pass button{border:0;background:#397fca;color:#fff;width:100%;padding:16px;font-family:var(--mono);font-size:10px;letter-spacing:.12em}.ticket-foot{text-align:center;margin:13px 0 0;font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:#6a7f92}.flight-screen{min-height:100dvh;overflow:hidden;position:relative;color:#fff;background:linear-gradient(180deg,#0a427c 0,#177db4 57%,#bde7f5 100%)}.flight-skyline{position:absolute;inset:auto 0 0;height:45%;opacity:.35;background:url('https://images.unsplash.com/photo-1531219572328-a0171b4448a3?auto=format&fit=crop&w=2200&q=80') center/cover;mix-blend-mode:multiply}.flight-cloud{position:absolute;width:60vw;height:170px;border-radius:50%;background:rgba(255,255,255,.13);filter:blur(18px)}.cloud-a{top:25%;left:-20%}.cloud-b{top:42%;right:-30%;height:220px}.flight-center{position:relative;z-index:1;text-align:center;padding:110px 5vw 0}.flight-title{font-size:clamp(43px,6vw,84px);margin:24px 0 70px}.flight-stage{height:260px;max-width:1200px;margin:auto;position:relative}.airport{position:absolute;z-index:2;top:148px;font-weight:900;font-size:25px;letter-spacing:-.06em}.airport span{display:block;font:9px var(--mono);letter-spacing:.12em;margin-top:6px;color:#cceeff}.airport--del{left:3%}.airport--san{right:3%;text-align:right}.runway{position:absolute;left:4%;right:4%;top:160px;border-top:3px solid rgba(255,255,255,.9);box-shadow:0 -20px 30px rgba(255,255,255,.18)}.route-glow{position:absolute;left:10%;right:10%;top:70px;border-top:2px dashed rgba(205,243,255,.75);transform:rotate(-7deg)}.hero-plane{position:absolute;z-index:3;width:76px;height:76px;left:4%;top:98px;filter:drop-shadow(0 12px 14px rgba(0,41,79,.4))}.arrival-pulse{position:absolute;right:3%;top:120px;width:55px;height:55px;border:3px solid #baf0ff;border-radius:50%;opacity:.7}.flight-status{display:flex;justify-content:center;gap:25px;font:10px var(--mono);letter-spacing:.13em}.flight-status strong{color:#cceeff}.landing{background:#fff;color:var(--ink)}.landing-hero{min-height:710px;padding:90px 8vw 80px;display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;background:linear-gradient(120deg,rgba(12,75,126,.88),rgba(19,101,156,.66)),url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=88') center/cover;color:#fff}.landing-hero h1{font-size:clamp(58px,6.6vw,100px);margin:20px 0 26px}.hero-copy>p:not(.eyebrow){font-size:15px;line-height:1.55;max-width:500px}.outline-cta,.small-cta{display:inline-block;border:1px solid currentColor;color:inherit;background:transparent;padding:12px 16px;font:9px var(--mono);letter-spacing:.12em;text-decoration:none;margin-top:22px}.hero-ticket-wrap{justify-self:end}.ticket-label{font:9px var(--mono);letter-spacing:.14em;color:#c5eafa;margin:0 0 10px}.section{padding:90px 8vw}.section h2{font-size:clamp(42px,5vw,72px);margin:20px 0 25px}.section>p{max-width:600px;font-size:14px;line-height:1.7}.section-blue{background:#c5eafb}.section-sky{background:#b9e1f4}.section-navy{background:#064279;color:#fff}.section-dark{background:#042c58;color:#d6eafa}.stat-row{display:flex;gap:14px;margin-top:28px}.stat-row>div{background:#fff;padding:18px 20px;min-width:170px;box-shadow:0 8px 22px rgba(0,41,79,.08)}.stat-row strong{display:block;font-size:28px;letter-spacing:-.07em}.stat-row span{font-size:10px;display:block;margin-top:5px;color:#678096}.reasons h2{margin-bottom:36px}.reason-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #a9bfd0;border-left:1px solid #a9bfd0;box-shadow:0 14px 30px rgba(3,52,95,.08)}.reason-grid article{min-height:150px;padding:22px;border-right:1px solid #a9bfd0;border-bottom:1px solid #a9bfd0}.reason-grid article>span{font:10px var(--mono);color:#5284a8}.reason-grid h3{font-size:16px;margin:20px 0 8px}.reason-grid p{font-size:11px;line-height:1.5;color:#667d91;margin:0}.days{background:#fff}.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:28px 0 17px}.photo-strip figure{margin:0;position:relative;height:250px;overflow:hidden;border-radius:3px}.photo-strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.photo-strip figure:hover img{transform:scale(1.06)}.photo-strip figcaption{position:absolute;bottom:12px;left:12px;color:#fff;font:9px var(--mono);letter-spacing:.11em;text-shadow:0 2px 8px #000}.small-cta{color:#fff;background:#0b67a9;border-color:#0b67a9}.outcome-tags,.company-tags{display:flex;flex-wrap:wrap;gap:8px;max-width:800px;margin:30px 0}.outcome-tags span{background:#fff;padding:10px 14px;font-size:10px;font-weight:700;box-shadow:0 4px 12px rgba(0,50,90,.08)}.outcome-caption{margin-top:42px;color:#42718f}.company-tags span{background:#075390;color:#fff;border-radius:20px;padding:8px 12px;font:9px var(--mono)}.alumni{background:#fff}.alumni-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;max-width:920px}.alumni-grid article{background:#064279;color:#fff;display:grid;grid-template-columns:1fr 1.1fr;min-height:130px}.alumni-grid article:not(.alumni-feature){grid-template-columns:1fr;padding:17px}.alumni-feature{grid-row:span 2}.alumni-art{min-height:100px;background:#09528e center/cover}.alumni-art span{display:inline-block;margin:12px;font:8px var(--mono);background:#0b6eb3;padding:6px}.alumni-grid article>div:last-child{padding:17px}.alumni-grid h3{font-size:13px;margin:0 0 8px}.alumni-grid p{font-size:10px;color:#c2deee;margin:0;line-height:1.4}.people h2{margin-bottom:36px}.people-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;max-width:950px}.people-grid article{border:1px solid rgba(255,255,255,.2);padding:18px;background:rgba(25,113,171,.25)}.people-grid h3{font-size:14px;margin:0 0 7px}.people-grid p{font-size:10px;color:#b9d7e8;margin:0}.dean{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center;background:linear-gradient(130deg,#0d74ba,#b7e6f6)}.dean h2{color:#fff}.dean>div>p{max-width:430px;color:#e9f8ff;font-size:14px;line-height:1.6}.video-card{position:relative;height:275px;background:#073f77;box-shadow:0 20px 40px rgba(2,51,94,.17)}.video-card img{width:100%;height:100%;object-fit:cover;opacity:.6}.video-card button{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:0;border-radius:50%;background:#fff;color:#07518d;width:54px;height:54px}.video-card span{position:absolute;left:15px;bottom:14px;color:#fff;font:9px var(--mono)}.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}.faq-grid button{position:relative;text-align:left;padding:22px;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18);min-height:140px}.faq-grid button.active{background:rgba(56,144,204,.35)}.faq-grid button>span{font-size:13px;font-weight:800}.faq-grid p{font-size:11px;line-height:1.5;color:#b8d5e6;max-width:360px}.faq-grid b{position:absolute;right:18px;bottom:16px}.ready{color:#fff;background-position:center;background-size:cover;min-height:940px;padding-top:95px}.ready h2{font-size:clamp(54px,6vw,90px)}.ready>p{font-size:14px}.ready .boarding-pass{margin:40px auto 100px}.ready footer{border-top:1px solid rgba(255,255,255,.35);padding-top:16px;display:flex;justify-content:space-between;font:8px var(--mono);letter-spacing:.12em}.menu-btn{color:inherit}
 @media(max-width:800px){.topbar{padding:0 22px}.topbar nav{display:none}.menu-btn{display:block;font-size:17px}.onboarding-content,.landing-hero,.dean{grid-template-columns:1fr;gap:40px;padding-left:22px;padding-right:22px}.onboarding-content{padding-top:60px}.intro-copy h1{font-size:50px}.boarding-pass{max-width:none}.landing-hero{min-height:850px;padding-top:70px}.hero-ticket-wrap{justify-self:stretch}.hero-ticket-wrap .boarding-pass{max-width:none}.section{padding:70px 22px}.reason-grid,.photo-strip,.alumni-grid,.people-grid,.faq-grid{grid-template-columns:1fr}.reason-grid article{min-height:125px}.photo-strip figure{height:210px}.alumni-feature{grid-row:auto}.dean{padding-top:70px;padding-bottom:70px}.flight-center{padding-top:90px}.flight-title{font-size:48px}.flight-stage{height:290px}.airport{font-size:17px;top:180px}.runway{top:190px}.hero-plane{top:125px;width:56px;height:56px}.route-glow{top:90px}.ready .boarding-pass{margin-bottom:70px}.ready footer{display:block;line-height:2}.stat-row{flex-direction:column}.stat-row>div{min-width:0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
@@ -161,6 +161,15 @@
 .welcome-pass button:hover{background:#2866b5}
 .welcome-pass button:focus-visible{outline:3px solid #9fd0f7;outline-offset:3px}
 
+.welcome-pass__program{position:relative;width:190px;margin-top:16px}
+.welcome-pass .welcome-pass__program-trigger{display:block;width:100%;height:34px;margin:0;padding:0 24px 3px 0;border:0;border-bottom:5px solid var(--pass-line);border-radius:0;box-shadow:none;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 7'%3E%3Cpath d='M0 0h12L6 7z' fill='%233d84d6'/%3E%3C/svg%3E") right 8px top 9px/12px 7px no-repeat;color:var(--pass-navy);font:500 26px/1 var(--pass-cond);letter-spacing:0;text-align:left;text-transform:uppercase;white-space:nowrap;cursor:pointer}
+.welcome-pass .welcome-pass__program-trigger.is-placeholder{color:var(--pass-blue)}
+.welcome-pass .welcome-pass__program-trigger:hover{background-color:transparent}
+.welcome-pass .welcome-pass__program-trigger[aria-invalid='true']{border-bottom-color:#f1b7b7}
+.welcome-pass .welcome-pass__program-list{position:absolute;z-index:10;top:calc(100% + 5px);left:0;min-width:190px;padding:5px;border:1px solid #c8d6e7;border-radius:9px;background:#fff;box-shadow:0 12px 30px rgba(8,42,79,.2)}
+.welcome-pass .welcome-pass__program-option{display:block;width:100%;height:auto;margin:0;padding:8px 10px;border:0;border-radius:5px;background:transparent;box-shadow:none;color:#263b57;font:500 15px/20px var(--sans);letter-spacing:0;text-align:left;white-space:nowrap;cursor:pointer}
+.welcome-pass .welcome-pass__program-option:hover,.welcome-pass .welcome-pass__program-option.is-active{background:#e8f2fe;color:#075b9a}
+
 @media(max-width:1080px){.welcome-content{grid-template-columns:1fr;align-content:center;gap:44px;padding-top:110px}.welcome-pass{justify-self:start}.welcome{background-size:max(170%,140dvh) auto;background-position:40% 100%}}
 @media(max-width:520px){.welcome-header{top:16px}.welcome-content{padding-top:90px;gap:36px}.welcome-copy h1{font-size:clamp(34px,10.4vw,44px)}.welcome-copy p{font-size:15px}.welcome-pass{padding:16px 18px 18px;background-size:calc(100% - 4px) 260px}.welcome-pass__route{margin:12px 0 0;column-gap:12px}.welcome-pass__route strong{font-size:44px}.welcome-pass__route small{font-size:15px}.welcome-pass__line{margin-top:31px}.welcome-pass__fields{width:min(100%,220px)}.welcome-pass__details{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:16px;margin:16px 0 0}.welcome-pass__details dd{font-size:19px}}
 
@@ -189,6 +198,30 @@
 .fl-wider .fl-brand-logo--icon img{width:22px;height:22px}
 @media(max-width:620px){.fl-brand-logo,.fl-company-row .fl-brand-logo,.fl-wider .fl-brand-logo{max-width:96px}.fl-brand-logo img,.fl-company-row .fl-brand-logo img,.fl-wider .fl-brand-logo img{max-width:90px}}
 
+/* Final CTA matched to the supplied navy collage reference. */
+.fl-final-cta{height:707px;position:relative;overflow:hidden;background:#003b70;color:#fff;border-bottom:0}
+.fl-final-cta__inner{position:relative;width:min(1400px,100%);height:100%;margin:0 auto;padding:0;display:block}
+.fl-final-cta__copy{position:absolute;z-index:3;left:50%;top:226px;width:430px;padding:0;transform:translateX(-50%);text-align:center}
+.fl-final-cta__copy h2{color:#fff;font-size:38px;line-height:1.08;letter-spacing:-1.2px;margin:0 0 20px}
+.fl-final-cta__copy h2 span{color:#fff}
+.fl-final-cta__copy p{color:#d7efff;font-size:10px;line-height:1.55;margin:0 0 8px}
+.fl-final-cta__copy .fl-button{min-width:126px;min-height:34px;margin-top:8px;padding:8px 14px;border-radius:18px;font-size:9px;line-height:12px;gap:6px}
+.fl-final-cta__copy .fl-button img{width:13px;height:13px;filter:brightness(0) invert(1)}
+.fl-final-cta__copy small{display:block;margin-top:0;color:#d7efff;font-size:0}
+.fl-final-cta__checks{display:none}
+.fl-final-cta__collage{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.fl-final-cta__photo{position:absolute;margin:0;overflow:hidden;border:2px solid rgba(255,255,255,.95);background:#0b4a7f;box-shadow:0 10px 22px rgba(0,0,0,.18)}
+.fl-final-cta__photo img{display:block;width:100%;height:100%;object-fit:cover}
+.fl-final-cta__photo--one,.fl-final-cta__photo--two,.fl-final-cta__photo--six,.fl-final-cta__photo--seven{width:126px;height:126px;border-radius:50%}
+.fl-final-cta__photo--one{left:4%;top:-42px}
+.fl-final-cta__photo--two{left:30%;top:-36px}
+.fl-final-cta__photo--three{right:2%;top:-18px;width:142px;height:184px;border-radius:10px;transform:rotate(-3deg)}
+.fl-final-cta__photo--four{left:-18px;top:240px;width:128px;height:84px;border-radius:7px;transform:rotate(12deg)}
+.fl-final-cta__photo--five{right:-4px;top:365px;width:146px;height:86px;border-radius:8px;transform:rotate(11deg)}
+.fl-final-cta__photo--six{left:18%;bottom:-70px}
+.fl-final-cta__photo--seven{right:22%;bottom:-76px}
+@media(max-width:620px){.fl-final-cta{height:480px}.fl-final-cta__copy{top:165px;width:290px}.fl-final-cta__copy h2{font-size:27px}.fl-final-cta__copy p{font-size:9px}.fl-final-cta__photo--one,.fl-final-cta__photo--two,.fl-final-cta__photo--six,.fl-final-cta__photo--seven{width:84px;height:84px}.fl-final-cta__photo--three{width:94px;height:128px}.fl-final-cta__photo--four{width:90px;height:60px;left:-20px;top:185px}.fl-final-cta__photo--five{width:100px;height:60px;top:290px}.fl-final-cta__photo--one{left:2%;top:-28px}.fl-final-cta__photo--two{left:28%;top:-24px}.fl-final-cta__photo--six{left:16%;bottom:-42px}.fl-final-cta__photo--seven{right:15%;bottom:-48px}}
+
 /* Footer reference treatment. */
 .fl-footer{padding:86px 0 42px;background:#030303;color:#f7f7f7;font-family:Georgia,'Times New Roman',serif}
 .fl-footer__grid,.fl-footer__bottom{width:min(1200px,calc(100% - 64px));margin:0 auto}
@@ -199,8 +232,328 @@
 .fl-footer__accreditation{margin-top:64px}.fl-footer__accreditation>span{display:block;font-size:18px;margin-bottom:14px}.fl-wasc{position:relative;width:230px;color:#fff;display:flex;align-items:center;gap:4px}.fl-wasc strong{font-family:Georgia,serif;font-size:56px;line-height:.9;letter-spacing:-4px}.fl-wasc>b{color:#b28a21;font-size:50px;line-height:.7}.fl-wasc small{position:absolute;left:49px;bottom:-13px;font-family:Arial,sans-serif;font-size:7px;letter-spacing:.25px;white-space:nowrap}
 .fl-footer h3{margin:10px 0 38px;color:#65c7f4;font-family:Arial,sans-serif;font-size:24px;font-weight:500;letter-spacing:.6px}.fl-footer__links{display:flex;flex-direction:column;align-items:flex-start}.fl-footer__links a{margin-bottom:24px;color:#f7f7f7;font-size:22px;line-height:1.4}.fl-footer__contact a{display:flex;align-items:center;gap:18px;margin-bottom:22px;color:#f7f7f7;font-size:22px;line-height:1.4}.fl-footer__contact img{width:30px;height:30px;filter:brightness(0) invert(1)}.fl-footer__pin{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-size:36px;line-height:1}.fl-footer__bottom{display:flex;align-items:center;justify-content:flex-end;gap:72px;padding-top:12px}.fl-footer__socials{display:flex;align-items:center;gap:22px}.fl-footer__socials a{display:flex;width:28px;height:28px;align-items:center;justify-content:center}.fl-footer__socials img{display:block;width:24px;height:24px;filter:brightness(0) invert(1)}.fl-footer__bottom>span{font-size:18px;white-space:nowrap}
 @media(max-width:1000px){.fl-footer{padding:64px 0 36px}.fl-footer__grid{grid-template-columns:1fr 1fr;gap:48px}.fl-footer__brand{grid-row:span 2}.fl-footer__contact{grid-column:2}.fl-footer__bottom{justify-content:space-between;gap:24px}}
+
+/* Match the 284px Figma card while allowing longer program copy to grow. */
+@media(min-width:621px){.fl-capstone{height:auto;min-height:284px}}
+.fl-employer-strip{padding:72px 40px 64px;text-align:center;background:#fff;border:0;border-radius:0}
+.fl-careers{min-height:0;padding:96px 0;background:#fff}
+.fl-careers-shell{gap:24px}
+.fl-employer-strip{width:100%;height:302px;padding:80px 40px;background:#fff}
+.fl-employer-strip h3{font-size:36px;line-height:44px;font-weight:600}
+.fl-employer-strip>div{height:50px;margin-top:28px;gap:24px}
+.fl-alumni-panel{height:380px;padding:32px}
+.fl-alumni-card{height:265px}
+.fl-faculty-panel{height:309px;padding:32px}
+.fl-testimonial-card{height:176px}
+.fl-employer-strip h3{margin:0;color:#003b70;font-size:36px;line-height:44px}
+.fl-employer-strip>div{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;min-height:50px;margin-top:28px}
+.fl-employer-strip>p{margin:28px 0 0;color:#62748e;font-size:11px;font-weight:600;letter-spacing:.8px}
+.fl-life{padding:96px 0;border-bottom:1px solid #e2e8f0;background:#fff}
+.fl-life__intro{max-width:768px;padding-top:42.5px}
+.fl-life__intro h2{width:max-content;max-width:1200px;color:#0c1e3c;font-size:42px;font-weight:600;line-height:56px;letter-spacing:-1.25px;white-space:nowrap}
+.fl-life__intro h2 span{color:#0074c8}
+.fl-life__intro p{max-width:672px;margin-top:12px;color:#45556c;font-size:16px;line-height:26px}
+.fl-life__grid{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;width:calc(100% + 16px);margin-top:48px}
+.fl-life__grid::before{content:"";position:absolute;top:79px;left:-22px;width:calc(100% + 55px);height:83px;background:url('/landing/life/path.svg') center/100% 100% no-repeat;pointer-events:none}
+.fl-life-card{position:relative}
+.fl-life-card::after{content:"";position:absolute;z-index:2;top:200px;right:-4px;width:36px;height:36px;border:2px solid #fff;border-radius:50%;background:#e8f2fe url('/landing/life/users.svg') center/16px 16px no-repeat;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.fl-life-card:nth-child(2)::after{background-image:url('/landing/life/calendar.svg')}
+.fl-life-card:nth-child(3)::after{background-image:url('/landing/life/briefcase.svg')}
+.fl-life-card:nth-child(5)::after{background-image:url('/landing/life/graduation.svg')}
+.fl-life-card__meta{display:flex;gap:8px;align-items:center;height:52px;padding-bottom:16px}
+.fl-life-card__meta b{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#dbeafe;color:#162456;font-size:14px}
+.fl-life-card__meta span{padding:7px 12px;border-radius:4px;background:#edf4fe;color:#162456;font-size:12px;font-weight:700;letter-spacing:.5px}
+.fl-life-card img{display:block;width:100%;height:176px;object-fit:cover;border:1px solid rgba(226,232,240,.6);border-radius:46px 36px 48px 30px;background:#f1f5f9;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.fl-life-card h3{margin-top:20px;color:#0c1e3c;font-size:16px;font-weight:600;line-height:23.375px}
+.fl-life-card p{margin-top:8px;color:#45556c;font-size:14px;font-weight:400;line-height:21.125px}
+.fl-life__cta{position:relative;display:flex;height:306px;margin-top:48px;overflow:hidden;padding:0 0 0 32px;border:1px solid #e6ebf2;border-radius:14px;background:#003b70;color:#fff}
+.fl-life__cta>div{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:16px;width:594px;padding:32px 0}.fl-life__cta h3{max-width:530px;font-size:36px;font-weight:600;line-height:41.76px;letter-spacing:-1px}.fl-life__cta p{max-width:512px;font-size:16px;font-weight:400;line-height:24px}.fl-life__cta .fl-button{min-width:257px;min-height:52px;margin:0;font-size:16px;font-weight:600}.fl-life__cta>img{position:absolute;left:266px;top:-47px;width:969px;height:545px;max-width:none;object-fit:cover;pointer-events:none;-webkit-mask-image:url('/landing/capstone-mask.svg');mask-image:url('/landing/capstone-mask.svg');-webkit-mask-mode:alpha;mask-mode:alpha;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:134px -53px;mask-position:134px -53px;-webkit-mask-size:940px 631px;mask-size:940px 631px}
+.fl-footer{background:#003b70}
+.fl-dean{margin-top:48px;padding:0;background:#fff;color:#0c1e3c;box-shadow:none;border-radius:0;overflow:visible;align-items:center}
+.fl-dean-section{padding:96px 0;background:#fff;border-bottom:1px solid #e2e8f0}
+.fl-dean-section .fl-dean{margin-top:0}
+.fl-dean__video{height:253px;border-radius:12px;box-shadow:0 8px 18px rgba(11,28,61,.15)}
+.fl-dean__video img{opacity:.82}
+.fl-dean__video small{position:absolute;left:10px;top:10px;padding:4px 8px;border-radius:4px;background:#162456;color:#fff;font-size:8px;letter-spacing:.5px}
+.fl-dean__copy{padding:0}
+.fl-dean__copy h3{margin:12px 0 16px;color:#003b70;font-size:20px;line-height:1.25}
+.fl-dean__copy p{max-width:none;padding:14px 16px;border-radius:8px;background:#f1f5f9;color:#003b70;font-family:Georgia,serif;font-size:12px;line-height:1.5}
+.fl-dean__copy>small{display:block;margin-top:10px;color:#1a73e8;font-size:9px;line-height:1.5}
+.fl-dean__copy a{margin-top:14px;padding:10px 16px;border-radius:22px;background:#1a73e8;color:#fff;font-size:11px;box-shadow:0 6px 14px rgba(26,115,232,.22)}
+.fl-dean__copy a img{filter:brightness(0) invert(1)}
+.fl-final-cta{height:707px;background:#003b70;color:#fff}
+.fl-final-cta__copy h2,.fl-final-cta__copy p,.fl-final-cta__copy small{color:#fff}
+.fl-final-cta__copy h2 span{color:#fff}
+.fl-final-cta__checks{color:#fff}
+.fl-final-cta__tag{color:#fff}
+.fl-final-cta__tag small{color:#d7efff}
+.fl-outcomes-card{height:176px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px}
+.fl-outcomes-card .fl-salary{height:112px;padding-right:32px;border-right:1px solid rgba(214,214,214,.2)}
+.fl-outcomes-card .fl-salary strong{font-size:42px;line-height:60px}
+.fl-career-card__jobs{padding-left:32px;color:#fff}
+.fl-career-card__jobs-head{display:flex;align-items:center;justify-content:space-between}
+.fl-career-card__jobs h3{margin:0;color:#fff;font-size:24px;line-height:36px;letter-spacing:-1px}
+.fl-career-card__jobs .fl-carousel-buttons{display:flex;gap:8px}
+.fl-career-card__jobs .fl-circle-button{border-color:#e2e8f0;background:transparent}
+.fl-career-card__jobs .fl-circle-button img{filter:brightness(0) invert(1)}
+.fl-career-card__jobs .fl-job{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #2b5a84;color:#fff;font-size:14px;line-height:24px}
+.fl-career-card__jobs .fl-job b{color:#fff;font-weight:500}
+.fl-career-card__jobs>small{display:block;margin-top:10px;color:#ccd8e2;font-size:11px}
+.fl-testimonial-grid{grid-template-columns:repeat(4,1fr)}
+.fl-testimonial-card{min-height:176px;padding:20px;border:1px solid #e8f0fe;border-radius:12px;background:#f8fafd;display:flex;flex-direction:column;justify-content:space-between}
+.fl-testimonial-card>p{color:#1a73e8;font-size:16px;font-weight:600;line-height:22px}
+.fl-testimonial-card__person{display:flex;align-items:center;gap:10px}
+.fl-testimonial-card__person h4{color:#0b1c3d;font-size:12px;font-weight:600}
+.fl-testimonial-card__person small{color:#45556c;font-size:11px}
+.fl-testimonial-card__person .fl-avatar{width:32px;height:32px}
+@media(max-width:900px){.fl-life__intro{padding-top:0}.fl-life__intro h2{width:auto;max-width:100%;white-space:normal}.fl-life__grid{width:100%;grid-template-columns:repeat(2,1fr)}.fl-life__grid::before{display:none}.fl-employer-strip h3{font-size:28px}.fl-life__cta>img{opacity:.45;left:20%;width:969px}.fl-life__cta>div{width:100%}.fl-outcomes-card{height:auto;grid-template-columns:1fr;gap:24px}.fl-outcomes-card .fl-salary{height:auto;padding:0 0 24px;border-right:0;border-bottom:1px solid rgba(255,255,255,.2)}.fl-career-card__jobs{padding-left:0}.fl-testimonial-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.fl-life__grid{grid-template-columns:1fr}.fl-employer-strip{padding:52px 16px}.fl-life__intro h2{font-size:34px;line-height:42px}.fl-life__cta{height:auto;min-height:360px;padding:0 24px}.fl-life__cta>div{padding:32px 0}.fl-life__cta h3{font-size:30px;line-height:36px}.fl-life__cta p{font-size:15px;line-height:23px}.fl-life__cta>img{left:-10%;top:0;width:150%;height:100%;opacity:.28;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:cover;mask-size:cover}}
+
+/* Current Figma palette and hero treatment. */
+.fl-hero{background-image:url('/landing/hero-campus.png');background-color:#003b70}
+.fl-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180.565deg,rgba(0,0,0,.6) 38%,rgba(255,255,255,0) 82%);pointer-events:none}
+.fl-outcomes-card{border-color:#003b70;background:#003b70;color:#fff}
+.fl-outcomes-card .fl-salary{border-right-color:rgba(255,255,255,.25)}
+.fl-outcomes-card .fl-salary>span{color:#bee5fb}
+.fl-outcomes-card .fl-salary strong{color:#fff}
+.fl-outcomes-card .fl-salary p,.fl-outcomes-card .fl-salary p b{color:#fff}
+.fl-outcomes-card .fl-salary small{color:#bee5fb}
+.fl-outcomes-card .fl-employers>span{color:#bee5fb}
+.fl-career-card{border-color:#003b70;background:#003b70;color:#fff}
+.fl-career-card .fl-jobs{border-right-color:rgba(255,255,255,.25)}
+.fl-career-card .fl-jobs h3,.fl-career-card .fl-job b{color:#fff}
+.fl-career-card .fl-job{border-bottom-color:rgba(255,255,255,.2);color:#fff}
+.fl-career-card .fl-jobs small,.fl-career-card .fl-network,.fl-career-card .fl-network p{color:#d7efff}
+.fl-career-card .fl-wider{border-top-color:rgba(255,255,255,.2)}
+
+/* Updated Figma treatment: the four reasons are editorial image cards. */
+.fl-reason-grid article{position:relative;overflow:hidden;min-height:236px;padding:24px 22px;border-color:transparent;background:#0b3564;color:#fff}
+.fl-reason-grid article>img,.fl-reason-card__shade{position:absolute;inset:0;width:100%;height:100%}
+.fl-reason-grid article>img{object-fit:cover;opacity:.78;transition:transform .5s ease}
+.fl-reason-card__shade{background:linear-gradient(180deg,rgba(0,34,75,.08),rgba(0,24,55,.88))}
+.fl-reason-grid article p{position:relative;z-index:1;max-width:230px;color:#fff;font-size:14px;line-height:22px}
+.fl-reason-grid article span{position:relative;z-index:1;margin-top:auto;border-top-color:rgba(255,255,255,.25);color:#fff}
+.fl-reason-grid article:hover>img{transform:scale(1.06)}
+.fl-employers>span,.fl-network>p:first-child{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.fl-network>p:first-child{margin-bottom:18px;color:#0074c8;font-size:18px;letter-spacing:0;text-transform:none}
+.fl-employers>div,.fl-company-row{min-height:34px}
+
+/* Small interactions keep the updated frame feeling responsive without changing its layout. */
+.fl-tabs button{transition:background .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease}
+.fl-tabs button:hover{transform:translateY(-1px);color:#0b1c3d}
+.fl-tabs button.active:hover{color:#fff;box-shadow:0 6px 14px rgba(0,116,200,.24)}
+.fl-ranking-grid article,.fl-reason-grid article,.fl-alumni-card,.fl-faculty-card,.fl-outcomes-card,.fl-career-card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.fl-ranking-grid article:hover,.fl-reason-grid article:hover,.fl-alumni-card:hover,.fl-faculty-card:hover{transform:translateY(-4px);border-color:#b9d8f7;box-shadow:0 12px 28px rgba(11,28,61,.08)}
+.fl-brand-logo--text{max-width:none;height:auto;color:#0f172b;font-size:12px;font-weight:600;line-height:1.2;white-space:nowrap}
+.fl-company-row .fl-brand-logo,.fl-employers>div .fl-brand-logo{animation:fl-logo-in .45s ease both}
+.fl-company-row .fl-brand-logo:nth-child(2),.fl-employers>div .fl-brand-logo:nth-child(2){animation-delay:.04s}
+.fl-company-row .fl-brand-logo:nth-child(3),.fl-employers>div .fl-brand-logo:nth-child(3){animation-delay:.08s}
+.fl-company-row .fl-brand-logo:nth-child(4),.fl-employers>div .fl-brand-logo:nth-child(4){animation-delay:.12s}
+@keyframes fl-logo-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.fl-tabs button,.fl-ranking-grid article,.fl-reason-grid article,.fl-alumni-card,.fl-faculty-card,.fl-brand-logo{transition:none!important;animation:none!important}}
 @media(max-width:620px){.fl-footer__grid,.fl-footer__bottom{width:calc(100% - 40px)}.fl-footer__grid{display:flex;flex-direction:column;gap:44px;min-height:0}.fl-footer__brand{order:0}.fl-footer__links{order:1}.fl-footer__contact{order:2}.fl-footer__logo{width:280px}.fl-footer__ranking{font-size:20px}.fl-footer__accreditation{margin-top:44px}.fl-footer h3{margin-bottom:24px;font-size:20px}.fl-footer__links a,.fl-footer__contact a{font-size:18px}.fl-footer__bottom{align-items:flex-start;flex-direction:column;gap:24px;padding-top:40px}.fl-footer__socials{gap:16px}}
 .fl-footer__pin{position:relative;display:inline-flex;width:24px;height:24px;align-items:center;justify-content:center;color:transparent;border:2px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg)}.fl-footer__pin::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff}.fl-footer__socials a[aria-label="LinkedIn"] img{opacity:0}.fl-footer__socials a[aria-label="LinkedIn"]::after{content:"in";position:absolute;color:#fff;font-family:Arial,sans-serif;font-size:20px;font-weight:700;letter-spacing:-2px}
 .fl-faq{background:#fff;border-bottom:1px solid #e2e8f0;padding:96px 0 0;color:#162456}.fl-faq__top{display:grid;grid-template-columns:570px 1fr;gap:24px}.fl-faq__intro h2{font-size:42px;line-height:1.43;letter-spacing:-1px;margin:0;font-weight:650}.fl-faq__intro h2 span{color:#1a73e8}.fl-faq__intro p{max-width:570px;margin:16px 0 0;color:#45556c;font-size:18px;line-height:1.625}.fl-faq__list{display:flex;flex-direction:column;gap:24px}.fl-faq__list button{border:1px solid #ebe7ff;border-radius:12px;background:#fff;text-align:left;padding:20px 24px;color:#282333;min-height:74px;display:grid;grid-template-columns:1fr 40px;align-items:center;gap:14px}.fl-faq__list button.is-open{min-height:112px}.fl-faq__question{font-size:20px;line-height:1.15;font-weight:650;letter-spacing:-.425px}.fl-faq__toggle{width:40px;height:40px;border-radius:50%;border:1px solid #1a73e8;color:#1a73e8;display:grid;place-items:center;font-size:28px;line-height:1;font-weight:300}.is-open .fl-faq__toggle{background:#1a73e8;color:#fff}.fl-faq__list p{grid-column:1 / -1;margin:0;color:#6b6a83;font-size:16px;line-height:1.6}.fl-dean{margin-top:48px;padding:40px;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:24px;color:#fff;background:linear-gradient(164deg,#0c1e3c,#162456 50%,#0f172b);box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}.fl-dean__video{height:255px;border-radius:16px;overflow:hidden;position:relative;background:#1d293d;border:1px solid rgba(255,255,255,.1)}.fl-dean__video img{width:100%;height:100%;object-fit:cover;opacity:.78}.fl-dean__video span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:#fff;color:#1a73e8;display:grid;place-items:center;font-size:20px;padding-left:3px}.fl-dean__copy{padding:16px 0}.fl-dean__copy h3{font-size:28px;line-height:1.2;margin:16px 0}.fl-dean__copy p{font-family:Georgia,serif;color:#d7e2f1;font-size:18px;line-height:1.55;max-width:480px}.fl-dean__copy a{color:#fff;display:inline-flex;align-items:center;gap:10px;margin-top:10px;font-weight:650;text-decoration:none}.fl-dean__copy a img{width:16px;filter:brightness(0) invert(1)}
 .fl-final-cta{height:707px;overflow:hidden;position:relative;background:#fff;border-bottom:1px solid #e2e8f0}.fl-final-cta__inner{width:min(1280px,calc(100% - 152px));height:100%;margin:auto;padding-top:112px;display:flex;align-items:flex-start;position:relative;z-index:1}.fl-final-cta__copy{width:50%;padding:0 32px}.fl-final-cta__copy h2{font-size:48px;line-height:1.125;letter-spacing:-1.3px;margin:0 0 24px;color:#0c1e3c;max-width:592px}.fl-final-cta__copy h2 span{color:#1a73e8}.fl-final-cta__copy p{font-size:16px;line-height:1.625;color:#45556c;margin:0 0 8px}.fl-final-cta__copy .fl-button{margin-top:16px}.fl-final-cta__copy small{display:block;color:#62748e;font-size:12px;margin-top:36px}.fl-final-cta__copy small b{color:#0c1e3c}.fl-final-cta__checks{display:flex;gap:16px;margin-top:8px;color:#007a55;font-size:12px}.fl-final-cta__checks span:nth-child(2){color:#cad5e2}.fl-final-cta__collage{width:50%;height:500px;position:relative}.fl-final-cta__collage figure{margin:0;position:absolute;overflow:hidden;border:4px solid #fff;background:#0f172b;box-shadow:0 24px 49px -12px rgba(0,0,0,.25)}.fl-final-cta__collage figure img{width:100%;height:100%;object-fit:cover;display:block}.fl-final-cta__main{width:402px;height:482px;left:44px;top:0;border-radius:165px 165px 28px 28px!important;transform:rotate(-1deg)}.fl-final-cta__main figcaption{position:absolute;bottom:20px;left:22px;right:22px;color:#fff;display:flex;justify-content:space-between;font-size:10px;font-weight:650}.fl-final-cta__small{width:176px;height:174px;border-radius:82px 82px 14px 14px!important}.fl-final-cta__small figcaption{position:absolute;bottom:14px;left:15px;color:#fff;font-size:11px;font-weight:650}.fl-final-cta__coast{left:300px;top:258px;transform:rotate(4deg)}.fl-final-cta__clubs{left:170px;top:320px;transform:rotate(-4deg)}.fl-final-cta__tag{position:absolute;right:-6px;bottom:14px;color:#0c1e3c;font-size:20px;font-weight:650}.fl-final-cta__tag small{display:block;color:#62748e;font-size:12px;margin-top:6px}.fl-final-cta__glow{position:absolute;border-radius:50%;filter:blur(64px)}.fl-final-cta__glow--one{width:550px;height:550px;background:rgba(184,230,254,.3);left:62%;top:-96px}.fl-final-cta__glow--two{width:450px;height:450px;background:rgba(219,234,254,.4);left:25%;top:256px}
 @media(max-width:900px){.fl-faq__top,.fl-dean{grid-template-columns:1fr}.fl-final-cta{height:auto}.fl-final-cta__inner{width:100%;padding:70px 22px;display:block}.fl-final-cta__copy{width:100%;padding:0}.fl-final-cta__copy h2{font-size:40px}.fl-final-cta__collage{width:100%;height:520px;margin-top:50px}.fl-final-cta__main{left:calc(50% - 201px)}.fl-final-cta__coast{left:calc(50% + 55px)}.fl-final-cta__clubs{left:calc(50% - 170px)}.fl-final-cta__tag{right:0}.fl-faq{padding-top:70px}.fl-dean{margin-left:22px;margin-right:22px}.fl-shell{width:calc(100% - 44px)}}
+
+/* Final CTA cascade lock: keep the supplied reference treatment after legacy styles. */
+.figma-landing .fl-final-cta{height:707px;position:relative;overflow:hidden;background:#003b70;color:#fff;border-bottom:0}
+.figma-landing .fl-final-cta__inner{position:relative;width:min(1400px,100%);height:100%;margin:0 auto;padding:0;display:block}
+.figma-landing .fl-final-cta__copy{position:absolute;z-index:3;left:50%;top:226px;width:430px;padding:0;transform:translateX(-50%);text-align:center}
+.figma-landing .fl-final-cta__copy h2{color:#fff;font-size:38px;line-height:1.08;letter-spacing:-1.2px;margin:0 0 20px;max-width:none}
+.figma-landing .fl-final-cta__copy h2 span{color:#fff}
+.figma-landing .fl-final-cta__copy p{color:#d7efff;font-size:10px;line-height:1.55;margin:0 0 8px}
+.figma-landing .fl-final-cta__copy .fl-button{min-width:126px;min-height:34px;margin-top:8px;padding:8px 14px;border-radius:18px;font-size:9px;line-height:12px;gap:6px}
+.figma-landing .fl-final-cta__copy .fl-button img{width:13px;height:13px;filter:brightness(0) invert(1)}
+.figma-landing .fl-final-cta__copy small{display:block;margin-top:0;color:#d7efff;font-size:0}
+.figma-landing .fl-final-cta__checks{display:none}
+.figma-landing .fl-final-cta__collage{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.figma-landing .fl-final-cta__photo{position:absolute;margin:0;overflow:hidden;border:2px solid rgba(255,255,255,.95);background:#0b4a7f;box-shadow:0 10px 22px rgba(0,0,0,.18)}
+.figma-landing .fl-final-cta__photo img{display:block;width:100%;height:100%;object-fit:cover}
+.figma-landing .fl-final-cta__photo--one,.figma-landing .fl-final-cta__photo--two,.figma-landing .fl-final-cta__photo--six,.figma-landing .fl-final-cta__photo--seven{width:126px;height:126px;border-radius:50%}
+.figma-landing .fl-final-cta__photo--one{left:4%;top:-42px}.figma-landing .fl-final-cta__photo--two{left:30%;top:-36px}
+.figma-landing .fl-final-cta__photo--three{right:2%;top:-18px;width:142px;height:184px;border-radius:10px;transform:rotate(-3deg)}
+.figma-landing .fl-final-cta__photo--four{left:-18px;top:240px;width:128px;height:84px;border-radius:7px;transform:rotate(12deg)}
+.figma-landing .fl-final-cta__photo--five{right:-4px;top:365px;width:146px;height:86px;border-radius:8px;transform:rotate(11deg)}
+.figma-landing .fl-final-cta__photo--six{left:18%;bottom:-70px}.figma-landing .fl-final-cta__photo--seven{right:22%;bottom:-76px}
+@media(max-width:620px){.figma-landing .fl-final-cta{height:480px}.figma-landing .fl-final-cta__copy{top:165px;width:290px}.figma-landing .fl-final-cta__copy h2{font-size:27px}.figma-landing .fl-final-cta__copy p{font-size:9px}.figma-landing .fl-final-cta__photo--one,.figma-landing .fl-final-cta__photo--two,.figma-landing .fl-final-cta__photo--six,.figma-landing .fl-final-cta__photo--seven{width:84px;height:84px}.figma-landing .fl-final-cta__photo--three{width:94px;height:128px}.figma-landing .fl-final-cta__photo--four{width:90px;height:60px;left:-20px;top:185px}.figma-landing .fl-final-cta__photo--five{width:100px;height:60px;top:290px}.figma-landing .fl-final-cta__photo--one{left:2%;top:-28px}.figma-landing .fl-final-cta__photo--two{left:28%;top:-24px}.figma-landing .fl-final-cta__photo--six{left:16%;bottom:-42px}.figma-landing .fl-final-cta__photo--seven{right:15%;bottom:-48px}}
+
+/* Exact 191:20135 geometry, scaled from the 1400px Figma frame. */
+.figma-landing .fl-final-cta{height:707px;background:#003b70}
+.figma-landing .fl-final-cta__inner{width:min(1400px,100%)}
+.figma-landing .fl-final-cta__copy{top:calc(50% + 32.42px);width:592px;display:flex;flex-direction:column;align-items:center;gap:24px;transform:translate(-50%,-50%)}
+.figma-landing .fl-final-cta__copy h2{font-size:48px;line-height:54px;letter-spacing:-1.3px;margin:0;max-width:none;font-weight:600}
+.figma-landing .fl-final-cta__body{display:flex;flex-direction:column;gap:4px;width:554px;align-items:center}
+.figma-landing .fl-final-cta__copy p{font-size:14px;line-height:26px;color:#fff;margin:0}
+.figma-landing .fl-final-cta__copy .fl-button{margin-top:0;min-width:0;min-height:0;padding:14px 32px;border-radius:999px;font-size:16px;line-height:24px;font-weight:500;gap:10px}
+.figma-landing .fl-final-cta__copy .fl-button img{width:16px;height:16px}
+.figma-landing .fl-final-cta__copy small,.figma-landing .fl-final-cta__checks{display:none}
+.figma-landing .fl-final-cta__photo{border:0;box-shadow:none;background:transparent}
+.figma-landing .fl-final-cta__photo img{object-fit:cover}
+.figma-landing .fl-final-cta__photo--one{left:9.64%;top:-13.86%;width:23.86%;height:47.52%;border-radius:50%;border:0}
+.figma-landing .fl-final-cta__photo--two{left:41.79%;top:-6.93%;width:21.63%;height:33.82%;border-radius:50%;border:0}
+.figma-landing .fl-final-cta__photo--three{left:74.86%;right:auto;top:-16.83%;width:23.22%;height:55.14%;border-radius:40% 40% 7% 7%;transform:rotate(-1deg);border:3px solid #fff}
+.figma-landing .fl-final-cta__photo--four{left:-3.5%;top:38.19%;width:20.64%;height:33.34%;border-radius:8px;transform:rotate(9.84deg);border:2px solid rgba(255,255,255,.6)}
+.figma-landing .fl-final-cta__photo--five{left:79%;right:auto;top:47.95%;width:22.54%;height:33.46%;border-radius:8px;transform:rotate(9.84deg);border:2px solid rgba(255,255,255,.6)}
+.figma-landing .fl-final-cta__photo--six{left:58.21%;bottom:-9.2%;width:17.43%;height:34.8%;border-radius:50%;border:0}
+.figma-landing .fl-final-cta__photo--seven{left:17.07%;right:auto;bottom:-13.8%;width:20.63%;height:34.7%;border-radius:50%;border:0}
+@media(max-width:620px){.figma-landing .fl-final-cta{height:520px}.figma-landing .fl-final-cta__copy{top:calc(50% + 24px);width:86%;gap:14px}.figma-landing .fl-final-cta__copy h2{font-size:28px;line-height:31px}.figma-landing .fl-final-cta__body{width:100%}.figma-landing .fl-final-cta__copy p{font-size:10px;line-height:17px}.figma-landing .fl-final-cta__copy .fl-button{padding:10px 20px;font-size:12px;line-height:18px}.figma-landing .fl-final-cta__photo--one{left:5%;top:-8%;width:26%;height:30%}.figma-landing .fl-final-cta__photo--two{left:39%;top:-6%;width:24%;height:24%}.figma-landing .fl-final-cta__photo--three{left:auto;right:3%;top:-8%;width:25%;height:34%}.figma-landing .fl-final-cta__photo--four{left:-5%;top:38%;width:23%;height:24%}.figma-landing .fl-final-cta__photo--five{left:auto;right:-4%;top:56%;width:25%;height:23%}.figma-landing .fl-final-cta__photo--six{left:57%;bottom:-8%;width:22%;height:27%}.figma-landing .fl-final-cta__photo--seven{left:14%;bottom:-10%;width:25%;height:28%}}
+
+/* Dean message, based on the white two-column Figma frame. */
+.figma-landing .fl-dean-section{padding:92px 0 96px;background:#fff;border:0}
+.figma-landing .fl-dean{width:min(1200px,calc(100% - 64px));min-height:0;margin:0 auto;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;border:0;border-radius:0;overflow:visible;color:#003b70;background:none;box-shadow:none}
+.figma-landing .fl-dean__video{height:258px;position:relative;overflow:hidden;border:0;border-radius:14px;background:#13233e;box-shadow:0 16px 22px -12px rgba(5,22,46,.38)}
+.figma-landing .fl-dean__video img{display:block;width:100%;height:100%;object-fit:cover;opacity:1}
+.figma-landing .fl-dean__video span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:#fff;color:#0b2146;display:grid;place-items:center;font-size:18px;padding:0 0 0 3px}
+.figma-landing .fl-dean__video span::after{content:none}
+.figma-landing .fl-dean__video small{position:absolute;left:14px;top:14px;padding:7px 12px;border-radius:5px;background:#203763;color:#fff;font-family:var(--mono);font-size:9px;line-height:12px;letter-spacing:.6px}
+.figma-landing .fl-dean__video strong{position:absolute;left:14px;bottom:14px;color:#fff;font-size:12px;font-weight:500;text-shadow:0 1px 5px #0b1c3d}
+.figma-landing .fl-dean__copy{padding:0;display:flex;flex-direction:column;align-items:flex-start}
+.figma-landing .fl-dean__copy h3{margin:0 0 20px;color:#003b70;font-size:24px;line-height:1.25;font-weight:600;letter-spacing:-.7px}
+.figma-landing .fl-dean__copy p{width:100%;max-width:none;margin:0;padding:17px 18px;border:0;border-radius:12px;background:#f3f8fc;color:#003b70;font-family:var(--sans);font-size:14px;font-style:italic;font-weight:400;line-height:1.6}
+.figma-landing .fl-dean__copy>small{display:block;margin-top:16px;color:#003b70;font-size:12px;line-height:20px}
+.figma-landing .fl-dean__copy a{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:13px 24px;border-radius:999px;background:#1a73e8;color:#fff;font-size:14px;font-weight:500;line-height:20px;box-shadow:0 5px 12px rgba(11,28,61,.18)}
+.figma-landing .fl-dean__copy a img{width:16px;filter:brightness(0) invert(1)}
+@media(max-width:900px){.figma-landing .fl-dean-section{padding:64px 0}.figma-landing .fl-dean{width:calc(100% - 44px);grid-template-columns:1fr;gap:30px}.figma-landing .fl-dean__copy h3{font-size:23px}}
+@media(max-width:620px){.figma-landing .fl-dean-section{padding:48px 0}.figma-landing .fl-dean{width:calc(100% - 32px)}.figma-landing .fl-dean__video{height:220px}.figma-landing .fl-dean__copy h3{font-size:22px}.figma-landing .fl-dean__copy p{padding:16px;font-size:14px}.figma-landing .fl-dean__copy a{font-size:13px;padding:11px 16px}}
+
+/* FAQ frame 191:20164: preserve its 1200px grid and 96px vertical rhythm. */
+.figma-landing .fl-faq{padding:96px 0;border-bottom:1px solid #e2e8f0}
+.figma-landing .fl-faq__top{grid-template-columns:570px minmax(0,606px);gap:24px}
+.figma-landing .fl-faq__intro h2{font-size:42px;font-weight:600;line-height:60px;letter-spacing:-1px}
+.figma-landing .fl-faq__intro p{margin-top:16px;font-family:'Plus Jakarta Sans','Inter',Arial,sans-serif;font-size:18px;font-weight:400;line-height:29.25px}
+.figma-landing .fl-faq__list{gap:24px}
+.figma-landing .fl-faq__list button{display:grid;grid-template-columns:minmax(0,1fr) 40px;column-gap:16px;row-gap:6px;align-items:center;width:100%;height:auto;min-height:82px;padding:20px 24px;border-radius:12px}
+.figma-landing .fl-faq__list button.is-open{height:auto;min-height:112px}
+.figma-landing .fl-faq__question{font-size:20px;font-weight:600;line-height:22.95px;letter-spacing:-.425px}
+.figma-landing .fl-faq__toggle{flex:0 0 40px;font-size:20px;font-weight:400}
+.figma-landing .fl-faq__list p{position:static;grid-column:1/-1;max-width:100%;margin:0;font-size:16px;font-weight:400;line-height:25.6px}
+@media(max-width:900px){.figma-landing .fl-faq{padding:70px 0}.figma-landing .fl-faq__top{grid-template-columns:1fr}.figma-landing .fl-faq__intro{max-width:570px}}
+@media(max-width:620px){.figma-landing .fl-faq{padding:56px 0}.figma-landing .fl-faq__intro h2{font-size:34px;line-height:42px}.figma-landing .fl-faq__intro p{font-size:16px;line-height:26px}.figma-landing .fl-faq__list button{min-height:82px}.figma-landing .fl-faq__list button.is-open{min-height:112px}.figma-landing .fl-faq__question{font-size:18px;line-height:24px}.figma-landing .fl-faq__list p{font-size:14px;line-height:21px}}
+
+/* Alumni and faculty frames 191:19737 and 191:19808. */
+.figma-landing .fl-people-panel{height:auto;padding:24px 0;border:0;border-radius:0;background:transparent}
+.figma-landing .fl-alumni-panel .fl-panel-heading{min-height:60px}
+.figma-landing .fl-faculty-panel .fl-panel-heading{min-height:36px}
+.figma-landing .fl-panel-heading h3{margin:0;font-size:24px;font-weight:600;line-height:36px;letter-spacing:-1px}
+.figma-landing .fl-panel-heading>div:first-child>p{margin-top:4px;font-size:14px;line-height:20px}
+.figma-landing .fl-people-panel .fl-label{font-size:12px;font-weight:500;line-height:15px;letter-spacing:1px}
+.figma-landing .fl-people-panel .fl-circle-button{width:32px;height:32px;padding:7px;border-color:#e2e8f0;background:#fff}
+.figma-landing .fl-people-panel .fl-circle-button img{filter:none;width:16px;height:16px}
+.figma-landing .fl-people-panel .fl-person-grid{gap:16px;margin-top:16px}
+.figma-landing .fl-alumni-card{height:284px;min-height:284px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:16px;border:1px solid #e8f0fe;border-radius:8px;background:#fff}
+.figma-landing .fl-alumni-card:hover,.figma-landing .fl-faculty-card:hover{transform:none;box-shadow:none;border-color:#e8f0fe}
+.figma-landing .fl-alumni-card .fl-person-head{width:100%;height:68px;gap:12px;align-items:center;overflow:hidden}
+.figma-landing .fl-alumni-portrait{display:block;flex:0 0 70px;width:70px;height:68px;object-fit:cover;border-radius:4px}
+.figma-landing .fl-alumni-card .fl-person-head>div{min-width:0}
+.figma-landing .fl-alumni-card .fl-person-head h4{color:#003b70;font-size:20px;font-weight:600;line-height:33.6px;white-space:nowrap}
+.figma-landing .fl-alumni-card .fl-person-head p{color:#0074c8;font-family:Spectral,Georgia,serif;font-size:14px;font-weight:400;line-height:20px}
+.figma-landing .fl-alumni-card .fl-company{display:flex;align-items:center;width:100%;height:30px;margin:0;color:#003b70}
+.figma-landing .fl-alumni-card .fl-company img{display:block;max-width:145px;max-height:30px;object-fit:contain;object-position:left center}
+.figma-landing .fl-alumni-card .fl-company strong{font-size:16px;font-weight:700}
+.figma-landing .fl-alumni-card .fl-down{height:37px;padding:0;text-align:left;color:#0074c8;font-family:'Plus Jakarta Sans',Inter,sans-serif;font-size:37px;font-weight:700;line-height:37px}
+.figma-landing .fl-alumni-card .fl-now{width:100%;min-height:67px;padding-top:12px;border-top:1px solid #f1f5f9}
+.figma-landing .fl-alumni-card .fl-now span{font-family:'Plus Jakarta Sans',Inter,sans-serif;font-size:10px;font-weight:600;line-height:15px;text-transform:uppercase}
+.figma-landing .fl-alumni-card .fl-now p{margin-top:0;font-size:14px;font-weight:500;line-height:19.25px}
+.figma-landing .fl-testimonial-card{height:190px;min-height:190px;padding:16px;border:1px solid #e8f0fe;border-radius:8px;background:#fff}
+.figma-landing .fl-testimonial-card>p{color:rgba(11,28,61,.8);font-size:17px;font-weight:500;line-height:23.8px}
+.figma-landing .fl-testimonial-card__person .fl-avatar{width:40px;height:40px;color:#668cac}
+.figma-landing .fl-testimonial-card__person h4,.figma-landing .fl-testimonial-card__person small{font-size:13px;line-height:16.9px}
+@media(max-width:1000px){.figma-landing .fl-alumni-card{height:auto;min-height:284px}.figma-landing .fl-faculty-panel .fl-panel-heading,.figma-landing .fl-alumni-panel .fl-panel-heading{min-height:0}}
+@media(max-width:620px){.figma-landing .fl-panel-heading h3{font-size:21px;line-height:29px}.figma-landing .fl-people-panel .fl-carousel-buttons{display:flex}.figma-landing .fl-testimonial-card{height:auto;min-height:190px}}
+
+/* Outcomes frame 191:19692 and full-width employer ticker. */
+.figma-landing .fl-outcomes-card{height:223px;padding:32px;grid-template-columns:559.5px minmax(0,1fr);border-color:#dbeafc}
+.figma-landing .fl-outcomes-card .fl-salary{height:157px;padding:0 32px 0 0;border-right:1px solid rgba(214,214,214,.2);border-bottom:0;gap:8px}
+.figma-landing .fl-salary__figures{display:flex;flex-direction:column;gap:2px}
+.figma-landing .fl-outcomes-card .fl-salary strong{font-size:42px;line-height:60px}
+.figma-landing .fl-outcomes-card .fl-salary p{max-width:461px;font-size:14px;line-height:22px}
+.figma-landing .fl-outcomes-card .fl-salary small{margin-top:auto;font-size:12px;line-height:16px}
+.figma-landing .fl-outcomes-card .fl-career-card__jobs{display:flex;flex-direction:column;gap:8px;min-width:0;padding:0 32px}
+.figma-landing .fl-career-card__jobs h3{font-size:24px;font-weight:600;line-height:36px}
+.figma-landing .fl-career-card__jobs .fl-job{height:45px;padding:10px 0;font-size:16px;line-height:24px}
+.figma-landing .fl-career-card__jobs .fl-job span{font-weight:600}
+.figma-landing .fl-career-card__jobs>small{margin:0;color:#ccd8e2;font-size:12px;line-height:15px}
+.figma-landing .fl-career-card__jobs .fl-circle-button:disabled{opacity:.45;cursor:default}
+.figma-landing .fl-employer-strip{position:relative;width:100vw;height:auto;min-height:302px;margin-left:calc(50% - 50vw);padding:80px 0;overflow:hidden;text-align:center}
+.figma-landing .fl-employer-strip h3{font-size:36px;font-weight:600;line-height:44px}
+.figma-landing .fl-employer-strip .fl-logo-ticker{display:block;width:100%;height:50px;min-height:50px;margin-top:48px;overflow:hidden}
+.figma-landing .fl-logo-ticker__track{display:flex;width:max-content;height:50px;animation:fl-logo-marquee 34s linear infinite}
+.figma-landing .fl-logo-ticker__set{display:flex;flex:0 0 auto;align-items:center;gap:56px;height:50px;padding-right:56px;white-space:nowrap}
+.figma-landing .fl-logo-ticker .fl-brand-logo{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;width:auto;max-width:none;height:50px;animation:none}
+.figma-landing .fl-logo-ticker .fl-brand-logo img{display:block;width:auto;height:auto;max-width:160px;max-height:38px;object-fit:contain}
+.figma-landing .fl-logo-ticker .fl-brand-logo--icon img{max-width:34px;max-height:34px}
+.figma-landing .fl-logo-ticker .fl-brand-logo--icon>span{font-size:18px;font-weight:600}
+.figma-landing .fl-logo-ticker .fl-brand-logo--text{font-size:19px;font-weight:700}
+@keyframes fl-logo-marquee{to{transform:translateX(-50%)}}
+@media(max-width:1100px){.figma-landing .fl-outcomes-card{height:auto;grid-template-columns:1fr;gap:24px}.figma-landing .fl-outcomes-card .fl-salary{height:auto;min-height:157px;padding:0 0 24px;border-right:0;border-bottom:1px solid rgba(255,255,255,.2)}.figma-landing .fl-outcomes-card .fl-career-card__jobs{padding:0}}
+@media(max-width:620px){.figma-landing .fl-employer-strip{padding:52px 0;min-height:0}.figma-landing .fl-employer-strip h3{padding:0 20px;font-size:28px;line-height:36px}.figma-landing .fl-employer-strip .fl-logo-ticker{margin-top:32px}.figma-landing .fl-logo-ticker__set{gap:36px;padding-right:36px}}
+@media(prefers-reduced-motion:reduce){.figma-landing .fl-logo-ticker{overflow-x:auto}.figma-landing .fl-logo-ticker__track{animation:none}}
+
+/* Keep the people cards within the content column before the tablet layout starts. */
+@media(max-width:1150px) and (min-width:901px){
+  .figma-landing .fl-person-grid,.figma-landing .fl-testimonial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .figma-landing .fl-alumni-panel,.figma-landing .fl-faculty-panel{height:auto}
+  .figma-landing .fl-alumni-card,.figma-landing .fl-testimonial-card{height:auto}
+}
+
+/* Let the decorative closing photos frame, rather than cover, the message. */
+@media(max-width:900px){
+  .figma-landing .fl-final-cta{height:660px}
+  .figma-landing .fl-final-cta__copy{top:calc(50% + 34px);width:min(592px,calc(100% - 48px))}
+  .figma-landing .fl-final-cta__body{width:100%}
+  .figma-landing .fl-final-cta__photo--one{height:35%}
+  .figma-landing .fl-final-cta__photo--two{height:28%}
+  .figma-landing .fl-final-cta__photo--three{height:42%}
+  .figma-landing .fl-final-cta__photo--four,.figma-landing .fl-final-cta__photo--five{display:none}
+}
+@media(min-width:621px) and (max-width:900px){
+  .figma-landing .fl-life__intro h2{font-size:36px;line-height:46px;letter-spacing:-1px}
+}
+@media(max-width:620px){
+  .figma-landing .fl-testimonial-grid{grid-template-columns:minmax(0,1fr)}
+  .figma-landing .fl-testimonial-card{height:auto;min-height:155px}
+  .figma-landing .fl-career-card__jobs .fl-carousel-buttons{display:flex}
+  .figma-landing .fl-final-cta{height:600px}
+  .figma-landing .fl-final-cta__copy{top:calc(50% + 10px);width:calc(100% - 48px);gap:16px}
+  .figma-landing .fl-final-cta__copy h2{font-size:28px;line-height:34px}
+  .figma-landing .fl-final-cta__copy p{font-size:14px;line-height:21px}
+  .figma-landing .fl-final-cta__copy .fl-button{padding:12px 22px;font-size:14px;line-height:20px}
+  .figma-landing .fl-final-cta__photo--one{height:24%}
+  .figma-landing .fl-final-cta__photo--two{height:22%}
+  .figma-landing .fl-final-cta__photo--three{height:30%}
+}
+@media(max-width:360px){
+  .figma-landing .fl-logo{width:132px}
+  .figma-landing .fl-header>.fl-button{min-height:42px;padding:8px;font-size:10px;gap:4px}
+  .figma-landing .fl-header>.fl-button img{width:14px;height:14px}
+  .figma-landing .fl-footer__contact a{gap:10px;font-size:16px;overflow-wrap:anywhere}
+  .figma-landing .fl-footer__contact img{width:24px;height:24px;flex:none}
+}
+
+/* Program tabs size to their labels instead of stretching or squeezing the text. */
+.figma-landing .fl-career-heading .fl-section-heading{min-width:0;flex:1}
+.figma-landing .fl-tabs{width:max-content;max-width:100%;flex:0 0 auto;align-self:flex-end}
+.figma-landing .fl-tabs button{flex:0 0 auto;white-space:nowrap}
+@media(max-width:1000px){.figma-landing .fl-tabs{align-self:flex-start}}
+@media(max-width:360px){.figma-landing .fl-tabs button{padding:9px 8px;font-size:11px}}
+
+/* Compact the closing collage as the screen narrows, preserving clear space around its copy. */
+@media(min-width:901px) and (max-width:1200px){
+  .figma-landing .fl-final-cta{height:640px}
+  .figma-landing .fl-final-cta__copy{top:calc(50% + 57px)}
+  .figma-landing .fl-final-cta__photo--one{left:6%;top:0;width:clamp(190px,19vw,228px);height:clamp(190px,19vw,228px)}
+  .figma-landing .fl-final-cta__photo--two{left:39%;top:16px;width:clamp(180px,18vw,216px);height:clamp(180px,18vw,216px)}
+  .figma-landing .fl-final-cta__photo--three{left:74%;top:0;width:clamp(190px,20vw,230px);height:clamp(200px,20vw,230px)}
+  .figma-landing .fl-final-cta__photo--six,.figma-landing .fl-final-cta__photo--seven{bottom:-18%}
+}
+@media(min-width:621px) and (max-width:900px){
+  .figma-landing .fl-final-cta{height:560px}
+  .figma-landing .fl-final-cta__collage{margin-top:0}
+  .figma-landing .fl-final-cta__copy{top:calc(50% + 40px)}
+  .figma-landing .fl-final-cta__photo--one{left:6%;top:12px;width:140px;height:140px}
+  .figma-landing .fl-final-cta__photo--two{left:38%;top:12px;width:140px;height:140px}
+  .figma-landing .fl-final-cta__photo--three{left:76%;top:0;width:160px;height:165px}
+  .figma-landing .fl-final-cta__photo--six,.figma-landing .fl-final-cta__photo--seven{bottom:-22%}
+}
