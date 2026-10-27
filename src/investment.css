@@ -66,3 +66,6 @@
   .investment-calculator__results > div { align-items: start; flex-direction: column; gap: 4px; }
   .investment-calculator__results :is(span, strong) { max-width: none; }
 }
+
+/* Keep the calculator and financing panel centered inside the same 1200px frame at every desktop width. */
+.investment-section__inner { width: min(1200px, 100%); max-width: 1200px; margin-left: auto; margin-right: auto; }

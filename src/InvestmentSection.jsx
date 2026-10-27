@@ -3,22 +3,22 @@ import './investment.css';
 
 const assets = '/landing/investment-';
 
-export default function InvestmentSection({ selectedProgram }) {
+export default function InvestmentSection({ selectedProgram, studentName = '' }) {
   const [values, setValues] = useState({ program: selectedProgram || 'MS in Applied AI (AAI)', funding: '', scholarship: '' });
-  const [result, setResult] = useState(null);
 
   function update(field, value) {
     setValues((current) => ({ ...current, [field]: value }));
-    setResult(null);
   }
 
   function calculate(event) {
     event.preventDefault();
-    const tuition = values.program === 'Cybersecurity (CSE)' ? 52800 : 51600;
-    const scholarship = Number(values.scholarship || 0);
-    const living = 19000;
-    const total = tuition - scholarship + living;
-    setResult({ tuition, scholarship, living, total });
+    const params = new URLSearchParams({
+      program: values.program,
+      funding: values.funding,
+      scholarship: values.scholarship || '0',
+      student: studentName,
+    });
+    window.open(`/cost-calculator?${params.toString()}`, '_blank', 'noopener,noreferrer');
   }
 
   return <section className="investment-section" id="investment" aria-labelledby="investment-title">
@@ -52,6 +52,7 @@ export default function InvestmentSection({ selectedProgram }) {
             <div className="investment-calculator__select">
               <select aria-label="Scholarship (if any)" value={values.scholarship} onChange={(event) => update('scholarship', event.target.value)} data-empty={!values.scholarship}>
                 <option value="">Scholarship (if any)</option>
+                <option value="30024">$30,024 USD Award (offer reference)</option>
                 <option value="10000">$10,000 Torero Merit Scholarship</option>
                 <option value="5000">$5,000 Scholarship</option>
                 <option value="0">No scholarship</option>
@@ -61,12 +62,6 @@ export default function InvestmentSection({ selectedProgram }) {
           </div>
           <button className="investment-calculator__submit" type="submit">Calculate My Cost <img src={`${assets}arrow.svg`} alt="" /></button>
           <p className="investment-calculator__disclaimer">Estimates are indicative only. Actual tuition, living expenses, scholarship amounts, loan terms, exchange rates and repayment amounts may vary.</p>
-          {result && <div className="fl-cost-results investment-calculator__results" role="status" aria-label="Estimated program costs">
-            <div><span>Base Degree Tuition</span><b>${result.tuition.toLocaleString('en-US')} USD</b></div>
-            <div className="deduction"><span>Scholarship Deducted</span><b>-${result.scholarship.toLocaleString('en-US')} USD</b></div>
-            <div><span>Estimated 1-Year San Diego Living &amp; Housing</span><b>${result.living.toLocaleString('en-US')} USD</b></div>
-            <div className="total"><strong>Estimated Net Total Program Investment</strong><b>${result.total.toLocaleString('en-US')} USD</b></div>
-          </div>}
         </form>
       </div>
 
@@ -85,7 +80,7 @@ export default function InvestmentSection({ selectedProgram }) {
             <a className="investment-support__detail" href="mailto:indiaadmission@sandiego.edu"><img src={`${assets}mail.svg`} alt="" />indiaadmission@sandiego.edu</a>
           </div>
           <div className="investment-support__partner">
-            <h3><span aria-hidden="true">🍃</span>FundRight</h3>
+            <h3>FundRight</h3>
             <p>Compare education loan offers from multiple lenders — all in one place.</p>
             <a href="https://gradright.com/financing/" target="_blank" rel="noreferrer">Explore FundRight <span aria-hidden="true">→</span></a>
           </div>

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800;900&family=Spectral:wght@400;500;600;700&display=swap');
+
+.cost-page { min-height: 100vh; background: #fff; color: #0b315c; font-family: var(--sans, 'Inter'), Arial, sans-serif; }
+.cost-page * { box-sizing: border-box; }
+.cost-page :is(h1,h2,h3,p,dl,dd) { margin: 0; }
+.cost-page a { color: inherit; text-decoration: none; }
+.cost-page__header { width: 100%; height: 81px; margin: 0; padding: 14px max(32px, calc((100% - 1200px) / 2)); background: #003b70; }
+.cost-page__header .fl-logo { width: 253px; height: 53px; }
+.cost-page__header .fl-button { min-width: 0; }
+.cost-page__stage { padding: 96px 80px; }
+.cost-sheet { width: min(900px, 100%); margin: 0 auto; padding: 0; background: #fff; }
+.cost-sheet__intro { max-width: 680px; }
+.cost-eyebrow { display: block; color: #0866a6; font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+.cost-sheet__intro h1 { max-width: 570px; margin-top: 0; color: #162456; font: 600 42px/1.2 var(--sans, 'Inter'), Arial, sans-serif; letter-spacing: -1.2px; }
+.cost-sheet__intro h1 span { color: #0074c8; }
+.cost-sheet__intro p { max-width: 571px; margin-top: 16px; color: #53516b; font-size: 16px; line-height: 24px; }
+.cost-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+.cost-controls label { color: transparent; font-size: 0; }
+.cost-controls select,.cost-money-input { width: 100%; height: 42px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; color: #0b315c; font: 500 14px/1 'Inter', sans-serif; box-shadow: 0 1px 0 rgba(0,0,0,.05); }
+.cost-controls select { padding: 0 34px 0 12px; }
+.cost-money-input { display: flex; align-items: center; overflow: hidden; }
+.cost-money-input span { padding-left: 12px; color: #688199; font-weight: 600; }
+.cost-money-input input { width: 100%; height: 100%; min-width: 0; padding: 0 10px 0 5px; border: 0; outline: 0; color: #0b315c; font: 600 13px/1 'Inter', sans-serif; }
+.cost-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 24px; padding: 32px; border: 1px solid #dbeafc; border-radius: 12px; background: #003b70; color: #fff; }
+.cost-summary > div { display: flex; flex-direction: column; justify-content: center; padding-right: 28px; border-right: 1px solid rgba(255,255,255,.22); }
+.cost-summary > div span { color: #bfe3ff; font-size: 12px; font-weight: 500; letter-spacing: 1px; line-height: 15px; }
+.cost-summary > div strong { margin-top: 5px; font: 700 42px/60px var(--sans, 'Inter'), Arial, sans-serif; letter-spacing: -1.5px; }
+.cost-summary > div small { margin-top: 0; color: rgba(255,255,255,.8); font-size: 14px; line-height: 22px; }
+.cost-summary dl { display: grid; gap: 8px; padding-left: 32px; }
+.cost-summary dl div { display: flex; justify-content: space-between; gap: 20px; color: #d8e7f3; font-size: 12px; line-height: 1.4; }
+.cost-summary dd { color: #fff; font-weight: 600; white-space: nowrap; }
+.cost-summary .cost-summary__deduction { color: #a6e6c7; }
+.cost-summary .cost-summary__deduction dd { color: #a6e6c7; }
+.cost-earnings { margin-top: 18px; padding: 20px 24px; border: 1px solid #e2e8f0; border-radius: 12px; }
+.cost-earnings > p { margin-top: 12px; color: #536b84; font-size: 14px; line-height: 1.55; }
+.cost-earnings > p b { color: #0b497f; }
+.cost-earnings dl { margin-top: 18px; }
+.cost-earnings dl div { display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 10px 0; border-bottom: 1px dotted #d4e2ed; color: #24415e; font-size: 13px; }
+.cost-earnings dt span { color: #8ca7bd; font-size: 11px; }
+.cost-earnings dd { color: #0b497f; font-weight: 700; white-space: nowrap; }
+.cost-earnings .cost-earnings__total { border-bottom: 0; border-top: 1px solid #bed5e6; font-weight: 700; }
+.cost-earnings .cost-earnings__total dd { color: #0876c5; }
+.cost-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 22px; }
+.cost-plan { position: relative; min-width: 0; padding: 32px 32px 28px; border: 1px solid #d5e5f1; border-radius: 12px; }
+.cost-plan--highlighted { border: 2px solid #0780d3; background: #f8fcff; }
+.cost-plan__badge { position: absolute; top: -13px; left: 26px; padding: 8px 16px; border-radius: 99px; background: #0879c9; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 1.3px; }
+.cost-plan h3 { color: #0b497f; font: 600 24px/1.25 var(--sans, 'Inter'), Arial, sans-serif; letter-spacing: -.5px; }
+.cost-plan dl { margin-top: 24px; }
+.cost-plan dl > div { display: flex; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: 1px dotted #d4e2ed; color: #24415e; font-size: 14px; line-height: 1.45; }
+.cost-plan dt span { display: block; }
+.cost-plan dd { color: #0b497f; font-weight: 700; text-align: right; white-space: nowrap; }
+.cost-plan .cost-plan__payment { align-items: center; border-bottom: 0; font-size: 14px; font-weight: 700; }
+.cost-plan__payment dd { color: #0879c9; font-size: 20px; }
+.cost-plan > p { margin-top: 20px; color: #6e8397; font-size: 13px; line-height: 1.55; }
+.cost-plan > p b { color: #0b497f; }
+.cost-actions { display: flex; gap: 16px; margin-top: 28px; }
+.cost-actions a { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; padding: 0 28px; border: 1px solid #c9ddeb; border-radius: 9px; color: #0b497f; font: 600 16px/24px 'Inter', sans-serif; }
+.cost-actions .cost-actions__primary { gap: 16px; border-color: #0879c9; background: #0879c9; color: #fff; }
+.cost-actions__primary span { font-size: 18px; }
+.cost-page .cost-disclaimer { clear: both; max-width: 860px; margin-top: 28px; color: #8ca1b6; font: 400 12px/18px 'Inter', sans-serif; }
+.cost-page :is(select,input,a):focus-visible { outline: 3px solid rgba(8,121,201,.3); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  .cost-page__header { width: 100%; height: 68px; padding: 10px 16px; }
+  .cost-page__header .fl-logo { width: 170px; height: auto; }
+  .cost-page__header .fl-button { min-height: 42px; padding: 8px 12px; font-size: 12px; }
+  .cost-page__stage { padding: 64px 22px; }
+  .cost-sheet { padding: 0; border-radius: 0; }
+  .cost-sheet__intro h1 { font-size: 36px; }
+  .cost-controls { grid-template-columns: 1fr; }
+  .cost-summary { grid-template-columns: 1fr; gap: 20px; }
+  .cost-summary > div { padding: 0 0 20px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.22); }
+  .cost-earnings,.cost-plan { padding: 24px 20px; }
+  .cost-earnings dl div { align-items: flex-start; }
+  .cost-earnings dt span { display: block; margin-top: 3px; }
+  .cost-plans { grid-template-columns: 1fr; gap: 22px; }
+  .cost-actions { flex-direction: column; }
+  .cost-actions a { width: 100%; }
+}
+.cost-page,.cost-page h1,.cost-page h2,.cost-page h3,.cost-page h4,.cost-page p,.cost-page label,.cost-page select,.cost-page input{font-family:'Sofia Sans',Arial,sans-serif}
+.cost-page button,.cost-actions a{font-family:'Spectral',Georgia,serif}

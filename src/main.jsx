@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import './styles.css';
 import InvestmentSection from './InvestmentSection';
 import FlightOdyssey from './flight-odyssey/FlightOdyssey';
+import CostCalculatorPage from './CostCalculatorPage';
 
 const programs = ['Applied AI', 'Cyber Security'];
 const defaultJourney = { name: '', program: '', origin: 'Delhi', destination: 'San Diego', term: 'Spring 2027', classType: 'Admit' };
@@ -18,13 +19,14 @@ function App() {
 }
 
 function Header({ light = false }) { return <header className={`topbar ${light ? 'topbar--light' : ''}`}><div className="wordmark">INSTINCT <span>/</span> USD</div><nav><a href="#program">PROGRAMS</a><a href="#why">HOW IT WORKS</a><a href="#experience">THE EXPERIENCE</a><a href="#ready">MARK YOUR INTEREST</a><a href="#faq">FAQS</a></nav><a className="nav-cta" href="#program">BROWSE PROGRAMS</a><button className="menu-btn" aria-label="Open navigation">☰</button></header>; }
+function SharedNav({ className = '', showLinks = true }) { return <header className={`shared-nav ${className}`}><a href="/" aria-label="University of San Diego home"><img src="/usd-logo-frame.png" alt="University of San Diego" /></a>{showLinks && <><nav><a href="#program">PROGRAMS</a><a href="#why">HOW IT WORKS</a><a href="#life-title">THE EXPERIENCE</a><a href="#investment">MARK YOUR INTEREST</a><a href="#faq">FAQS</a></nav><button className="shared-nav__menu" type="button" aria-label="Open navigation">☰</button></>}</header>; }
 
 
 function BoardingPass({ journey, update, errors, takeOff, compact = false }) { return <form className={`boarding-pass ${compact ? 'boarding-pass--compact' : ''}`} onSubmit={takeOff} noValidate><div className="ticket-main"><div className="ticket-brand"><span>UNIVERSITY OF SAN DIEGO</span><strong>USD</strong><small>TORERO ADMIT · 2027</small></div><div className="ticket-passenger-label">PASSENGER NAME</div><div className="ticket-passenger-name">{journey.name || 'FUTURE TORERO'}</div><div className="ticket-route"><div><span>FROM:</span><strong>IND</strong><small>INDIA</small></div><div className="route-line"><i /><span>✈</span><i /></div><div className="align-right"><span>TO:</span><strong>SAN</strong><small>SAN DIEGO</small></div></div><div className="passenger-block"><label>PASSENGER NAME <input value={journey.name} onChange={(e) => update('name', e.target.value)} placeholder="Enter your full name" aria-invalid={Boolean(errors.name)} />{errors.name && <small className="error">{errors.name}</small>}</label><label>PROGRAM <select value={journey.program} onChange={(e) => update('program', e.target.value)} aria-invalid={Boolean(errors.program)}><option value="">Select your program</option>{programs.map((program) => <option key={program}>{program}</option>)}</select>{errors.program && <small className="error">{errors.program}</small>}</label></div><div className="ticket-details"><div><span>FLIGHT</span><strong>USD 2027</strong></div><div><span>SEAT</span><strong>1A</strong></div><div><span>GATE</span><strong>A1</strong></div><div><span>CLASS</span><strong>ADMIT</strong></div><div><span>TERM</span><strong>SPRING 2027</strong></div></div><div className="ticket-action"><button type="submit">LET’S TAKE OFF <span>✈</span></button><p className="ticket-foot">YOUR SEAT TO SAN DIEGO · KEEP THIS PASS CLOSE</p></div></div><aside className="ticket-stub"><div className="stub-brand">UNIVERSITY OF SAN DIEGO</div><div className="stub-route"><strong>IND</strong><span>✈</span><strong>SAN</strong></div><div className="stub-cities"><span>INDIA</span><span>SAN DIEGO</span></div><div className="stub-details"><div><span>FLIGHT</span><strong>USD 2027</strong></div><div><span>SEAT</span><strong>1A</strong></div><div><span>GATE</span><strong>A1</strong></div><div><span>TERM</span><strong>SPRING 2027</strong></div></div><div className="stub-qr" aria-label="Boarding pass scan area" /><div className="stub-scan">SCAN TO TAKE OFF</div></aside></form>; }
 
 function Onboarding({ journey, update, errors, takeOff }) {
   return <main className="welcome">
-    <header className="welcome-header"><img className="welcome-header__logo" src="/usd-logo-frame.png" alt="University of San Diego" /></header>
+    <SharedNav className="shared-nav--welcome" showLinks={false} />
     <div className="welcome-content">
       <section className="welcome-copy">
         <h1>GUESS WHO’S GOING TO USD? YOU.</h1>
@@ -124,10 +126,10 @@ function Flight({ journey, onComplete }) { const plane = useRef(null); const clo
 const reasons = ['Professors who know your name', 'Aligned to the federal RACE framework', 'Thoughtful people who do the work', 'Finish with what you can show', 'Mentors who have been there', 'Help from the first day']; const outcomes = ['AI Product Manager', 'Cybersecurity Architect', 'Applied AI Strategist', 'Data Science Lead', 'Technology Consultant', 'Innovation Director']; const alumni = [['Matthew Demczyk, Class of 2005', 'Founder, global tech and innovation leader'], ['Jony Gens, Class of 2012', 'Designing the future of intelligent systems'], ['Jim Phelan, MBA 2001', 'Building teams that make a difference'], ['Huda B., Class of 2019', 'From USD to a career without limits'], ['Yee Hernandez, 2010', 'Making change in every room']];
 
 const rankingCards = [
-  ['#47', 'Best Colleges in the U.S.', 'The Wall Street Journal 2025'],
   ['#1', 'Most Beautiful Campus', 'The Princeton Review, 2027 Edition'],
   ['#11', 'Best Career Services', 'The Princeton Review, 2027 Edition'],
   ['#45', 'Best Value Schools', 'U.S. News & World Report'],
+  ['#47', 'Best Colleges in the U.S.', 'The Wall Street Journal 2025'],
 ];
 
 const usdReasons = [
@@ -157,6 +159,9 @@ const alumniCompanyLogos = {
   'AXA XL': '/landing/logos/axa-xl-alumni.svg',
   'Intel Habana': '/landing/logos/intel-habana-alumni.svg',
   RADCOM: '/landing/logos/radcom-alumni.svg',
+  Dell: '/landing/logos/alumni/dell.svg',
+  EY: '/landing/logos/alumni/ey.svg',
+  DXC: '/landing/logos/alumni/dxc.svg',
 };
 
 const landingFaculty = [
@@ -172,6 +177,10 @@ const cseFaculty = [
   ['Nahid Farhady, PhD', 'Adjunct Professor', 'Built AI-powered security review automation at scale during her time at Google.'],
   ['Alec Henning', 'Adjunct Professor', 'Supports U.S. Navy cybersecurity and high-assurance systems. Formerly at NIWC Pacific.'],
 ];
+const alumniPhotos = {
+  'MS in Applied AI (AAI)': ['/landing/faculty/aai/faculty-02.png', '/landing/faculty/aai/faculty-03.png', '/landing/faculty/aai/faculty-04.png', '/landing/faculty/aai/faculty-01.png'],
+  'Cybersecurity (CSE)': ['/landing/faculty/cse/faculty-02.png', '/landing/faculty/cse/faculty-03.png', '/landing/faculty/cse/faculty-04.png', '/landing/faculty/cse/faculty-01.png'],
+};
 const facultyTestimonials = [
   ['“Before Ferndesk our process for updating documentation was basically to hopefully we’ll remember to do it.”', 'Brennan Dunn', 'Founder, RightMessage'],
   ['“The best learning happens when you can connect the theory to a problem that matters.”', 'Brennan Dunn', 'Founder, RightMessage'],
@@ -256,6 +265,7 @@ function EmployerTicker({ names }) {
 function FigmaLandingPass({ name }) {
   return <div className="fl-pass" aria-label={`Boarding pass for ${name}`}>
     <img src="/USD_Boarding Pass front.png" alt="University of San Diego boarding pass from India to San Diego" />
+    <span className="fl-pass-label">PASSENGER NAME</span>
     <div className="fl-pass-name">{(name || 'Future Torero').toUpperCase()}</div>
   </div>;
 }
@@ -264,6 +274,32 @@ function ArrowButton({ direction, label, onClick, disabled = false }) {
   return <button className="fl-circle-button" type="button" aria-label={label} onClick={onClick} disabled={disabled}>
     <img src={`/landing/chevron-${direction}.svg`} alt="" />
   </button>;
+}
+
+function PeopleCarousel({ className, title, description, previousLabel, nextLabel, children }) {
+  const rowRef = useRef(null);
+  const [scrollState, setScrollState] = useState({ previous: false, next: false });
+  useEffect(() => {
+    const row = rowRef.current;
+    if (!row) return;
+    const update = () => setScrollState({ previous: row.scrollLeft > 2, next: row.scrollLeft + row.clientWidth < row.scrollWidth - 2 });
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(row);
+    window.addEventListener('resize', update);
+    return () => { observer.disconnect(); window.removeEventListener('resize', update); };
+  }, [children]);
+  const move = (direction) => {
+    const row = rowRef.current;
+    if (!row) return;
+    const card = row.firstElementChild;
+    const gap = Number.parseFloat(window.getComputedStyle(row).columnGap) || 0;
+    row.scrollBy({ left: direction * ((card?.getBoundingClientRect().width || row.clientWidth) + gap), behavior: 'smooth' });
+  };
+  return <article className={`fl-people-panel ${className}`}>
+    <div className="fl-panel-heading"><div><h3>{title}</h3>{description && <p>{description}</p>}</div><div className="fl-carousel-buttons"><ArrowButton direction="left" label={previousLabel} onClick={() => move(-1)} disabled={!scrollState.previous} /><ArrowButton direction="right" label={nextLabel} onClick={() => move(1)} disabled={!scrollState.next} /></div></div>
+    <div ref={rowRef} className={`fl-person-grid ${className === 'fl-faculty-panel' ? 'fl-testimonial-grid' : ''}`} onScroll={() => { const row = rowRef.current; if (row) setScrollState({ previous: row.scrollLeft > 2, next: row.scrollLeft + row.clientWidth < row.scrollWidth - 2 }); }} tabIndex={0} aria-label={title}>{children}</div>
+  </article>;
 }
 
 function LandingFooter() {
@@ -289,23 +325,29 @@ function LandingFooter() {
 function LandingFaq() {
   const [open, setOpen] = useState(0);
   const items = [
-    ['How long are the programs?', 'These programs are designed for students in their pre-final or final year.'],
-    ['What are the admission requirements?', 'Review your program requirements with the USD admissions team.'],
-    ['Can I apply for scholarships?', 'Eligible students are automatically considered for merit scholarships.'],
-    ['Is the program STEM-designated?', 'Both programs are designed to support STEM-focused careers in the United States.'],
-    ['What kind of career support is available?', 'You will have access to career coaching, employer connections, and applied project work.'],
-    ['When should I confirm my seat?', 'Confirm before the application deadline to keep your place in the cohort.'],
+    ['Is it still a sensible decision to study in the US given geopolitical uncertainty?', "A fair question, and we won't wave it away. Your offer, tuition and scholarship are confirmed in writing, and USD's support systems are built for uncertainty. What we won't do is promise world events won't touch your plans - no honest university will. For current official guidance, see travel.state.gov."],
+    ['Can my scholarship be reconsidered?', 'Scholarships are awarded with your offer. If your circumstances have changed, the admissions team can tell you what a review looks like - ask before you decide, not after.'],
+    ['Will I get a visa?', 'No university can promise a visa - the decision rests with the US consulate. What works in your favour: a confirmed admit and I-20 from an accredited US university, documented funding, and clear, honest answers at your interview. What you control: start early, keep your documents consistent, and prepare well - the team will walk you through typical interview questions and review your documents before you submit.'],
+    ['What support will I receive before travelling and after arriving in San Diego?', 'Before: document checklists, I-20 guidance and financial document review on the India line. After: mandatory international orientation, the Office of International Students and Scholars for anything visa-related, career support from day one, and on-campus housing below city prices.'],
+    ['How does the visa process work?', "Both programs are full-time and on-campus, which supports the standard F-1 student visa. Accept your offer, pay the enrollment deposit and claim your USDOne account - that unlocks your I-20 request. From there: submit financial documents (your scholarship counts toward the total), pay the SEVIS fee, complete the DS-160 and book your interview. You can enter the US up to 30 days before classes start, and work on campus up to 20 hours a week once you're here. Bringing family? A spouse and children under 21 can apply for F-2 visas - just mention it when you request your I-20. The team guides you through each step and can review your documents before you submit."],
   ];
-  return <section className="fl-faq">
+  return <section className="fl-faq" id="faq">
     <div className="fl-faq__top fl-shell">
-      <div className="fl-faq__intro"><h2>Your concerns, <span>answered</span>.</h2><p>These are the questions students asked most during the last intake. Straight answers from USD's own guidance - and a direct line to the team when you need more.</p></div>
+      <div className="fl-faq__intro"><h2>Your concerns, <span>answered</span></h2><p>These are the questions students asked most during the last intake. Straight answers from USD's own guidance - and a direct line to the team when you need more.</p></div>
       <div className="fl-faq__list">{items.map(([question, answer], index) => <button className={open === index ? 'is-open' : ''} type="button" key={question} onClick={() => setOpen(open === index ? -1 : index)}><span className="fl-faq__question">{question}</span><span className="fl-faq__toggle">{open === index ? '−' : '+'}</span>{open === index && <p>{answer}</p>}</button>)}</div>
     </div>
   </section>;
 }
 
 function LandingDean() {
-  return <section className="fl-dean-section"><div className="fl-dean fl-shell"><div className="fl-dean__video"><img src="/landing/updated/dean.png" alt="Students speaking at USD" /><span aria-hidden="true">▶</span><small>DEAN'S ADDRESS</small><strong>Dr. Chell Roberts</strong></div><div className="fl-dean__copy"><h3>A word from Dean Chell Roberts before you decide.</h3><p>“We built this program for students who don’t just want a degree — they want mentors who know their name, research they can point to, and a direct runway into the California tech economy.”</p><small>Dean, Shiley-Marcos School of Engineering<br />University of San Diego</small><a href="#investment">▶ &nbsp; Watch Dr. Roberts' Message <img src="/landing/arrow-right.svg" alt="" /></a></div></div></section>;
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  useEffect(() => {
+    if (!isVideoOpen) return undefined;
+    const closeOnEscape = (event) => event.key === 'Escape' && setIsVideoOpen(false);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [isVideoOpen]);
+  return <section className="fl-dean-section"><div className="fl-dean fl-shell"><button className="fl-dean__video" type="button" onClick={() => setIsVideoOpen(true)} aria-label="Play Dean Chell Roberts video"><img src="/landing/updated/dean.png" alt="Dean Chell Roberts" /><span aria-hidden="true">▶</span><small>DEAN'S ADDRESS</small></button><div className="fl-dean__copy"><h3>A word from Dean Chell Roberts before you decide</h3><p>“We built this program for students who don’t just want a degree — they want mentors who know their name, research they can point to, and a direct runway into the California tech economy.”</p><small>Dean, Shiley-Marcos School of Engineering<br />University of San Diego</small></div></div>{isVideoOpen && <div className="fl-video-modal" role="dialog" aria-modal="true" aria-label="Dean Chell Roberts video" onClick={() => setIsVideoOpen(false)}><div className="fl-video-modal__content" onClick={(event) => event.stopPropagation()}><button className="fl-video-modal__close" type="button" onClick={() => setIsVideoOpen(false)} aria-label="Close video">×</button><iframe src="https://www.youtube.com/embed/-tDvrf5BfPk?autoplay=1&rel=0" title="Dean Chell Roberts message" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen /></div></div>}</section>;
 }
 
 function LandingFinalCta({ name }) {
@@ -314,11 +356,11 @@ function LandingFinalCta({ name }) {
 
 function LifeAtUsdSection() {
   const moments = [
-    ['01', 'MONTHS 0–1', '/landing/life/arrival.png', 'Arrive, connect and find your feet.', 'Get to know the campus, meet your classmates and access the resources that help you settle into graduate school.'],
-    ['02', 'MONTHS 1–4', '/landing/life/bazaar.png', 'Experience the Torero spirit.', 'Join Weeks of Welcome, the Alcalá Bazaar and a range of clubs, cultural groups and student events.'],
-    ['03', 'MONTHS 4–12', '/landing/life/career-fair.png', 'Connect with industry.', 'Attend career fairs, industry talks and professional development events to build your network and explore what’s next.'],
-    ['04', 'MONTHS 12–15', '/landing/life/campus-community.png', 'Make campus your community.', 'Join student events, clubs and campus traditions, and find opportunities to explore your interests and meet people.'],
-    ['05', 'FINAL MONTH', '/landing/life/graduate.png', 'Bring it all together and take the next step.', 'Apply what you’ve learned through advanced coursework and real-world projects, and join a global community of 87,000+ USD alumni.'],
+    ['01', 'MONTHS 0–1', '/landing/life/arrival-figma.png', 'Arrive, connect and find your feet.', 'Get to know the campus, meet your classmates and access the resources that help you settle into graduate school.'],
+    ['02', 'MONTHS 1–4', '/landing/life/bazaar-figma.png', 'Experience the Torero spirit.', 'Join Weeks of Welcome, the Alcalá Bazaar and a range of clubs, cultural groups and student events.'],
+    ['03', 'MONTHS 4–12', '/landing/life/career-fair-figma.png', 'Connect with industry.', 'Attend career fairs, industry talks and professional development events to build your network and explore what’s next.'],
+    ['04', 'MONTHS 12–15', '/landing/life/campus-community-figma.png', 'Make campus your community.', 'Join student events, clubs and campus traditions, and find opportunities to explore your interests and meet people.'],
+    ['05', 'FINAL MONTH', '/landing/life/graduate-overlay-figma.png', 'Bring it all together and take the next step.', 'Apply what you’ve learned through advanced coursework and real-world projects, and join a global community of 87,000+ USD alumni.'],
   ];
   return <section className="fl-life" aria-labelledby="life-title"><div className="fl-shell"><div className="fl-life__intro"><h2 id="life-title">See what life at USD has in <span>store for you.</span></h2><p>From your first welcome to the projects you take on and the people you meet, your time at USD is filled with experiences that can shape your future, inside and outside the classroom.</p></div><div className="fl-life__grid">{moments.map(([number, label, image, title, copy]) => <article key={number} className="fl-life-card"><div className="fl-life-card__meta"><b>{number}</b><span>{label}</span></div><img src={image} alt="" /><h3>{title}</h3><p>{copy}</p></article>)}</div><div className="fl-life__cta"><div><h3>Take a virtual tour of the campus in the city</h3><p>Walk under the arches, step inside the labs, and look out over Mission Bay - the whole campus is open to you, right from where you're sitting.</p><a className="fl-button fl-button-white" href="#investment">Explore Virtual campus tour</a></div><img src="/landing/capstone-campus.png" alt="University of San Diego campus" /></div></div></section>;
 }
@@ -328,29 +370,27 @@ function Landing({ journey }) {
   const [careerPage, setCareerPage] = useState(0);
   const studentName = journey.name.trim() || 'Aarav Sharma';
   const content = programContent[program];
-  const brochure = (event) => event.preventDefault();
+  const enrollmentUrl = 'https://india.sandiego.edu/usd-enrollment-commitment-form/';
+  const brochureUrl = 'https://drive.google.com/file/d/1D1nvlOijiGqCmVAjzRUOIb60_sWvGwLi/view?usp=drive_link';
 
   return <main className="figma-landing">
     <section className="fl-hero">
-      <header className="fl-header">
-        <img className="fl-logo" src="/usd-logo-frame.png" alt="University of San Diego" />
-        <a className="fl-button fl-button-white" href="#investment" onClick={brochure}>Download Brochure <img src="/landing/download.svg" alt="" /></a>
-      </header>
+      <SharedNav className="shared-nav--landing" />
       <div className="fl-hero-copy">
         <h1>Welcome to USD, {studentName}!</h1>
         <p>Everything you need to know before you make your decision.</p>
         <div className="fl-actions">
-          <a className="fl-button fl-button-blue" href="#investment">Confirm your seat</a>
-          <a className="fl-button fl-button-white" href="#investment" onClick={brochure}>Download Brochure <img src="/landing/download.svg" alt="" /></a>
+          <a className="fl-button fl-button-blue" href={enrollmentUrl} target="_blank" rel="noreferrer">Confirm your seat</a>
+          <a className="fl-button fl-button-white" href={brochureUrl} target="_blank" rel="noreferrer">Download Brochure <img src="/landing/download.svg" alt="" /></a>
         </div>
       </div>
       <FigmaLandingPass name={studentName} />
     </section>
 
-    <section className="fl-rankings">
+    <section className="fl-rankings" id="why">
       <div className="fl-shell">
         <div className="fl-section-heading">
-          <h2>One of America’s best and it <span>shows from day one.</span></h2>
+          <h2>One of America’s best and it <span>shows from day one</span></h2>
           <p>Consistently ranked among the top private universities in the United States for campus experience, high-impact career services, and graduate ROI.</p>
         </div>
         <div className="fl-ranking-grid">
@@ -378,24 +418,22 @@ function Landing({ journey }) {
 
         <article className="fl-employer-strip"><h3>Where Our Alumni &amp; Students Work</h3><EmployerTicker names={content.employers} /></article>
 
-        <article className="fl-people-panel fl-alumni-panel">
-          <div className="fl-panel-heading"><div><h3>Meet the Indian alumni in your network.</h3><p>Graduates from USD’s on-campus, online and part-time programs — people who stood where you’re standing.</p></div><div className="fl-carousel-buttons"><ArrowButton direction="left" label="Previous alumni" /><ArrowButton direction="right" label="Next alumni" /></div></div>
-          <div className="fl-person-grid">{(program === 'Cybersecurity (CSE)' ? cseAlumni : landingAlumni).map(([name, before, company, now]) => <div className="fl-alumni-card" key={name}><div className="fl-person-head"><img className="fl-alumni-portrait" src="/landing/alumni-figma-portrait.png" alt="" /><div><h4>{name}</h4><p>{before}</p></div></div><div className="fl-company">{alumniCompanyLogos[company] ? <img src={alumniCompanyLogos[company]} alt={company} /> : <strong>{company}</strong>}</div><div className="fl-down" aria-hidden="true">↓</div><div className="fl-now"><span>NOW</span><p>{now}</p></div></div>)}</div>
-        </article>
+        <PeopleCarousel key={program} className="fl-alumni-panel" title="Meet the Indian alumni in your network." description="Graduates from USD’s on-campus, online and part-time programs — people who stood where you’re standing." previousLabel="Previous alumni" nextLabel="Next alumni">
+          {(program === 'Cybersecurity (CSE)' ? cseAlumni : landingAlumni).map(([name, before, company, now], index) => <div className="fl-alumni-card" key={name}><div className="fl-person-head"><img className="fl-alumni-portrait" src={alumniPhotos[program][index]} alt={name} /><div><h4>{name}</h4><p>{before}</p></div></div><div className="fl-company">{alumniCompanyLogos[company] ? <img src={alumniCompanyLogos[company]} alt={company} /> : <strong>{company}</strong>}</div><div className="fl-down" aria-hidden="true">↓</div><div className="fl-now"><span>NOW</span><p>{now}</p></div></div>)}
+        </PeopleCarousel>
 
-        <article className="fl-people-panel fl-faculty-panel">
-          <div className="fl-panel-heading"><div><h3>{content.facultyLabel}</h3></div><div className="fl-carousel-buttons"><ArrowButton direction="left" label="Previous faculty" /><ArrowButton direction="right" label="Next faculty" /></div></div>
-          <div className="fl-person-grid fl-testimonial-grid">{facultyTestimonials.map(([quote, name, role]) => <div className="fl-testimonial-card" key={quote}><p>{quote}</p><div className="fl-testimonial-card__person"><span className="fl-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0z" /></svg></span><div><h4>{name}</h4><small>{role}</small></div></div></div>)}</div>
-        </article>
+        <PeopleCarousel className="fl-faculty-panel" title={content.facultyLabel} previousLabel="Previous faculty" nextLabel="Next faculty">
+          {facultyTestimonials.map(([quote, name, role]) => <div className="fl-testimonial-card" key={quote}><p>{quote}</p><div className="fl-testimonial-card__person"><span className="fl-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0z" /></svg></span><div><h4>{name}</h4><small>{role}</small></div></div></div>)}
+        </PeopleCarousel>
 
         <article className="fl-capstone">
-          <div><h3>{content.capstoneTitle}</h3><p>{content.capstoneCopy}</p><a className="fl-button fl-button-white" href="#investment" onClick={brochure}>Download Brochure <img src="/landing/download.svg" alt="" /></a></div>
+          <div><h3>{content.capstoneTitle}</h3><p>{content.capstoneCopy}</p><a className="fl-button fl-button-white" href={brochureUrl} target="_blank" rel="noreferrer">Download Brochure <img src="/landing/download.svg" alt="" /></a></div>
           <img src="/landing/capstone-campus.png" alt="University of San Diego campus" />
         </article>
       </div>
     </section>
 
-    <InvestmentSection key={program} selectedProgram={program} />
+    <InvestmentSection key={program} selectedProgram={program} studentName={studentName} />
     <LifeAtUsdSection />
     <LandingDean />
     <LandingFinalCta name={studentName} />
@@ -404,4 +442,4 @@ function Landing({ journey }) {
   </main>;
 }
 
-createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById('root')).render(window.location.pathname === '/cost-calculator' ? <CostCalculatorPage /> : <App />);
