@@ -172,20 +172,20 @@ const landingFaculty = [
 ];
 
 const cseFaculty = [
-  ['Dr. Haydar Majeed', 'Academic Director, Cybersecurity Engineering', 'Award-winning military intelligence professional with 15+ years of experience. Former CISO at Privatyze.'],
-  ['Wendi Whitmore', 'Chief Security Intelligence Officer, Palo Alto Networks', 'Led Unit 42 through major global cyber incidents. Former Global Lead at IBM X-Force.'],
-  ['Nahid Farhady, PhD', 'Adjunct Professor', 'Built AI-powered security review automation at scale during her time at Google.'],
-  ['Alec Henning', 'Adjunct Professor', 'Supports U.S. Navy cybersecurity and high-assurance systems. Formerly at NIWC Pacific.'],
+  { name: 'Dr. Haydar Majeed', role: 'Academic Director, Cybersecurity Engineering', description: 'Award-winning military intelligence professional with 15+ years of experience. Former CISO at Privatyze.', image: '/landing/faculty/verified/cse-haydar-majeed.jpeg' },
+  { name: 'Wendi Whitmore', role: 'Chief Security Intelligence Officer, Palo Alto Networks', description: 'Led Unit 42 through major global cyber incidents. Former Global Lead at IBM X-Force.', image: '/landing/faculty/verified/cse-wendi-whitmore.jpg' },
+  { name: 'Nahid Farhady, PhD', role: 'Adjunct Professor', description: 'Built AI-powered security review automation at scale during her time at Google.', image: '/landing/faculty/verified/cse-nahid-farhady.jpg' },
+  { name: 'Alec Henning', role: 'Adjunct Professor', description: 'Supports U.S. Navy cybersecurity and high-assurance systems. Formerly at NIWC Pacific.', image: '/landing/faculty/verified/cse-alec-henning.jpg' },
 ];
 const alumniPhotos = {
   'MS in Applied AI (AAI)': ['/landing/faculty/aai/faculty-02.png', '/landing/faculty/aai/faculty-03.png', '/landing/faculty/aai/faculty-04.png', '/landing/faculty/aai/faculty-01.png'],
   'Cybersecurity (CSE)': ['/landing/faculty/cse/faculty-02.png', '/landing/faculty/cse/faculty-03.png', '/landing/faculty/cse/faculty-04.png', '/landing/faculty/cse/faculty-01.png'],
 };
 const facultyTestimonials = [
-  ['“Before Ferndesk our process for updating documentation was basically to hopefully we’ll remember to do it.”', 'Brennan Dunn', 'Founder, RightMessage'],
-  ['“The best learning happens when you can connect the theory to a problem that matters.”', 'Brennan Dunn', 'Founder, RightMessage'],
-  ['“The right people and the right questions can change the direction of your career.”', 'Brennan Dunn', 'Founder, RightMessage'],
-  ['“You leave USD with more than a credential. You leave with work you can stand behind.”', 'Brennan Dunn', 'Founder, RightMessage'],
+  { name: 'Dr. Ebrahim Tarshizi', role: 'Academic Director, Applied AI & Applied Data Science', description: 'Former senior technical advisor at CDC/NIOSH.', image: '/landing/faculty/verified/aai-ebrahim-tarshizi.jpg' },
+  { name: 'Vitor Carvalho, PhD', role: 'Principal Applied Science Manager, Microsoft', description: 'Works on Copilot, LLMs, and multimodal AI. Former Principal Data Scientist at Intuit.', image: '/landing/faculty/verified/aai-vitor-carvalho.jpg' },
+  { name: 'Eric Colson', role: 'DS & ML Advisor', description: 'Led data science at Netflix and Stitch Fix.', image: '/landing/faculty/verified/aai-eric-colson.jpg' },
+  { name: 'Dr. Chell Roberts', role: 'Founding Dean', description: 'Recognized by the National Academy of Engineering.', image: '/landing/faculty/verified/aai-chell-roberts.jpg' },
 ];
 
 const employerBrands = {
@@ -208,6 +208,9 @@ const employerBrands = {
   Deloitte: ['/landing/logos/deloitte-wordmark.svg'],
   accenture: ['/landing/logos/accenture-wordmark.svg'],
   DocuSign: ['/landing/logos/docusign-logo.svg'],
+  RSI: ['/landing/logos/rsi-security.png'],
+  'U.S. Marine Corps': ['/landing/logos/us-marine-corps.png'],
+  SPAWAR: ['/landing/logos/spawar.gif'],
 };
 
 const primaryEmployers = ['amazon', 'Google', 'NVIDIA', 'CISCO', 'Apple', 'ORACLE', 'Capital One', 'Fidelity', 'WELLS FARGO', 'T-Mobile', 'PEPSICO', 'DELTA'];
@@ -239,7 +242,7 @@ const programContent = {
     capstoneCopy: 'Apply security engineering, threat intelligence, and secure systems thinking to an enterprise challenge. Graduate with work you can show an employer.',
     jobs: [['CISO', '$223,000'], ['Cybersecurity Architect', '$136,000'], ['Cybersecurity Engineer', '$120,000+'], ['Information Security Analyst', '$103,590']],
     networkLabel: 'CSE graduates work at',
-    employers: ['Microsoft', 'RSI', 'U.S. Marine Corps', 'SPAWAR'],
+    employers: ['Microsoft', 'RSI', 'U.S. Marine Corps', 'SPAWAR', 'Google', 'NVIDIA', 'CISCO', 'Apple', 'amazon', 'Deloitte'],
     network: ['Intel', 'accenture', 'Morgan Stanley', 'CISCO', 'Deloitte'],
     facultyLabel: 'Learn from people who protect critical systems.',
   },
@@ -310,10 +313,10 @@ function LandingFooter() {
   return <footer className="fl-footer">
     <div className="fl-footer__grid">
       <div className="fl-footer__brand">
-        <img className="fl-footer__logo" src="/usd-logo-frame.png" alt="University of San Diego" />
+        <img className="fl-footer__logo" src="/landing/usd-footer-logo.png" alt="University of San Diego" />
         <p className="fl-footer__ranking">Ranked in the Top 50<br />Best Colleges in the US</p>
         <small>(Wall Street Journal Annual Ranking 2025)</small>
-        <div className="fl-footer__accreditation"><span>Accredited by</span><div className="fl-wasc"><b>❮</b><strong>WASC</strong><b>❯</b><small>ACCREDITING COMMISSION FOR SCHOOLS</small></div></div>
+        <div className="fl-footer__accreditation"><span>Accredited by</span><img className="fl-wasc-logo" src="/landing/wasc-footer-logo.png" alt="WASC Accrediting Commission for Schools" /></div>
       </div>
       <nav className="fl-footer__links" aria-label="Footer links"><h3>LINKS</h3><a href="#privacy">Privacy</a><a href="#terms">Terms and Conditions</a><a href="#campus">Main Campus Site</a></nav>
     <div className="fl-footer__contact"><h3>CONTACT</h3><a href="https://maps.google.com/?q=5998+Alcalá+Park,+San+Diego,+CA+92110" target="_blank" rel="noreferrer"><span className="fl-footer__pin">⌖</span>5998 Alcalá Park, San Diego, CA 92110</a><a href="tel:+917428144436"><img src="/landing/phone.svg" alt="" />+91 7428144436</a><a href="mailto:indiaadmission@sandiego.edu"><img src="/landing/mail.svg" alt="" />indiaadmission@sandiego.edu</a></div>
@@ -423,7 +426,7 @@ function Landing({ journey }) {
         </PeopleCarousel>
 
         <PeopleCarousel className="fl-faculty-panel" title={content.facultyLabel} previousLabel="Previous faculty" nextLabel="Next faculty">
-          {facultyTestimonials.map(([quote, name, role]) => <div className="fl-testimonial-card" key={quote}><p>{quote}</p><div className="fl-testimonial-card__person"><span className="fl-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0z" /></svg></span><div><h4>{name}</h4><small>{role}</small></div></div></div>)}
+          {(program === 'Cybersecurity (CSE)' ? cseFaculty : facultyTestimonials).map(({ name, role, description, image }) => <div className="fl-testimonial-card" key={name}><div className="fl-testimonial-card__person"><img className="fl-faculty-portrait" src={image} alt={name} /><div><h4>{name}</h4><small>{role}</small></div></div><p>{description}</p></div>)}
         </PeopleCarousel>
 
         <article className="fl-capstone">

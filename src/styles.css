@@ -553,6 +553,29 @@
   .figma-landing .fl-people-panel .fl-carousel-buttons{flex:none}
   .figma-landing .fl-people-panel .fl-panel-heading{align-items:flex-start}
 }
+
+/* Updated Figma container and stroke treatment for the people/dean sections. */
+.figma-landing .fl-alumni-card,
+.figma-landing .fl-testimonial-card{
+  border-color:#dbe8f7;
+}
+.figma-landing .fl-alumni-card:hover,
+.figma-landing .fl-faculty-card:hover{
+  border-color:#dbe8f7;
+}
+.figma-landing .fl-dean{
+  padding:0;
+  color:#003b70;
+  background:#fff;
+  box-shadow:none;
+}
+.figma-landing .fl-dean__video{
+  border:1px solid #dbe8f7;
+  box-shadow:0 16px 22px -12px rgba(5,22,46,.24);
+}
+.figma-landing .fl-dean__copy h3{color:#003b70}
+.figma-landing .fl-dean__copy p{color:#174e80;background:#f2f7fc;border-radius:14px;padding:20px 28px}
+.figma-landing .fl-dean__copy small{color:#174e80}
 @media(max-width:620px){
   .figma-landing .fl-testimonial-grid{grid-template-columns:minmax(0,1fr)}
   .figma-landing .fl-testimonial-card{height:auto;min-height:155px}
@@ -641,6 +664,141 @@
 .figma-landing .fl-footer__grid{grid-template-columns:1.15fr .9fr 1.55fr;align-items:start}
 .figma-landing .fl-footer__logo{width:250px}
 .figma-landing .fl-footer__bottom{position:relative;min-height:20px}
-.figma-landing .fl-footer__socials{position:absolute;left:0;bottom:0}
-.figma-landing .fl-footer__bottom>span{margin-left:auto}
+.figma-landing .fl-footer__bottom{justify-content:flex-end;gap:24px}
+.figma-landing .fl-footer__socials{position:static;order:1}
+.figma-landing .fl-footer__bottom>span{margin-left:0;order:2}
+.figma-landing .fl-wasc-logo{display:block;width:174px;height:auto}
 @media(max-width:900px){.shared-nav{width:calc(100% - 40px)}.shared-nav nav{display:none}.shared-nav__menu{display:block}.shared-nav>a img{width:165px}.shared-nav--welcome{width:calc(100% - 40px)}}
+
+/* Footer rebuilt to match the compact reference layout. */
+.figma-landing .fl-footer{
+  padding:24px 0 18px;
+  background:#064579;
+  color:#fff;
+  font-family:'Spectral',Georgia,serif;
+}
+.figma-landing .fl-footer__grid,
+.figma-landing .fl-footer__bottom{
+  width:min(1200px,calc(100% - 64px));
+  margin-inline:auto;
+}
+.figma-landing .fl-footer__grid{
+  display:grid;
+  grid-template-columns:1.15fr .9fr 1.55fr;
+  column-gap:72px;
+  min-height:0;
+  align-items:start;
+}
+.figma-landing .fl-footer__brand{min-width:0}
+.figma-landing .fl-footer__logo{width:250px;max-width:100%;height:auto}
+.figma-landing .fl-footer__ranking{margin:14px 0 0;font-size:15px;line-height:22px;font-weight:600}
+.figma-landing .fl-footer__brand>small{display:block;margin-top:12px;font-size:11px;line-height:16px}
+.figma-landing .fl-footer__accreditation{margin-top:20px}
+.figma-landing .fl-footer__accreditation>span{display:block;margin-bottom:8px;font-size:12px;line-height:16px}
+.figma-landing .fl-wasc-logo{width:174px;height:auto}
+.figma-landing .fl-footer h3{margin:4px 0 18px;color:#75c5ee;font-family:'Sofia Sans',Arial,sans-serif;font-size:15px;line-height:20px;font-weight:500;letter-spacing:.2px}
+.figma-landing .fl-footer__links{display:flex;flex-direction:column;align-items:flex-start}
+.figma-landing .fl-footer__links a,
+.figma-landing .fl-footer__contact a{margin:0 0 10px;color:#fff;font-size:14px;line-height:20px;font-weight:400}
+.figma-landing .fl-footer__contact a{display:flex;align-items:center;gap:8px}
+.figma-landing .fl-footer__contact img{width:16px;height:16px;flex:none;filter:brightness(0) invert(1)}
+.figma-landing .fl-footer__pin{display:none}
+.figma-landing .fl-footer__bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:22px;
+  margin-top:16px;
+  padding-top:0;
+  gap:24px;
+}
+.figma-landing .fl-footer__socials{position:static;display:flex;align-items:center;gap:14px;order:1}
+.figma-landing .fl-footer__socials a{display:flex;width:20px;height:20px;align-items:center;justify-content:center;margin:0}
+.figma-landing .fl-footer__socials img{display:block;width:16px;height:16px;filter:brightness(0) invert(1);opacity:.95}
+.figma-landing .fl-footer__bottom>span{order:2;margin:0;color:#fff;font-size:11px;line-height:16px;font-weight:400;white-space:nowrap}
+@media(max-width:700px){
+  .figma-landing .fl-footer{padding:28px 0 22px}
+  .figma-landing .fl-footer__grid{display:grid;grid-template-columns:1fr;row-gap:28px}
+  .figma-landing .fl-footer__logo{width:210px}
+  .figma-landing .fl-footer__bottom{margin-top:20px}
+}
+@media(max-width:420px){
+  .figma-landing .fl-footer__grid,.figma-landing .fl-footer__bottom{width:calc(100% - 40px)}
+  .figma-landing .fl-footer__bottom{align-items:flex-start;flex-direction:column;gap:12px}
+}
+
+/* Faculty cards use the supplied faculty portraits and editorial profile copy. */
+.figma-landing .fl-faculty-panel .fl-testimonial-card{
+  height:272px;
+  min-height:272px;
+  padding:20px;
+  justify-content:flex-start;
+  gap:18px;
+  background:#fff;
+}
+.figma-landing .fl-faculty-panel .fl-testimonial-card__person{align-items:center;gap:14px}
+.figma-landing .fl-faculty-portrait{width:58px;height:58px;flex:0 0 58px;object-fit:contain;object-position:center bottom}
+.figma-landing .fl-faculty-panel .fl-testimonial-card__person h4{font-size:17px;line-height:22px;font-weight:600}
+.figma-landing .fl-faculty-panel .fl-testimonial-card__person small{display:block;margin-top:2px;font-size:14px;line-height:19px;color:#45556c}
+.figma-landing .fl-faculty-panel .fl-testimonial-card>p{color:#45556c;font-size:15px;line-height:21px;font-weight:400}
+@media(max-width:620px){.figma-landing .fl-faculty-panel .fl-testimonial-card{height:auto;min-height:220px}}
+
+/* Exact measurements from Figma footer frame 191:20221. */
+.figma-landing .fl-footer{
+  padding:30px 80px 20px;
+  background:#003b70;
+}
+.figma-landing .fl-footer__grid,
+.figma-landing .fl-footer__bottom{
+  width:1200px;
+  max-width:100%;
+}
+.figma-landing .fl-footer__grid{
+  grid-template-columns:260.391px 180px 332.688px;
+  justify-content:space-between;
+  column-gap:0;
+  min-height:253px;
+}
+.figma-landing .fl-footer__brand{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  height:253px;
+  justify-content:center;
+  gap:16px;
+}
+.figma-landing .fl-footer__logo{width:156px;height:141px;object-fit:contain}
+.figma-landing .fl-footer__ranking{margin:0;font-size:20px;line-height:30px;font-weight:400}
+.figma-landing .fl-footer__brand>small{margin:0;font-size:14px;line-height:20px}
+.figma-landing .fl-footer__accreditation{margin-top:0}
+.figma-landing .fl-footer__accreditation>span{margin-bottom:4px;font-size:16px;line-height:24px}
+.figma-landing .fl-wasc-logo{width:171px;height:49px;object-fit:contain}
+.figma-landing .fl-footer h3{margin:0 0 24px;font-size:20px;line-height:28px;font-weight:600}
+.figma-landing .fl-footer__links,
+.figma-landing .fl-footer__contact{height:160px;justify-content:center}
+.figma-landing .fl-footer__links a,
+.figma-landing .fl-footer__contact a{margin:0;font-size:18px;line-height:28px}
+.figma-landing .fl-footer__links{gap:12px}
+.figma-landing .fl-footer__contact{gap:12px}
+.figma-landing .fl-footer__contact a{display:flex;align-items:center}
+.figma-landing .fl-footer__contact img{display:none}
+.figma-landing .fl-footer__bottom{height:76.992px;min-height:76.992px;margin-top:24px;padding:0;justify-content:flex-end;gap:48px}
+.figma-landing .fl-footer__socials{gap:16px}
+.figma-landing .fl-footer__socials a{width:20px;height:20px}
+.figma-landing .fl-footer__socials img{width:auto;height:20px}
+.figma-landing .fl-footer__bottom>span{font-size:16px;line-height:24px}
+@media(max-width:760px){
+  .figma-landing .fl-footer{padding:30px 24px 20px}
+  .figma-landing .fl-footer__grid{display:flex;flex-direction:column;gap:28px;min-height:0}
+  .figma-landing .fl-footer__brand,.figma-landing .fl-footer__links,.figma-landing .fl-footer__contact{height:auto}
+  .figma-landing .fl-footer__bottom{height:auto;min-height:0;margin-top:28px;justify-content:flex-start;align-items:flex-start;flex-direction:column;gap:14px}
+}
+
+/* Final Figma people-section overrides */
+.figma-landing .fl-alumni-card,
+.figma-landing .fl-testimonial-card{border-color:#dbe8f7}
+.figma-landing .fl-dean{padding:0;color:#003b70;background:#fff;box-shadow:none}
+.figma-landing .fl-dean__video{border:1px solid #dbe8f7;box-shadow:0 16px 22px -12px rgba(5,22,46,.24)}
+.figma-landing .fl-dean__copy h3{color:#003b70}
+.figma-landing .fl-dean__copy p{color:#174e80;background:#f2f7fc;border-radius:14px;padding:20px 28px}
+.figma-landing .fl-dean__copy small{color:#174e80}
