@@ -18,7 +18,7 @@ export default function InvestmentSection({ selectedProgram, studentName = '' })
       scholarship: values.scholarship || '0',
       student: studentName,
     });
-    window.open(`/cost-calculator?${params.toString()}`, '_blank', 'noopener,noreferrer');
+    window.location.assign(`/cost-calculator?${params.toString()}`);
   }
 
   return <section className="investment-section" id="investment" aria-labelledby="investment-title">
