@@ -29,3 +29,60 @@
 .flight-odyssey .z-20 { z-index: 20; }
 .flight-odyssey .drop-shadow-xl { filter: drop-shadow(0 12px 12px rgba(15, 23, 42, .2)); }
 .flight-odyssey .transition-opacity { transition: opacity .3s ease; }
+.flight-odyssey .transition-all { transition: all .2s ease; }
+.flight-odyssey .duration-300 { transition-duration: .3s; }
+.flight-odyssey .flex { display: flex; }
+.flight-odyssey .items-center { align-items: center; }
+.flight-odyssey .gap-1\.5 { gap: .375rem; }
+.flight-odyssey .gap-2 { gap: .5rem; }
+.flight-odyssey .cursor-pointer { cursor: pointer; }
+.flight-odyssey .font-sans { font-family: Arial, sans-serif; }
+.flight-odyssey .font-medium { font-weight: 500; }
+.flight-odyssey .tracking-wide { letter-spacing: .025em; }
+.flight-odyssey .text-white { color: #fff; }
+.flight-odyssey .text-sky-400 { color: #38bdf8; }
+.flight-odyssey .text-xs { font-size: .75rem; line-height: 1rem; }
+.flight-odyssey .text-sm { font-size: .875rem; line-height: 1.25rem; }
+.flight-odyssey .bottom-4 { bottom: 1rem; }
+.flight-odyssey .right-4 { right: 1rem; }
+.flight-odyssey .p-2 { padding: .5rem; }
+.flight-odyssey .px-3 { padding-left: .75rem; padding-right: .75rem; }
+.flight-odyssey .py-2 { padding-top: .5rem; padding-bottom: .5rem; }
+.flight-odyssey .px-3\.5 { padding-left: .875rem; padding-right: .875rem; }
+.flight-odyssey .py-2\.5 { padding-top: .625rem; padding-bottom: .625rem; }
+.flight-odyssey .rounded-full { border-radius: 9999px; }
+.flight-odyssey .border { border-width: 1px; border-style: solid; }
+.flight-odyssey .border-white\/20 { border-color: rgba(255,255,255,.2); }
+.flight-odyssey .bg-slate-900\/60 { background: rgba(15,23,42,.6); }
+.flight-odyssey .bg-slate-900\/85 { background: rgba(15,23,42,.85); }
+.flight-odyssey .bg-sky-600 { background: #0284c7; }
+.flight-odyssey .shadow-md { box-shadow: 0 4px 6px -1px rgba(15,23,42,.25), 0 2px 4px -2px rgba(15,23,42,.25); }
+.flight-odyssey .backdrop-blur-xs { backdrop-filter: blur(2px); }
+.flight-odyssey .hidden { display: none; }
+.flight-odyssey .left-\[-1200px\] { left: -1200px; }
+.flight-odyssey .w-\[4000px\] { width: 4000px; }
+.flight-odyssey .hover\:bg-slate-900\/85:hover { background: rgba(15,23,42,.85); }
+
+@media (min-width: 640px) {
+  .flight-odyssey .sm\:bottom-6 { bottom: 1.5rem; }
+  .flight-odyssey .sm\:right-6 { right: 1.5rem; }
+  .flight-odyssey .sm\:inline { display: inline; }
+  .flight-odyssey .sm\:text-sm { font-size: .875rem; line-height: 1.25rem; }
+  .flight-odyssey .sm\:p-2\.5 { padding: .625rem; }
+  .flight-odyssey .sm\:px-3\.5 { padding-left: .875rem; padding-right: .875rem; }
+  .flight-odyssey .sm\:py-2\.5 { padding-top: .625rem; padding-bottom: .625rem; }
+}
+
+@media (min-width: 768px) {
+  .flight-odyssey .md\:min-h-\[580px\] { min-height: 580px; }
+}
+
+@media (min-width: 1024px) {
+  .flight-odyssey .lg\:min-h-\[660px\] { min-height: 660px; }
+}
+
+@media (max-width: 639px) {
+  .flight-odyssey { min-height: 100svh; height: 100svh; }
+  .flight-odyssey .absolute.bottom-4 { bottom: .75rem; }
+  .flight-odyssey .absolute.right-4 { right: .75rem; }
+}

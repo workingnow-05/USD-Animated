@@ -1,33 +1,41 @@
 import React from 'react';
 
 interface SanDiegoSkylineProps {
-  scrollX: number;
+  scrollX?: number;
+  translateX?: number;
   height?: number;
   width?: number;
 }
 
-export const SanDiegoSkyline: React.FC<SanDiegoSkylineProps> = ({ scrollX, height = 520, width = 1200 }) => {
+export const SanDiegoSkyline: React.FC<SanDiegoSkylineProps> = ({
+  scrollX = 0,
+  translateX,
+  height = 520,
+  width = 1200,
+}) => {
   const silhouetteFill = '#034373';
   const midFill = '#075985';
   const backFill = '#0284c7';
   const windowGlow = '#bae6fd';
 
-  // Responsive center for the San Diego cloud formation in the sky
+  // Responsive center for the San Diego text in the sky
   const cloudCenterX = width < 640
     ? Math.round(Math.min(210, Math.max(170, width * 0.5)))
     : Math.round(Math.min(840, Math.max(520, width * 0.52)));
   const cloudCenterY = 72;
 
+  const actualTranslateX = translateX !== undefined ? translateX : -scrollX;
+
   return (
     <div
-      className="absolute bottom-0 left-0 w-[2800px] pointer-events-none select-none will-change-transform"
+      className="absolute bottom-0 left-[-1200px] w-[4000px] pointer-events-none select-none will-change-transform"
       style={{
         height: `${height}px`,
-        transform: `translate3d(${-scrollX}px, 0, 0)`,
+        transform: `translate3d(${actualTranslateX}px, 0, 0)`,
       }}
     >
       <svg
-        viewBox="0 0 2800 520"
+        viewBox="-1200 0 4000 520"
         className="w-full h-full"
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -52,9 +60,9 @@ export const SanDiegoSkyline: React.FC<SanDiegoSkylineProps> = ({ scrollX, heigh
             x={cloudCenterX}
             y={cloudCenterY}
             textAnchor="middle"
-            fontFamily="'Plus Jakarta Sans', system-ui, sans-serif"
-            fontSize={width < 640 ? '26' : '34'}
-            fontWeight="800"
+            fontFamily="'Sofia Sans', system-ui, sans-serif"
+            fontSize={width < 640 ? '26' : '36'}
+            fontWeight="700"
             letterSpacing={width < 640 ? '7' : '10'}
             fill="#ffffff"
             filter="url(#textShadowSD)"
@@ -66,7 +74,7 @@ export const SanDiegoSkyline: React.FC<SanDiegoSkylineProps> = ({ scrollX, heigh
 
         {/* Coastal California Mountains */}
         <path
-          d="M0,280 Q350,210 700,240 T1400,200 T2100,230 L2800,250 L2800,340 L0,340 Z"
+          d="M-1200,280 Q-600,230 0,280 Q350,210 700,240 T1400,200 T2100,230 L2800,250 L2800,340 L-1200,340 Z"
           fill={backFill}
           opacity="0.4"
         />
@@ -131,7 +139,7 @@ export const SanDiegoSkyline: React.FC<SanDiegoSkylineProps> = ({ scrollX, heigh
         </g>
 
         {/* San Diego Bay Water & Marina Sailboats */}
-        <rect x="0" y="325" width="850" height="30" fill="url(#sdWaterBlue)" />
+        <rect x="-1200" y="325" width="4000" height="30" fill="url(#sdWaterBlue)" />
         {[180, 300, 420].map((sx, i) => (
           <g key={i} fill={silhouetteFill} opacity="0.85">
             <path d={`M${sx - 12},330 L${sx + 15},330 L${sx + 11},335 L${sx - 9},335 Z`} />
@@ -152,36 +160,42 @@ export const SanDiegoSkyline: React.FC<SanDiegoSkylineProps> = ({ scrollX, heigh
 
         {/* ================= CONTINUOUS RUNWAY WITH CLEAN DASHED CENTERLINE ================= */}
         {/* Runway Tarmac base */}
-        <rect x="0" y="330" width="2800" height="190" fill="url(#sdTarmacBlue)" />
+        <rect x="-1200" y="330" width="4000" height="190" fill="url(#sdTarmacBlue)" />
         {/* Solid Runway edge line */}
-        <line x1="0" y1="344" x2="2800" y2="344" stroke="#ffffff" strokeWidth="3" opacity="0.85" />
+        <line x1="-1200" y1="344" x2="2800" y2="344" stroke="#ffffff" strokeWidth="3" opacity="0.85" />
 
         {/* Clean, continuous dashed centerline across the entire runway */}
-        {Array.from({ length: 44 }).map((_, i) => (
-          <line
-            key={i}
-            x1={i * 65}
-            y1="380"
-            x2={i * 65 + 40}
-            y2="380"
-            stroke="#ffffff"
-            strokeWidth="5"
-            strokeDasharray="40 25"
-            opacity="0.85"
-            strokeLinecap="round"
-          />
-        ))}
+        {Array.from({ length: 62 }).map((_, idx) => {
+          const i = idx - 18;
+          return (
+            <line
+              key={idx}
+              x1={i * 65}
+              y1="380"
+              x2={i * 65 + 40}
+              y2="380"
+              stroke="#ffffff"
+              strokeWidth="5"
+              strokeDasharray="40 25"
+              opacity="0.85"
+              strokeLinecap="round"
+            />
+          );
+        })}
 
         {/* Continuous Runway Edge Inset Lights */}
-        {Array.from({ length: 38 }).map((_, i) => (
-          <circle
-            key={i}
-            cx={i * 74 + 30}
-            cy={342}
-            r={2.5}
-            fill={i < 4 ? '#22c55e' : '#bae6fd'}
-          />
-        ))}
+        {Array.from({ length: 54 }).map((_, idx) => {
+          const i = idx - 16;
+          return (
+            <circle
+              key={idx}
+              cx={i * 74 + 30}
+              cy={342}
+              r={2.5}
+              fill={i < 4 && i >= 0 ? '#22c55e' : '#bae6fd'}
+            />
+          );
+        })}
       </svg>
     </div>
   );

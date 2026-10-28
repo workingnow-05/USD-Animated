@@ -32,8 +32,7 @@ export default function InvestmentSection({ selectedProgram, studentName = '' })
             <h3>Need help financing your degree?</h3>
             <p>Get expert guidance on education loans and refinancing, and compare offers from multiple lenders on FundRight</p>
             <div className="investment-support__actions">
-              <a className="investment-support__team" href="mailto:indiaadmission@sandiego.edu">Talk to Our Team</a>
-              <a className="investment-support__fundright" href="https://gradright.com/financing/" target="_blank" rel="noreferrer">Explore FundRight</a>
+              <a className="investment-support__fundright investment-support__team" href="https://gradright.com/financing/" target="_blank" rel="noreferrer">Explore FundRight</a>
             </div>
             <div className="investment-support__contact">
               <a className="investment-support__detail" href="tel:+917428144436"><img src={`${assets}phone.svg`} alt="" />+91 7428144436</a>

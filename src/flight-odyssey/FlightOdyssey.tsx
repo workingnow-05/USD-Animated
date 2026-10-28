@@ -12,8 +12,8 @@ import { Airplane2D } from './components/Airplane2D';
 import { ParallaxLandscape } from './components/ParallaxLandscape';
 import './flight-odyssey.css';
 
-// Total animation duration: 6.5 seconds (strictly 6-7 seconds)
-const FLIGHT_DURATION_SECONDS = 6.5;
+// Total animation duration: 6.0 seconds (strictly 6 seconds)
+const FLIGHT_DURATION_SECONDS = 6.0;
 
 export default function FlightOdyssey({ onComplete }: { onComplete: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -65,62 +65,63 @@ export default function FlightOdyssey({ onComplete }: { onComplete: () => void }
   }, []);
 
   const getPhase = (pct: number): FlightPhase => {
-    if (pct < 36) return 'takeoff';
-    if (pct < 74) return 'cruise';
-    if (pct < 89) return 'descent';
+    if (pct < 42) return 'takeoff';
+    if (pct < 70) return 'cruise';
+    if (pct < 88) return 'descent';
     if (pct < 98) return 'landing';
     return 'arrived';
   };
 
   // Real flight physics calculations:
-  // 1. Takeoff roll (0% - 18%): Slow acceleration, level on runway wheels
-  // 2. Eagle Climb (18% - 36%): Front part rotates UP first (-13° to 0°), smooth climb
-  // 3. Constant Cruise (36% - 74%): Constant speed (550 kts), perfectly level (0°)
-  // 4. Smooth Descent (74% - 89%): Gentle glide slope, nose tilts slightly down (+2.8°)
-  // 5. Flare (89% - 92%): Levels out smoothly to 0° right before touchdown
-  // 6. Touchdown & Rollout (92% - 100%): Tire screech, smooth deceleration, stops dead center
+  // 1. Full Takeoff roll (0% - 26%): Accelerates across India runway to the very last edge
+  // 2. Eagle Climb (26% - 42%): Liftoff right at the edge, front rotates UP first (-13° to 0°)
+  // 3. Constant Cruise (42% - 70%): Constant speed (550 kts), perfectly level (0°)
+  // 4. Smooth Descent (70% - 88%): Gentle glide slope toward San Diego runway ahead
+  // 5. Flare (88% - 92%): Levels out smoothly to 0° right before touchdown
+  // 6. Touchdown & Rollout (92% - 100%): Flat on wheels (0°), uniform deceleration to dead center
   const computeTelemetry = (pct: number): Telemetry => {
     let alt = 0;
     let spd = 0;
     let pitch = 0;
     let gear = true;
 
-    if (pct < 18) {
-      // Slow takeoff start on India runway - gradual quadratic acceleration
-      const t = pct / 18;
+    if (pct < 26) {
+      // Long takeoff roll across India runway tarmac towards the very edge
+      const t = pct / 26;
+      const accelT = Math.pow(t, 1.6);
       alt = 0;
-      spd = Math.round(Math.pow(t, 1.8) * 165);
+      spd = Math.round(accelT * 175);
       pitch = 0;
       gear = true;
-    } else if (pct < 36) {
-      // Liftoff & Eagle climb: Front part goes up first (-13° to 0°)
-      const t = (pct - 18) / 18;
+    } else if (pct < 42) {
+      // Eagle Liftoff & climb right at the very edge of the runway
+      const t = (pct - 26) / 16;
       const smoothT = t * t * (3 - 2 * t);
       alt = Math.round(smoothT * 38000);
-      spd = Math.round(165 + t * 385);
+      spd = Math.round(175 + t * 375);
       // Nose-up pitch: front part rotates up first like an eagle, smoothly leveling out
       pitch = -13.0 * Math.cos(t * (Math.PI / 2));
-      gear = pct < 25; // Gear retracts after positive rate of climb
-    } else if (pct < 74) {
+      gear = pct < 33; // Gear retracts after positive rate of climb
+    } else if (pct < 70) {
       // Constant Cruise: Stable altitude, constant speed, completely level
       alt = 38000;
       spd = 550;
       pitch = 0;
       gear = false;
-    } else if (pct < 89) {
+    } else if (pct < 88) {
       // Smooth descent into San Diego: Glide slope with slight nose-down tilt
-      const t = (pct - 74) / 15;
+      const t = (pct - 70) / 18;
       const smoothT = 0.5 - 0.5 * Math.cos(t * Math.PI);
       alt = Math.round(38000 * (1 - smoothT * 0.88));
       spd = Math.round(550 - t * 320);
-      pitch = 2.8 * Math.sin(t * Math.PI); // Front tilts slightly downward along glide path
-      gear = pct >= 82; // Gear extends on final approach
+      pitch = 2.5 * Math.sin(t * Math.PI);
+      gear = pct >= 80;
     } else if (pct < 92) {
       // Smooth landing flare: Nose gently levels out from descent pitch to 0°
-      const t = (pct - 89) / 3;
+      const t = (pct - 88) / 4;
       alt = Math.round(4560 * (1 - t));
       spd = Math.round(230 - t * 85);
-      pitch = 2.8 * (1 - t); // Levels to 0°
+      pitch = 2.5 * (1 - t); // Levels to 0°
       gear = true;
     } else {
       // Touchdown & Rollout: Flat on wheels (0°), decelerating smoothly to stop
@@ -182,7 +183,7 @@ export default function FlightOdyssey({ onComplete }: { onComplete: () => void }
           const next = prev + increment;
           if (next >= 100) {
             setIsPlaying(false);
-            soundEngine.stop();
+            soundEngine.onFlightComplete();
             return 100;
           }
           return next;
@@ -200,6 +201,38 @@ export default function FlightOdyssey({ onComplete }: { onComplete: () => void }
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
   }, [updateLoop]);
+
+  const handleReplay = () => {
+    setProgress(0);
+    setIsPlaying(true);
+    soundEngine.stop();
+    if (!isMuted) {
+      soundEngine.startFlightAudio(0);
+    }
+  };
+
+  // Spacebar and mute hotkeys
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (progress >= 99) {
+          handleReplay();
+        } else {
+          setIsPlaying((p) => {
+            if (!p && !isMuted) soundEngine.startFlightAudio(progress);
+            if (p) soundEngine.stop();
+            return !p;
+          });
+        }
+      } else if (e.code === 'KeyM') {
+        const nextMuted = soundEngine.toggleMute();
+        setIsMuted(nextMuted);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [progress, isMuted]);
 
   // ================= RESPONSIVE GEOMETRY & BREAKPOINTS =================
   const { width, height } = dimensions;
@@ -241,60 +274,66 @@ export default function FlightOdyssey({ onComplete }: { onComplete: () => void }
   let planeX = width * 0.14;
   let planeY = groundPlaneY;
 
-  if (progress < 18) {
-    // 1. Slow takeoff roll in India with smooth quadratic acceleration
-    const t = progress / 18;
-    const accelT = Math.pow(t, 1.8);
-    const startX = width < 640 ? width * 0.03 : width * 0.05;
-    const rollDistance = width < 640 ? width * 0.14 : width * 0.16;
+  const startX = width < 640 ? width * 0.02 : width * 0.04;
+  const rollDistance = width < 640 ? width * 0.28 : width * 0.33;
+  const liftoffX = startX + rollDistance;
+  const targetCruiseX = width < 640 ? width * 0.28 : width * 0.34;
+  const approachX = centerLandingX - (width < 640 ? 35 : 55);
+
+  if (progress < 26) {
+    // 1. Takeoff roll across India runway tarmac towards the very edge
+    const t = progress / 26;
+    const accelT = Math.pow(t, 1.6);
     planeX = startX + accelT * rollDistance;
     planeY = groundPlaneY;
-  } else if (progress < 36) {
-    // 2. Liftoff & Eagle climb: Front part goes up first, climbing gracefully
-    const t = (progress - 18) / 18;
+  } else if (progress < 42) {
+    // 2. Liftoff at the very edge of runway & Eagle climb: Front part rotates UP first
+    const t = (progress - 26) / 16;
     const smoothT = t * t * (3 - 2 * t);
-    const startClimbX = width < 640 ? width * 0.17 : width * 0.21;
-    const targetCruiseX = width < 640 ? width * 0.28 : width * 0.33;
-    planeX = startClimbX + (targetCruiseX - startClimbX) * t;
+    planeX = liftoffX + (targetCruiseX - liftoffX) * t;
     planeY = groundPlaneY - (groundPlaneY - cruisePlaneY) * smoothT;
-  } else if (progress < 74) {
-    // 3. Constant Cruise: Constant speed, steady position with subtle aerodynamic air cushion
-    planeX = width < 640 ? width * 0.28 : width * 0.33;
-    const t = (progress - 36) / 38;
-    planeY = cruisePlaneY + Math.sin(t * 7.5) * 3.5;
-  } else if (progress < 89) {
-    // 4. Smooth descent: Gliding smoothly toward San Diego runway
-    const t = (progress - 74) / 15;
+  } else if (progress < 70) {
+    // 3. Constant Cruise: Constant speed, steady position with subtle aerodynamic cushioning
+    planeX = targetCruiseX;
+    const t = (progress - 42) / 28;
+    planeY = cruisePlaneY + Math.sin(t * 6.28) * 2.5;
+  } else if (progress < 88) {
+    // 4. Smooth descent toward San Diego runway ahead (new forward-approaching version)
+    const t = (progress - 70) / 18;
     const smoothT = t * t * (3 - 2 * t);
-    const startX = width < 640 ? width * 0.28 : width * 0.33;
-    const approachX = centerLandingX - (width < 640 ? 35 : 55);
-    planeX = startX + (approachX - startX) * smoothT;
-    planeY = cruisePlaneY + (groundPlaneY - cruisePlaneY) * 0.76 * smoothT;
+    planeX = targetCruiseX + (approachX - targetCruiseX) * smoothT;
+    planeY = cruisePlaneY + (groundPlaneY - cruisePlaneY) * 0.78 * smoothT;
   } else if (progress < 92) {
     // 5. Landing flare: Gentle cushioning down to the runway surface
-    const t = (progress - 89) / 3;
+    const t = (progress - 88) / 4;
     const smoothT = 0.5 - 0.5 * Math.cos(t * Math.PI);
-    const flareStartX = centerLandingX - (width < 640 ? 35 : 55);
-    planeX = flareStartX + smoothT * (width < 640 ? 25 : 35);
-    planeY = cruisePlaneY + (groundPlaneY - cruisePlaneY) * (0.76 + smoothT * 0.24);
+    const flareStartY = cruisePlaneY + (groundPlaneY - cruisePlaneY) * 0.78;
+    planeX = approachX + (centerLandingX - approachX) * (0.25 * t);
+    planeY = flareStartY + (groundPlaneY - flareStartY) * smoothT;
   } else {
     // 6. Touchdown & Rollout: Lands and decelerates smoothly directly to screen center
     const t = (progress - 92) / 8;
-    const rollEase = 1 - Math.pow(1 - t, 2.2);
-    const rolloutOffset = width < 640 ? 12 : 20;
-    planeX = centerLandingX - rolloutOffset + rollEase * rolloutOffset;
-    const dampBounce = Math.exp(-t * 9) * Math.sin(t * 22) * 3.2;
+    const rollEase = 1 - Math.pow(1 - t, 2.0);
+    planeX = approachX + (centerLandingX - approachX) * (0.25 + 0.75 * rollEase);
+    const dampBounce = Math.exp(-t * 12) * Math.sin(t * 24) * 2.5;
     planeY = groundPlaneY + dampBounce;
   }
 
-  // India runway scrolls away smoothly during climb
-  const indiaScrollX = Math.min(2400, Math.pow(progress / 18, 1.8) * 320 + Math.max(0, progress - 18) * 140);
-  const showIndia = progress < 34;
+  // India runway scrolls under wheels towards the very edge before liftoff
+  const rollT = progress / 26;
+  const accelT = Math.pow(Math.min(1, rollT), 1.6);
+  const indiaScrollX = progress < 26
+    ? accelT * 1400
+    : 1400 + ((progress - 26) / 16) * 1000;
+  const showIndia = progress < 42;
 
-  // San Diego runway arrives on approach (~81%) to meet plane at touchdown (92%)
-  const showSanDiego = progress >= 81;
-  const sdProgress = Math.max(0, progress - 81);
-  const sanDiegoScrollX = Math.max(0, 880 - Math.pow(sdProgress / 19, 0.88) * 880);
+  // San Diego landscape emerges ahead of the plane from the forward future (on the right)
+  // and smoothly streams from right to left as the airplane lands on it uniformly (new version)
+  const showSanDiego = progress >= 70;
+  const initialForwardOffset = width < 640 ? Math.min(300, width * 0.65) : Math.min(750, width * 0.52);
+  const sdT = Math.max(0, Math.min(1, (progress - 70) / 30));
+  const easeRemaining = Math.pow(1 - sdT, 1.35);
+  const sanDiegoTranslateX = initialForwardOffset * easeRemaining;
 
   const parallaxScroll = progress * 1350;
   const altitudeRatio = Math.max(0, Math.min(1, (groundPlaneY - planeY) / (groundPlaneY - cruisePlaneY)));
@@ -302,7 +341,18 @@ export default function FlightOdyssey({ onComplete }: { onComplete: () => void }
   return (
     <div
       ref={containerRef}
-      className="flight-odyssey relative w-full h-full overflow-hidden select-none bg-sky-600 font-sans"
+      onClick={() => {
+        if (progress >= 99) {
+          handleReplay();
+        } else {
+          setIsPlaying((p) => {
+            if (!p && !isMuted) soundEngine.startFlightAudio(progress);
+            if (p) soundEngine.stop();
+            return !p;
+          });
+        }
+      }}
+      className="flight-odyssey relative w-full h-full min-h-[420px] sm:min-h-[480px] md:min-h-[580px] lg:min-h-[660px] overflow-hidden select-none bg-sky-600 font-sans cursor-pointer"
       style={{
         // Full responsive adaptation whether rendered standalone or embedded in website card/section
         minHeight: '100%',
@@ -319,19 +369,19 @@ export default function FlightOdyssey({ onComplete }: { onComplete: () => void }
       {showIndia && (
         <div
           className="transition-opacity duration-300"
-          style={{ opacity: progress > 26 ? Math.max(0, 1 - (progress - 26) / 8) : 1 }}
+          style={{ opacity: progress > 34 ? Math.max(0, 1 - (progress - 34) / 8) : 1 }}
         >
           <IndiaSkyline scrollX={indiaScrollX} height={skylineHeight} width={width} />
         </div>
       )}
 
-      {/* 3. San Diego Skyline & Continuous Runway */}
+      {/* 3. San Diego Skyline & Continuous Runway (Approaches from ahead in the future) */}
       {showSanDiego && (
         <div
           className="transition-opacity duration-300"
-          style={{ opacity: progress < 85 ? (progress - 81) / 4 : 1 }}
+          style={{ opacity: progress < 76 ? (progress - 70) / 6 : 1 }}
         >
-          <SanDiegoSkyline scrollX={sanDiegoScrollX} height={skylineHeight} width={width} />
+          <SanDiegoSkyline translateX={sanDiegoTranslateX} height={skylineHeight} width={width} />
         </div>
       )}
 
@@ -342,8 +392,8 @@ export default function FlightOdyssey({ onComplete }: { onComplete: () => void }
         pitchDeg={telemetry.pitchDeg}
         scale={planeScale}
         gearDown={telemetry.gearDown}
-        isTouchdown={progress >= 91.8 && progress <= 95.0}
-        thrustRatio={progress < 18 ? 0.3 + (progress / 18) * 0.7 : progress < 36 ? 1 : 0.65}
+        isTouchdown={progress >= 91.5 && progress <= 94.5}
+        thrustRatio={progress < 26 ? 0.3 + (progress / 26) * 0.7 : progress < 42 ? 1 : 0.65}
       />
 
     </div>

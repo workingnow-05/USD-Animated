@@ -30,6 +30,7 @@
 .investment-support__actions { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
 .investment-support__team { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 8px 16px; border-radius: 4px; background: #1a73e8; color: #fff; box-shadow: 0 1px 0 rgb(0 0 0 / 5%); font: 500 11px/16px 'Plus Jakarta Sans', 'Inter', sans-serif; }
 .investment-support__fundright { color: #1a73e8; font-size: 11px; font-weight: 500; line-height: 16px; }
+.investment-support__team.investment-support__fundright { color: #fff; }
 .investment-support__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; margin-top: 12px; }
 .investment-support__detail { display: flex; align-items: center; gap: 8px; color: #314158; font-size: 11px; line-height: 16px; font-weight: 400; overflow-wrap: anywhere; }
 .investment-support__detail img { width: 14px; height: 14px; flex-shrink: 0; }

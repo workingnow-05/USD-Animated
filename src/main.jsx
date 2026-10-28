@@ -160,7 +160,7 @@ const alumniCompanyLogos = {
   'AXA XL': '/landing/logos/alumni/axa-xl-real.png',
   'Intel Habana': '/landing/logos/alumni/habana-real.png',
   RADCOM: '/landing/logos/alumni/radcom-real.png',
-  'First American': '/landing/logos/first-american-alumni.svg',
+  'First American': '/landing/logos/first-american-alumni.png',
   Dell: '/landing/logos/alumni/dell.svg',
   EY: '/landing/logos/alumni/ey.svg',
   DXC: '/landing/logos/alumni/dxc.svg',
@@ -283,11 +283,11 @@ function ArrowButton({ direction, label, onClick, disabled = false }) {
 
 function PeopleCarousel({ className, title, description, previousLabel, nextLabel, children }) {
   const rowRef = useRef(null);
-  const [scrollState, setScrollState] = useState({ previous: false, next: false });
+  const [scrollState, setScrollState] = useState({ previous: false, next: false, canScroll: false });
   useEffect(() => {
     const row = rowRef.current;
     if (!row) return;
-    const update = () => setScrollState({ previous: row.scrollLeft > 2, next: row.scrollLeft + row.clientWidth < row.scrollWidth - 2 });
+    const update = () => setScrollState({ previous: row.scrollLeft > 2, next: row.scrollLeft + row.clientWidth < row.scrollWidth - 2, canScroll: row.scrollWidth > row.clientWidth + 2 });
     update();
     const observer = new ResizeObserver(update);
     observer.observe(row);
@@ -302,15 +302,19 @@ function PeopleCarousel({ className, title, description, previousLabel, nextLabe
     row.scrollBy({ left: direction * ((card?.getBoundingClientRect().width || row.clientWidth) + gap), behavior: 'smooth' });
   };
   return <article className={`fl-people-panel ${className}`}>
-    <div className="fl-panel-heading"><div><h3>{title}</h3>{description && <p>{description}</p>}</div><div className="fl-carousel-buttons"><ArrowButton direction="left" label={previousLabel} onClick={() => move(-1)} disabled={!scrollState.previous} /><ArrowButton direction="right" label={nextLabel} onClick={() => move(1)} disabled={!scrollState.next} /></div></div>
-    <div ref={rowRef} className={`fl-person-grid ${className === 'fl-faculty-panel' ? 'fl-testimonial-grid' : ''}`} onScroll={() => { const row = rowRef.current; if (row) setScrollState({ previous: row.scrollLeft > 2, next: row.scrollLeft + row.clientWidth < row.scrollWidth - 2 }); }} tabIndex={0} aria-label={title}>{children}</div>
+    <div className="fl-panel-heading"><div><h3>{title}</h3>{description && <p>{description}</p>}</div>{scrollState.canScroll && <div className="fl-carousel-buttons"><ArrowButton direction="left" label={previousLabel} onClick={() => move(-1)} disabled={!scrollState.previous} /><ArrowButton direction="right" label={nextLabel} onClick={() => move(1)} disabled={!scrollState.next} /></div>}</div>
+    <div ref={rowRef} className={`fl-person-grid ${className === 'fl-faculty-panel' ? 'fl-testimonial-grid' : ''}`} onScroll={() => { const row = rowRef.current; if (row) setScrollState({ previous: row.scrollLeft > 2, next: row.scrollLeft + row.clientWidth < row.scrollWidth - 2, canScroll: row.scrollWidth > row.clientWidth + 2 }); }} tabIndex={0} aria-label={title}>{children}</div>
   </article>;
 }
 
 function LandingFooter() {
   const social = [
-    ['facebook', 'Facebook', '#'], ['x', 'X', '#'], ['instagram', 'Instagram', '#'],
-    ['linkedin-in', 'LinkedIn', '#'], ['vimeo', 'Vimeo', '#'], ['youtube', 'YouTube', '#'],
+    ['facebook', 'Facebook', 'https://www.facebook.com/uofsandiego'],
+    ['x', 'X', 'https://x.com/uofsandiego'],
+    ['instagram', 'Instagram', 'https://www.instagram.com/uofsandiego/'],
+    ['linkedin-in', 'LinkedIn', 'https://www.linkedin.com/school/university-of-san-diego/'],
+    ['vimeo', 'Vimeo', 'https://vimeo.com/usandiego'],
+    ['youtube', 'YouTube', 'https://www.youtube.com/user/USanDiego'],
   ];
   return <footer className="fl-footer">
     <div className="fl-footer__grid">
@@ -320,8 +324,8 @@ function LandingFooter() {
         <small>(Wall Street Journal Annual Ranking 2025)</small>
         <div className="fl-footer__accreditation"><span>Accredited by</span><img className="fl-wasc-logo" src="/landing/wasc-footer-logo.png" alt="WASC Accrediting Commission for Schools" /></div>
       </div>
-      <nav className="fl-footer__links" aria-label="Footer links"><h3>LINKS</h3><a href="#privacy">Privacy</a><a href="#terms">Terms and Conditions</a><a href="#campus">Main Campus Site</a></nav>
-    <div className="fl-footer__contact"><h3>CONTACT</h3><a href="https://maps.google.com/?q=5998+Alcalá+Park,+San+Diego,+CA+92110" target="_blank" rel="noreferrer"><span className="fl-footer__pin">⌖</span>5998 Alcalá Park, San Diego, CA 92110</a><a href="tel:+917428144436"><img src="/landing/phone.svg" alt="" />+91 7428144436</a><a href="mailto:indiaadmission@sandiego.edu"><img src="/landing/mail.svg" alt="" />indiaadmission@sandiego.edu</a></div>
+      <nav className="fl-footer__links" aria-label="Footer links"><h3>LINKS</h3><a href="https://www.sandiego.edu/its/about/policies/information-privacy.php" target="_blank" rel="noreferrer">Privacy</a><a href="https://www.sandiego.edu/its/about/policies/" target="_blank" rel="noreferrer">Terms and Conditions</a><a href="https://www.sandiego.edu/" target="_blank" rel="noreferrer">Main Campus Site</a></nav>
+    <div className="fl-footer__contact"><h3>CONTACT</h3><a href="https://maps.google.com/?q=5998+Alcalá+Park,+San+Diego,+CA+92110" target="_blank" rel="noreferrer"><span className="fl-footer__pin">⌖</span>5998 Alcalá Park, San Diego, CA 92110</a><a href="tel:+917428791703"><img src="/landing/phone.svg" alt="" />+91 7428791703</a><a href="mailto:indiaonlineadmission@sandiego.edu"><img src="/landing/mail.svg" alt="" />indiaonlineadmission@sandiego.edu</a></div>
     </div>
     <div className="fl-footer__bottom"><div className="fl-footer__socials">{social.map(([icon, label, href]) => <a key={icon} href={href} aria-label={label}><img src={`/landing/social/${icon}.svg`} alt="" /></a>)}</div><span>Copyright © 2026</span></div>
   </footer>;
@@ -382,7 +386,7 @@ function Landing({ journey }) {
     <section className="fl-hero">
       <SharedNav className="shared-nav--landing" />
       <div className="fl-hero-copy">
-        <h1>Welcome to USD, {studentName}!</h1>
+        <h1>Welcome to USD,<br />{studentName}!</h1>
         <p>Everything you need to know before you make your decision</p>
         <div className="fl-actions">
           <a className="fl-button fl-button-blue" href={enrollmentUrl} target="_blank" rel="noreferrer">Confirm your seat</a>
@@ -421,7 +425,7 @@ function Landing({ journey }) {
           <div className="fl-career-card__jobs"><div className="fl-career-card__jobs-head"><h3>Where could your skills take you?</h3><div className="fl-carousel-buttons"><ArrowButton direction="left" label="Previous career outcomes" onClick={() => setCareerPage(0)} disabled={careerPage === 0} /><ArrowButton direction="right" label="Next career outcomes" onClick={() => setCareerPage(1)} disabled={careerPage === 1} /></div></div><div aria-live="polite">{content.jobs.slice(careerPage * 2, careerPage * 2 + 2).map(([role, salary]) => <div className="fl-job" key={role}><span>{role}</span><b>{salary}</b></div>)}</div></div>
         </article>
 
-        <article className="fl-employer-strip"><h3>Where Our Alumni &amp; Students Work</h3><EmployerTicker names={content.employers} /></article>
+        <article className="fl-employer-strip"><EmployerTicker names={content.employers} /></article>
 
         <PeopleCarousel key={program} className="fl-alumni-panel" title="Meet the Indian alumni in your network " description="Graduates from USD’s on-campus, online and part-time programs — people who stood where you’re standing " previousLabel="Previous alumni" nextLabel="Next alumni">
           {(program === 'Cybersecurity (CSE)' ? cseAlumni : landingAlumni).map(([name, before, company, now], index) => <div className="fl-alumni-card" key={name}><div className="fl-person-head"><img className="fl-alumni-portrait" src={alumniPhotos[program][index]} alt={name} /><div><h4>{name}</h4><p>{before}</p></div></div><div className="fl-company">{alumniCompanyLogos[company] ? <img src={alumniCompanyLogos[company]} alt={company} /> : <strong>{company}</strong>}</div><div className="fl-down" aria-hidden="true">↓</div><div className="fl-now"><span>NOW</span><p>{now}</p></div></div>)}

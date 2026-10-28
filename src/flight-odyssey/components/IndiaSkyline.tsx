@@ -42,14 +42,15 @@ export const IndiaSkyline: React.FC<IndiaSkylineProps> = ({ scrollX, height = 52
         </defs>
 
         {/* ================= SKY TYPOGRAPHY: "INDIA" WRITTEN IN WHITE IN THE SKY ================= */}
+        {/* Clean white INDIA text in sky */}
         <g id="sky-india-text">
           <text
             x={cloudCenterX}
             y={cloudCenterY}
             textAnchor="middle"
-            fontFamily="'Plus Jakarta Sans', system-ui, sans-serif"
-            fontSize={width < 640 ? '28' : '36'}
-            fontWeight="800"
+            fontFamily="'Sofia Sans', system-ui, sans-serif"
+            fontSize={width < 640 ? '28' : '38'}
+            fontWeight="700"
             letterSpacing={width < 640 ? '8' : '12'}
             fill="#ffffff"
             filter="url(#textShadowIndia)"

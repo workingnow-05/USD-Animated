@@ -758,6 +758,49 @@ body{overscroll-behavior-y:none}
 .welcome-header{left:50%;width:min(1200px,calc(100% - 64px));transform:translateX(-50%)}
 .welcome-content{width:min(1200px,calc(100% - 64px));margin:0 auto;padding-left:0;padding-right:0}
 @media(max-width:520px){.welcome-header{width:calc(100% - 32px)}.welcome-content{width:calc(100% - 32px)}}
+
+/* Closing CTA: give the mobile composition a deliberate visual hierarchy. */
+@media(max-width:620px){
+  .figma-landing .fl-final-cta{height:640px}
+  .figma-landing .fl-final-cta__copy{top:218px;width:calc(100% - 40px);gap:13px}
+  .figma-landing .fl-final-cta__copy h2{font-size:clamp(24px,7vw,30px);line-height:1.12;letter-spacing:-.5px}
+  .figma-landing .fl-final-cta__body{gap:5px}
+  .figma-landing .fl-final-cta__copy p{font-size:12px;line-height:18px}
+  .figma-landing .fl-final-cta__copy .fl-button{padding:11px 22px;font-size:13px;line-height:18px}
+  .figma-landing .fl-final-cta__photo--one{left:5%;top:10px;width:26%;height:142px}
+  .figma-landing .fl-final-cta__photo--two{left:38%;top:16px;width:24%;height:126px}
+  .figma-landing .fl-final-cta__photo--three{right:4%;top:2px;width:25%;height:178px}
+  .figma-landing .fl-final-cta__photo--four{display:none}
+  .figma-landing .fl-final-cta__photo--five{display:none}
+  .figma-landing .fl-final-cta__photo--six{left:58%;bottom:-38px;width:22%;height:150px}
+  .figma-landing .fl-final-cta__photo--seven{left:14%;bottom:-46px;width:25%;height:160px}
+}
+@media(max-width:380px){
+  .figma-landing .fl-final-cta{height:600px}
+  .figma-landing .fl-final-cta__copy{top:200px;width:calc(100% - 32px)}
+  .figma-landing .fl-final-cta__copy h2{font-size:23px}
+  .figma-landing .fl-final-cta__copy p{font-size:11px;line-height:17px}
+  .figma-landing .fl-final-cta__photo--three{height:150px}
+}
+
+/* Figma frame 239:2 — portrait mobile banner composition. */
+@media(max-width:620px){
+  .figma-landing .fl-final-cta{height:874px;min-height:874px}
+  .figma-landing .fl-final-cta__copy{top:238px;width:calc(100% - 40px);gap:24px;transform:translateX(-50%)}
+  .figma-landing .fl-final-cta__copy h2{font-size:clamp(42px,9.5vw,54px);line-height:1.08;letter-spacing:-1.3px;max-width:100%}
+  .figma-landing .fl-final-cta__body{gap:4px;width:100%}
+  .figma-landing .fl-final-cta__copy p{font-size:14px;line-height:22px}
+  .figma-landing .fl-final-cta__copy .fl-button{padding:14px 32px;font-size:16px;line-height:24px;gap:10px}
+  .figma-landing .fl-final-cta__copy .fl-button img{width:16px;height:16px}
+  .figma-landing .fl-final-cta__photo--one{left:0;top:-28px;width:164px;height:151px;border-radius:50%}
+  .figma-landing .fl-final-cta__photo--two{left:auto;right:0;top:-28px;width:164px;height:151px;border-radius:50%}
+  .figma-landing .fl-final-cta__photo--three{display:none}
+  .figma-landing .fl-final-cta__photo--four{display:none}
+  .figma-landing .fl-final-cta__photo--five{display:none}
+  .figma-landing .fl-final-cta__photo--six{display:none}
+  .figma-landing .fl-final-cta__photo--seven{left:0;right:auto;bottom:auto;top:640px;width:203px;height:137px;border-radius:6px;transform:rotate(9.84deg);border:2px solid rgba(255,255,255,.6)}
+  .figma-landing .fl-final-cta__photo--three{display:block;left:auto;right:0;top:647px;width:146px;height:181px;border-radius:58px 58px 9px 9px;transform:rotate(-1deg);border:3px solid #fff}
+}
 .welcome,.flight-screen,.figma-landing{font-family:'Sofia Sans',Arial,sans-serif}
 .welcome h1,.welcome h2,.welcome h3,.welcome p,.flight-screen h1,.flight-screen h2,.flight-screen p,.figma-landing h1,.figma-landing h2,.figma-landing h3,.figma-landing h4,.figma-landing p,.figma-landing li,.figma-landing label,.figma-landing select{font-family:'Sofia Sans',Arial,sans-serif}
 .welcome button,.flight-screen button,.figma-landing .fl-button{font-family:'Spectral',Georgia,serif}
@@ -794,6 +837,19 @@ body{overscroll-behavior-y:none}
 .figma-landing .fl-footer__bottom{position:relative;min-height:20px}
 .figma-landing .fl-footer__bottom{justify-content:flex-end;gap:24px}
 .figma-landing .fl-footer__socials{position:static;order:1}
+@media(max-width:1000px){.figma-landing .fl-hero{background-position:center bottom;background-size:auto 125%}}
+@media(max-width:1080px){.welcome{background-size:cover;background-position:center bottom}}
+@media(max-width:520px){.welcome-pass__details{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:8px;row-gap:0;margin-left:0;margin-right:0;text-align:center}.welcome-pass__details>div:last-child{display:none}.welcome-pass__details dt{font-size:10px;letter-spacing:.04em}.welcome-pass__details dd{font-size:18px;margin-top:6px}}
+
+/* Full-image reason cards: keep the relevant photo visible and place the copy above a readable scrim. */
+.figma-landing .fl-reason-card__mask{inset:0;height:100%!important;background-image:linear-gradient(180deg,rgba(255,255,255,.995) 0%,rgba(255,255,255,.97) 38%,rgba(255,255,255,.82) 60%,rgba(255,255,255,.42) 79%,rgba(7,63,118,.42) 100%),var(--reason-image);background-position:center bottom;background-size:cover;background-repeat:no-repeat;mask-image:none;-webkit-mask-image:none;opacity:1}
+.figma-landing .fl-reason-grid article:nth-child(1) .fl-reason-card__mask{background-position:center 84%}
+.figma-landing .fl-reason-grid article:nth-child(2) .fl-reason-card__mask{background-position:center 88%}
+.figma-landing .fl-reason-grid article:nth-child(3) .fl-reason-card__mask{background-position:center 80%}
+.figma-landing .fl-reason-grid article:nth-child(4) .fl-reason-card__mask{background-position:center 82%}
+.figma-landing .fl-employer-strip{height:132px;min-height:132px;padding:36px 0;display:flex;align-items:center;justify-content:center}
+.figma-landing .fl-employer-strip .fl-logo-ticker{margin-top:0}
+@media(max-width:620px){.figma-landing .fl-employer-strip{height:104px;min-height:104px;padding:24px 0}.figma-landing .fl-employer-strip .fl-logo-ticker{margin-top:0}}
 .figma-landing .fl-footer__bottom>span{margin-left:0;order:2}
 .figma-landing .fl-wasc-logo{display:block;width:174px;height:auto}
 @media(max-width:900px){.shared-nav{width:calc(100% - 40px)}.shared-nav nav{display:none}.shared-nav__menu{display:block}.shared-nav>a img{width:165px}.shared-nav--welcome{width:calc(100% - 40px)}}
