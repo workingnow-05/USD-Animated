@@ -116,7 +116,7 @@ function WelcomePass({ journey, update, errors, takeOff }) {
     </div>
     <div className="welcome-pass__fields">
       <p>YOUR BOARDING PASS TO SAN DIEGO</p>
-      <label><span className="sr-only">Full name</span><input value={journey.name} onChange={(e) => update('name', e.target.value)} placeholder="ENTER FULL NAME" autoComplete="name" aria-invalid={Boolean(errors.name)} />{errors.name && <small className="welcome-pass__error">{errors.name}</small>}</label>
+      <label><span className="sr-only">Full name</span><input style={{ '--name-length': Math.max(1, journey.name.length) }} value={journey.name} onChange={(e) => update('name', e.target.value)} placeholder="ENTER FULL NAME" autoComplete="name" aria-invalid={Boolean(errors.name)} />{errors.name && <small className="welcome-pass__error">{errors.name}</small>}</label>
       <WelcomeProgramPicker value={journey.program} onChange={(program) => update('program', program)} error={errors.program} />
     </div>
     <dl className="welcome-pass__details">{details.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
