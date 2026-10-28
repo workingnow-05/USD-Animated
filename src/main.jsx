@@ -11,11 +11,14 @@ const defaultJourney = { name: '', program: '', origin: 'Delhi', destination: 'S
 const images = { hero: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2200&q=88', campus: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85', class: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85', studio: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85', students: 'https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=85', sunset: 'https://images.unsplash.com/photo-1470214304380-aadaedcfff1b?auto=format&fit=crop&w=900&q=85', city: 'https://images.unsplash.com/photo-1531219572328-a0171b4448a3?auto=format&fit=crop&w=1600&q=85' };
 
 function App() {
-  const [journey, setJourney] = useState(defaultJourney); const [stage, setStage] = useState('onboarding'); const [errors, setErrors] = useState({});
+  const [journey, setJourney] = useState(defaultJourney);
+  const [stage, setStage] = useState(() => sessionStorage.getItem('usd-stage') === 'landing' ? 'landing' : 'onboarding');
+  const [errors, setErrors] = useState({});
   useEffect(() => { const saved = sessionStorage.getItem('usd-journey'); if (saved) setJourney(JSON.parse(saved)); }, []);
   const update = (key, value) => { setJourney((current) => ({ ...current, [key]: value })); setErrors((current) => (current[key] ? { ...current, [key]: undefined } : current)); };
-  const takeOff = (event) => { event.preventDefault(); const next = {}; if (!journey.name.trim()) next.name = 'Please enter your name'; if (!journey.program) next.program = 'Choose your program'; setErrors(next); if (Object.keys(next).length) return; sessionStorage.setItem('usd-journey', JSON.stringify(journey)); setStage('flight'); };
-  if (stage === 'flight') return <FlightOdyssey onComplete={() => setStage('landing')} />; if (stage === 'landing') return <Landing journey={journey} />; return <Onboarding journey={journey} update={update} errors={errors} takeOff={takeOff} />;
+  const takeOff = (event) => { event.preventDefault(); const next = {}; if (!journey.name.trim()) next.name = 'Please enter your name'; if (!journey.program) next.program = 'Choose your program'; setErrors(next); if (Object.keys(next).length) return; sessionStorage.setItem('usd-journey', JSON.stringify(journey)); sessionStorage.setItem('usd-stage', 'flight'); setStage('flight'); };
+  const completeFlight = () => { sessionStorage.setItem('usd-stage', 'landing'); setStage('landing'); };
+  if (stage === 'flight') return <FlightOdyssey onComplete={completeFlight} />; if (stage === 'landing') return <Landing journey={journey} />; return <Onboarding journey={journey} update={update} errors={errors} takeOff={takeOff} />;
 }
 
 function Header({ light = false }) { return <header className={`topbar ${light ? 'topbar--light' : ''}`}><div className="wordmark">INSTINCT <span>/</span> USD</div><nav><a href="#program">PROGRAMS</a><a href="#why">HOW IT WORKS</a><a href="#experience">THE EXPERIENCE</a><a href="#ready">MARK YOUR INTEREST</a><a href="#faq">FAQS</a></nav><a className="nav-cta" href="#program">BROWSE PROGRAMS</a><button className="menu-btn" aria-label="Open navigation">☰</button></header>; }
