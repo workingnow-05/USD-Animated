@@ -5,23 +5,27 @@ const PROGRAMS = {
   'Cybersecurity (CSE)': {
     short: 'MS Cybersecurity Engineering',
     tuition: 73620,
+    mandatoryFees: 0,
     living: 28500,
     duration: '3 semesters',
+    supportRate: 0,
   },
   'MS in Applied AI (AAI)': {
     short: 'MS in Applied Artificial Intelligence',
-    tuition: 51600,
-    living: 19000,
+    tuition: 60000,
+    mandatoryFees: 1620,
+    living: 28500,
     duration: '20 months',
+    supportRate: 0.2,
   },
 };
 
-const INR_PER_USD = 96;
+const INR_PER_USD = 94;
 const MONTHLY_EARNINGS = 1527;
-const SEMESTER_EARNINGS = 1172352;
-const SUMMER_EARNINGS = 439632;
+const SEMESTER_EARNINGS = 1865383;
+const SUMMER_EARNINGS = 1212600;
 const TOTAL_EARNINGS_INR = SEMESTER_EARNINGS + SUMMER_EARNINGS;
-const STUDY_ACCRUAL_FACTOR = 9376604 / 6921216;
+const STUDY_ACCRUAL_FACTOR = 8799215 / 6495024;
 const ENROLLMENT_URL = 'https://india.sandiego.edu/usd-enrollment-commitment-form/';
 const BROCHURE_URL = 'https://drive.google.com/file/d/1D1nvlOijiGqCmVAjzRUOIb60_sWvGwLi/view?usp=drive_link';
 
@@ -52,13 +56,16 @@ export default function CostCalculatorPage() {
   const params = useMemo(() => new URLSearchParams(window.location.search), []);
   const [program, setProgram] = useState(PROGRAMS[params.get('program')] ? params.get('program') : 'MS in Applied AI (AAI)');
   const [funding, setFunding] = useState(params.get('funding') || 'Education loan');
-  const [scholarship, setScholarship] = useState(params.has('scholarship') ? Math.max(0, Number(params.get('scholarship')) || 0) : 10000);
+  const [scholarship, setScholarship] = useState(params.has('scholarship') ? Math.max(0, Number(params.get('scholarship')) || 0) : 15000);
   const student = params.get('student') || 'Future Torero';
   const config = PROGRAMS[program];
 
   const result = useMemo(() => {
-    const grossUsd = config.tuition + config.living;
-    const netUsd = Math.max(0, grossUsd - scholarship);
+    const tuitionAndFeesUsd = config.tuition + config.mandatoryFees;
+    const supportedFeesAndLivingUsd = (config.mandatoryFees + config.living) * config.supportRate;
+    const effectiveScholarshipUsd = Math.min(config.tuition, scholarship) + supportedFeesAndLivingUsd;
+    const grossUsd = tuitionAndFeesUsd + config.living;
+    const netUsd = Math.max(0, grossUsd - effectiveScholarshipUsd);
     const netInr = netUsd * INR_PER_USD;
     const workLoanInr = Math.max(0, netInr - TOTAL_EARNINGS_INR);
     const withoutWorkLoanInr = netInr;
@@ -66,7 +73,7 @@ export default function CostCalculatorPage() {
     const withoutOwed = withoutWorkLoanInr * STUDY_ACCRUAL_FACTOR;
     const withEmi = monthlyPayment(withOwed / INR_PER_USD);
     const withoutEmi = monthlyPayment(withoutOwed / INR_PER_USD);
-    return { grossUsd, netUsd, netInr, workLoanInr, withoutWorkLoanInr, withOwed, withoutOwed, withEmi, withoutEmi };
+    return { grossUsd, tuitionAndFeesUsd, effectiveScholarshipUsd, netUsd, netInr, workLoanInr, withoutWorkLoanInr, withOwed, withoutOwed, withEmi, withoutEmi };
   }, [config, scholarship]);
 
   return <main className="cost-page">
@@ -88,9 +95,9 @@ export default function CostCalculatorPage() {
         <section className="cost-summary" aria-labelledby="summary-title">
           <div><span id="summary-title">ESTIMATED PROGRAM COST</span><strong>{usd(result.netUsd)}</strong><small>{inr(result.netInr)} at ₹{INR_PER_USD}/USD</small></div>
           <dl>
-            <div><dt>Tuition + mandatory fees</dt><dd>{usd(config.tuition)}</dd></div>
+            <div><dt>Tuition + mandatory fees</dt><dd>{usd(result.tuitionAndFeesUsd)}</dd></div>
             <div><dt>Living, housing, meals &amp; insurance</dt><dd>{usd(config.living)}</dd></div>
-            <div className="cost-summary__deduction"><dt>Scholarship deducted</dt><dd>-{usd(scholarship)}</dd></div>
+            <div className="cost-summary__deduction"><dt>Scholarship &amp; support deducted</dt><dd>-{usd(result.effectiveScholarshipUsd)}</dd></div>
             <div><dt>Program duration</dt><dd>{config.duration}</dd></div>
           </dl>
         </section>
@@ -99,8 +106,8 @@ export default function CostCalculatorPage() {
           <span className="cost-eyebrow" id="earn-title">EARN WHILE YOU LEARN</span>
           <p>F-1 students can work on campus up to 20 hours a week at $17.75/hour — about <b>{usd(MONTHLY_EARNINGS)} a month.</b></p>
           <dl>
-            <div><dt>During semesters <span>20 hrs/wk × $17.75 × 8 months</span></dt><dd>{inr(SEMESTER_EARNINGS)}</dd></div>
-            <div><dt>Summer research / on-campus work <span>20 hrs/wk × $17.75 × 3 months</span></dt><dd>{inr(SUMMER_EARNINGS)}</dd></div>
+            <div><dt>During semesters <span>20 hrs/wk × $17.75 × 13 months</span></dt><dd>{inr(SEMESTER_EARNINGS)}</dd></div>
+            <div><dt>Summer internship <span>40 hrs/wk × $25 × 4 months</span></dt><dd>{inr(SUMMER_EARNINGS)}</dd></div>
             <div className="cost-earnings__total"><dt>Total earning potential</dt><dd>{inr(TOTAL_EARNINGS_INR)} ({usd(TOTAL_EARNINGS_INR / INR_PER_USD)})</dd></div>
           </dl>
         </section>
@@ -115,7 +122,7 @@ export default function CostCalculatorPage() {
           <a href={BROCHURE_URL} target="_blank" rel="noreferrer">Download brochure <span>↓</span></a>
           <a href="tel:+917428144436">Talk to Our Team: +91 7428144436</a>
         </div>
-        <p className="cost-disclaimer">Estimates are indicative only, to help you understand funding, ROI and financing possibilities. Actual tuition, living expenses, scholarship amounts, loan terms, exchange rates and repayment amounts may vary. The loan estimate assumes 10.25% annual interest during the study period, refinanced at 6.5% over 10 years, at ₹96 per USD. Refinancing starts after 6 months of successful employment in the US.</p>
+        <p className="cost-disclaimer">Estimates are indicative only, to help you understand funding, ROI and financing possibilities. Actual tuition, living expenses, scholarship amounts, loan terms, exchange rates and repayment amounts may vary. The loan estimate assumes 10.25% annual interest during the study period, refinanced at 6.5% over 10 years, at ₹94 per USD. Refinancing starts after 6 months of successful employment in the US.</p>
       </section>
     </div>
   </main>;
