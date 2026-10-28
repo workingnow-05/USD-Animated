@@ -82,7 +82,7 @@ export default function CostCalculatorPage() {
         <form className="cost-controls" onSubmit={(event) => event.preventDefault()}>
           <label>Program<select aria-label="Program" value={program} onChange={(event) => setProgram(event.target.value)}><option value="" disabled>Enter Program</option>{Object.keys(PROGRAMS).map((name) => <option key={name}>{name}</option>)}</select></label>
           <label>Funding<select aria-label="Funding" value={funding} onChange={(event) => setFunding(event.target.value)}><option value="" disabled>Enter Funding</option><option>Education loan</option><option>Self-funded</option><option>Family support</option></select></label>
-          <label>Scholarship (USD)<select aria-label="Scholarship" value={scholarship} onChange={(event) => setScholarship(Math.max(0, Number(event.target.value) || 0))}><option value="" disabled>Enter Scholarship</option><option value="10000">$10,000 Torero Merit Scholarship</option><option value="5000">$5,000 Scholarship</option><option value="30024">$30,024 USD Award</option><option value="0">No scholarship</option></select></label>
+          <label>Scholarship amount (USD)<input aria-label="Scholarship amount" type="number" min="0" step="1" inputMode="decimal" placeholder="Enter scholarship amount" value={scholarship || ''} onChange={(event) => setScholarship(Math.max(0, Number(event.target.value) || 0))} /></label>
         </form>
 
         <section className="cost-summary" aria-labelledby="summary-title">

@@ -16,8 +16,9 @@
 .cost-sheet__intro p { max-width: 571px; margin-top: 16px; color: #53516b; font-size: 16px; line-height: 24px; }
 .cost-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
 .cost-controls label { color: transparent; font-size: 0; }
-.cost-controls select,.cost-money-input { width: 100%; height: 42px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; color: #0b315c; font: 500 14px/1 'Inter', sans-serif; box-shadow: 0 1px 0 rgba(0,0,0,.05); }
+.cost-controls select,.cost-controls input,.cost-money-input { width: 100%; height: 42px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; color: #0b315c; font: 500 14px/1 'Inter', sans-serif; box-shadow: 0 1px 0 rgba(0,0,0,.05); }
 .cost-controls select { padding: 0 34px 0 12px; }
+.cost-controls input { padding: 0 12px; }
 .cost-money-input { display: flex; align-items: center; overflow: hidden; }
 .cost-money-input span { padding-left: 12px; color: #688199; font-weight: 600; }
 .cost-money-input input { width: 100%; height: 100%; min-width: 0; padding: 0 10px 0 5px; border: 0; outline: 0; color: #0b315c; font: 600 13px/1 'Inter', sans-serif; }
