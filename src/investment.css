@@ -1,11 +1,12 @@
 /* Figma 164:4768: 1400px frame, 1200px content, 447 / 729px columns. */
 .investment-section {
+  min-height: 611px;
   padding: 96px 80px;
   background: #fff;
   font-family: 'Inter', Arial, sans-serif;
 }
 .investment-section__inner { max-width: 1200px; margin: 0 auto; }
-.investment-section__grid { display: grid; grid-template-columns: minmax(0, 447fr) minmax(0, 729fr); gap: 24px; align-items: start; }
+.investment-section__grid { display: grid; grid-template-columns: 447px minmax(0, 1fr); gap: 48px; align-items: start; }
 .investment-section__intro h2 { color: #162456; font-size: 42px; font-weight: 600; line-height: 1.2; letter-spacing: -1.2px; }
 .investment-section__intro h2 span { color: #0074c8; }
 .investment-section .investment-section__intro p { margin-top: 12px; color: #53516b; font-size: 16px; line-height: 24px; }
@@ -22,24 +23,15 @@
 .investment-calculator__results { margin-top: 24px; }
 .investment-calculator__results > div { gap: 16px; }
 .investment-calculator__results b { white-space: nowrap; }
-.investment-support { margin-top: 48px; padding: 28px; border: 1px solid #e1effe; border-radius: 16px; background: #f4f9fd; }
-.investment-support__inner { display: grid; grid-template-columns: minmax(0, 546fr) minmax(0, 271.5fr) minmax(0, 271.5fr); max-width: 1089px; align-items: start; }
-.investment-support__intro { display: flex; gap: 16px; align-items: start; }
-.investment-support__intro > div { min-width: 0; }
-.investment-support__icon { display: grid; place-items: center; flex: 0 0 48px; height: 48px; border-radius: 50%; background: #e0effe; }
-.investment-support__intro h3 { color: #0b1c3d; font-size: 18px; font-weight: 600; line-height: 28px; letter-spacing: -.5px; }
-.investment-section .investment-support__intro p { margin-top: 4px; color: #45556c; font-size: 12px; line-height: 19.5px; }
-.investment-support__contact, .investment-support__partner { min-width: 0; padding-left: 24px; border-left: 1px solid #d3e5f8; }
-.investment-support__team { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 10px; padding: 10px 16px; border-radius: 8px; background: #162456; color: #fff; box-shadow: 0 1px 0 rgb(0 0 0 / 5%); font: 600 12px/16px 'Plus Jakarta Sans', 'Inter', sans-serif; }
-.investment-support__team span { color: #74d4ff; font-weight: 700; }
-.investment-support__detail { display: flex; align-items: center; gap: 8px; color: #314158; font-size: 12px; line-height: 16px; font-weight: 500; overflow-wrap: anywhere; }
-.investment-support__detail + .investment-support__detail { margin-top: 6px; font-weight: 400; }
-.investment-support__detail img { flex-shrink: 0; }
-.investment-support__partner h3 { display: flex; align-items: center; color: #081d45; font-size: 18px; font-weight: 800; line-height: 28px; letter-spacing: -.45px; }
-.investment-support__partner h3 span { width: 16px; font-size: 14px; line-height: 20px; }
-.investment-section .investment-support__partner p { margin-top: 8px; color: #45556c; font-size: 11px; line-height: 17.875px; }
-.investment-support__partner > a { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; padding: 8px 16px; border: 1px solid #1a73e8; border-radius: 8px; background: #fff; color: #1a73e8; font-size: 12px; line-height: 16px; font-weight: 600; box-shadow: 0 1px 0 rgb(0 0 0 / 5%); }
-.investment-support__partner > a span { font: 700 16px/16px 'Plus Jakarta Sans', 'Inter', sans-serif; }
+.investment-support { margin-top: 16px; min-height: 211.7px; padding: 16px; border: 1px solid #e1effe; border-radius: 8px; background: #f4f9fd; }
+.investment-support h3 { color: #0b1c3d; font-size: 14px; font-weight: 600; line-height: 20px; letter-spacing: -.3px; }
+.investment-section .investment-support > p { margin-top: 8px; max-width: 385px; color: #45556c; font-size: 11px; line-height: 16px; }
+.investment-support__actions { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.investment-support__team { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 8px 16px; border-radius: 4px; background: #1a73e8; color: #fff; box-shadow: 0 1px 0 rgb(0 0 0 / 5%); font: 500 11px/16px 'Plus Jakarta Sans', 'Inter', sans-serif; }
+.investment-support__fundright { color: #1a73e8; font-size: 11px; font-weight: 500; line-height: 16px; }
+.investment-support__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; margin-top: 12px; }
+.investment-support__detail { display: flex; align-items: center; gap: 8px; color: #314158; font-size: 11px; line-height: 16px; font-weight: 400; overflow-wrap: anywhere; }
+.investment-support__detail img { width: 14px; height: 14px; flex-shrink: 0; }
 .investment-section :is(select, button, a):focus-visible { outline: 2px solid #1a73e8; outline-offset: 3px; }
 @media (min-width: 1360px) {
   .investment-section__inner { margin-left: max(0px, calc((100% - 1240px) / 2)); margin-right: 0; }
@@ -47,9 +39,6 @@
 @media (max-width: 1100px) {
   .investment-section { padding: 72px 32px; }
   .investment-section__grid { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
-  .investment-support__inner { grid-template-columns: 1fr 1fr; gap: 24px; }
-  .investment-support__intro { grid-column: 1 / -1; }
-  .investment-support__contact { padding-left: 0; border-left: 0; }
 }
 @media (max-width: 760px) {
   .investment-section { padding: 64px 22px; }
@@ -59,13 +48,17 @@
   .investment-calculator h3 { font-size: 22px; line-height: 30px; }
   .investment-calculator__select select { padding-left: 16px; padding-right: 40px; }
   .investment-calculator__select img { right: 17px; }
-  .investment-support { margin-top: 32px; padding: 24px; }
-  .investment-support__inner { grid-template-columns: minmax(0, 1fr); }
-  .investment-support__intro { gap: 12px; }
-  .investment-support__contact, .investment-support__partner { padding: 20px 0 0; border-left: 0; border-top: 1px solid #d3e5f8; }
+  .investment-support { min-height: 0; }
   .investment-calculator__results > div { align-items: start; flex-direction: column; gap: 4px; }
   .investment-calculator__results :is(span, strong) { max-width: none; }
 }
 
 /* Keep the calculator and financing panel centered inside the same 1200px frame at every desktop width. */
 .investment-section__inner { width: min(1200px, 100%); max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+/* Exact investment-frame fills and strokes. */
+.investment-support {
+  background-color: #b4deff !important;
+  border-color: #e1effe !important;
+  border-radius: 12px;
+}

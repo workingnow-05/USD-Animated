@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="30" viewBox="0 0 180 30" role="img" aria-label="First American">
+  <circle cx="14" cy="15" r="12" fill="#c41230"/>
+  <path d="M8 16h12M10 12h8M12 20h4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <text x="34" y="21" fill="#1c3f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">First American</text>
+</svg>

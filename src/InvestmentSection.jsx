@@ -25,8 +25,21 @@ export default function InvestmentSection({ selectedProgram, studentName = '' })
     <div className="investment-section__inner">
       <div className="investment-section__grid">
         <div className="investment-section__intro">
-          <h2 id="investment-title">Understand your <span>investment.</span></h2>
-          <p>Just fill in a few details, and we’ll help you estimate your total cost, potential education loan, and monthly repayments after graduation.</p>
+          <h2 id="investment-title">Understand your <span>investment</span></h2>
+          <p>Just fill in a few details, and we’ll help you estimate your total cost, potential education loan, and monthly repayments after graduation</p>
+
+          <aside className="investment-support" aria-label="Financing support">
+            <h3>Need help financing your degree?</h3>
+            <p>Get expert guidance on education loans and refinancing, and compare offers from multiple lenders on FundRight</p>
+            <div className="investment-support__actions">
+              <a className="investment-support__team" href="mailto:indiaadmission@sandiego.edu">Talk to Our Team</a>
+              <a className="investment-support__fundright" href="https://gradright.com/financing/" target="_blank" rel="noreferrer">Explore FundRight</a>
+            </div>
+            <div className="investment-support__contact">
+              <a className="investment-support__detail" href="tel:+917428144436"><img src={`${assets}phone.svg`} alt="" />+91 7428144436</a>
+              <a className="investment-support__detail" href="mailto:indiaadmission@sandiego.edu"><img src={`${assets}mail.svg`} alt="" />indiaadmission@sandiego.edu</a>
+            </div>
+          </aside>
         </div>
 
         <form className="investment-calculator" onSubmit={calculate} aria-labelledby="investment-calculator-title">
@@ -61,31 +74,10 @@ export default function InvestmentSection({ selectedProgram, studentName = '' })
             </div>
           </div>
           <button className="investment-calculator__submit" type="submit">Calculate My Cost <img src={`${assets}arrow.svg`} alt="" /></button>
-          <p className="investment-calculator__disclaimer">Estimates are indicative only. Actual tuition, living expenses, scholarship amounts, loan terms, exchange rates and repayment amounts may vary.</p>
+          <p className="investment-calculator__disclaimer">Estimates are indicative only Actual tuition, living expenses, scholarship amounts, loan terms, exchange rates and repayment amounts may vary</p>
         </form>
       </div>
 
-      <aside className="investment-support" aria-label="Financing support">
-        <div className="investment-support__inner">
-          <div className="investment-support__intro">
-            <span className="investment-support__icon"><img src={`${assets}financing.svg`} alt="" /></span>
-            <div>
-              <h3>Need help financing your degree?</h3>
-              <p>From education loans and refinancing to understanding your funding options, our team can help you work out the next steps. You can also explore FundRight to compare education loan offers from multiple lenders, review eligibility, and compare terms before making a decision.</p>
-            </div>
-          </div>
-          <div className="investment-support__contact">
-            <a className="investment-support__team" href="mailto:indiaadmission@sandiego.edu">Talk to Our Team <span aria-hidden="true">→</span></a>
-            <a className="investment-support__detail" href="tel:+917428144436"><img src={`${assets}phone.svg`} alt="" />+91 7428144436</a>
-            <a className="investment-support__detail" href="mailto:indiaadmission@sandiego.edu"><img src={`${assets}mail.svg`} alt="" />indiaadmission@sandiego.edu</a>
-          </div>
-          <div className="investment-support__partner">
-            <h3>FundRight</h3>
-            <p>Compare education loan offers from multiple lenders — all in one place.</p>
-            <a href="https://gradright.com/financing/" target="_blank" rel="noreferrer">Explore FundRight <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </aside>
     </div>
   </section>;
 }

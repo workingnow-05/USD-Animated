@@ -180,7 +180,7 @@
 @media(max-width:620px){.fl-shell{width:calc(100% - 32px)}.fl-header{width:calc(100% - 32px)}.fl-logo{width:170px;height:auto}.fl-header>.fl-button{min-width:0;padding:10px 12px;font-size:12px}.fl-header>.fl-button img{width:18px;height:18px}.fl-hero-copy{margin-top:38px}.fl-hero-copy h1{font-size:42px;line-height:1.03;letter-spacing:-1.8px}.fl-hero-copy p{width:auto}.fl-actions{width:100%;flex-direction:column}.fl-actions .fl-button{width:100%}.fl-pass-name{font-size:clamp(14px,4.5vw,25px)}.fl-rankings,.fl-careers,.fl-investment{padding:64px 0}.fl-section-heading h2{font-size:34px}.fl-ranking-grid,.fl-reason-grid,.fl-person-grid{grid-template-columns:1fr}.fl-reason-grid article{min-height:190px}.fl-tabs{width:100%;overflow:auto}.fl-tabs button{padding:9px 12px;font-size:13px}.fl-outcomes-card,.fl-career-card{grid-template-columns:1fr}.fl-salary,.fl-jobs{padding:0 0 24px;border-right:0;border-bottom:1px solid #d6d6d6}.fl-employers,.fl-network{padding:24px 0 0}.fl-career-card{gap:24px}.fl-panel-heading{align-items:flex-start;gap:18px}.fl-panel-heading h3{font-size:21px;line-height:29px}.fl-carousel-buttons{display:none}.fl-wider>div,.fl-company-row{gap:12px;flex-wrap:wrap}.fl-capstone{height:auto;min-height:380px;padding:24px}.fl-capstone>div{width:100%;padding:0}.fl-capstone h3,.fl-capstone p{width:auto}.fl-capstone h3{font-size:30px;line-height:36px}.fl-capstone>img{right:-60%;top:0;width:150%;height:100%}.fl-investment-copy>article,.fl-calculator{padding:24px}.fl-investment-copy>aside{align-items:flex-start;gap:16px;flex-direction:column}.fl-cost-results>div{align-items:flex-start;gap:14px}.fl-cost-results span,.fl-cost-results strong{max-width:62%}.fl-cost-results .total b{font-size:16px}.fl-financing{padding:28px}.fl-contact{align-items:flex-start;flex-direction:column;gap:12px}.fl-contact i{display:none}}
 
 /* Exact Figma ellipse mask and layer blur for capstone artwork (node 163:4522). */
-.fl-capstone>img{left:266px;right:auto;top:-47px;width:969px;height:545px;max-width:none;object-fit:cover;pointer-events:none;clip-path:none;-webkit-mask-image:url('/landing/capstone-mask.svg');mask-image:url('/landing/capstone-mask.svg');-webkit-mask-mode:alpha;mask-mode:alpha;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:134px -53px;mask-position:134px -53px;-webkit-mask-size:940px 631px;mask-size:940px 631px}
+.fl-capstone>img{left:266px;right:auto;top:-47px;width:969px;height:545px;max-width:none;object-fit:cover;object-position:center 64%;pointer-events:none;clip-path:none;-webkit-mask-image:url('/landing/capstone-mask.svg');mask-image:url('/landing/capstone-mask.svg');-webkit-mask-mode:alpha;mask-mode:alpha;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:134px -53px;mask-position:134px -53px;-webkit-mask-size:940px 631px;mask-size:940px 631px}
 @media(max-width:1000px){.fl-capstone>img{left:22%;opacity:.4}}
 @media(max-width:620px){.fl-capstone>img{left:-10%;top:0;width:150%;height:100%;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:cover;mask-size:cover}}
 
@@ -193,6 +193,11 @@
 .fl-company-row .fl-brand-logo img{height:21px;max-width:100px}
 .fl-company-row .fl-brand-logo--icon img{width:23px;height:23px}
 .fl-company-row .fl-brand-logo--icon>span,.fl-wider .fl-brand-logo--icon>span{font-size:14px}
+
+/* Match the light-blue Figma stroke used by the people and investment cards. */
+.figma-landing .fl-alumni-card,
+.figma-landing .fl-faculty-card,
+.figma-landing .fl-testimonial-card{border-color:#b4deff}
 .fl-wider .fl-brand-logo{height:26px;max-width:104px}
 .fl-wider .fl-brand-logo img{height:20px;max-width:100px}
 .fl-wider .fl-brand-logo--icon img{width:22px;height:22px}
@@ -379,6 +384,23 @@
 .figma-landing .fl-final-cta__photo--six{left:18%;bottom:-70px}.figma-landing .fl-final-cta__photo--seven{right:22%;bottom:-76px}
 @media(max-width:620px){.figma-landing .fl-final-cta{height:480px}.figma-landing .fl-final-cta__copy{top:165px;width:290px}.figma-landing .fl-final-cta__copy h2{font-size:27px}.figma-landing .fl-final-cta__copy p{font-size:9px}.figma-landing .fl-final-cta__photo--one,.figma-landing .fl-final-cta__photo--two,.figma-landing .fl-final-cta__photo--six,.figma-landing .fl-final-cta__photo--seven{width:84px;height:84px}.figma-landing .fl-final-cta__photo--three{width:94px;height:128px}.figma-landing .fl-final-cta__photo--four{width:90px;height:60px;left:-20px;top:185px}.figma-landing .fl-final-cta__photo--five{width:100px;height:60px;top:290px}.figma-landing .fl-final-cta__photo--one{left:2%;top:-28px}.figma-landing .fl-final-cta__photo--two{left:28%;top:-24px}.figma-landing .fl-final-cta__photo--six{left:16%;bottom:-42px}.figma-landing .fl-final-cta__photo--seven{right:15%;bottom:-48px}}
 
+/* Updated landing reference: ranking cards, masked reason cards, outcomes panel, and control strokes. */
+.figma-landing .fl-ranking-grid article{background:#f8fafc;border-color:#e1eaf4}
+.figma-landing .fl-reason-grid{gap:24px}
+.figma-landing .fl-reason-grid article{min-height:236px;border:1px solid #cfe0f1;border-radius:12px;background:#073f76}
+.figma-landing .fl-reason-grid article>img{opacity:1;filter:none;clip-path:inset(0 round 12px)}
+.figma-landing .fl-reason-card__shade{background:rgba(2,35,72,.52);clip-path:inset(0 round 12px)}
+.figma-landing .fl-reason-grid article p{max-width:260px;font-size:16px;line-height:28px;font-weight:500}
+.figma-landing .fl-reason-grid article span{padding-top:14px;border-top-color:rgba(255,255,255,.24);font-size:16px}
+.figma-landing .fl-outcomes-card{background:#06477d;border-color:#06477d}
+.figma-landing .fl-outcomes-card .fl-salary{border-right-color:rgba(255,255,255,.25)}
+.figma-landing .fl-outcomes-card .fl-salary>span{color:#bfe3f8}
+.figma-landing .fl-outcomes-card .fl-salary strong,.figma-landing .fl-outcomes-card .fl-salary p,.figma-landing .fl-outcomes-card .fl-salary p b{color:#fff}
+.figma-landing .fl-outcomes-card .fl-career-card__jobs h3,.figma-landing .fl-outcomes-card .fl-job span,.figma-landing .fl-outcomes-card .fl-job b{color:#fff}
+.figma-landing .fl-outcomes-card .fl-job{border-bottom-color:rgba(255,255,255,.2)}
+.figma-landing .fl-calculator>button{width:100%;height:48px;margin-top:20px}
+.figma-landing .fl-alumni-card,.figma-landing .fl-testimonial-card{border-color:#d4e3f3}
+
 /* Exact 191:20135 geometry, scaled from the 1400px Figma frame. */
 .figma-landing .fl-final-cta{height:707px;background:#003b70}
 .figma-landing .fl-final-cta__inner{width:min(1400px,100%)}
@@ -432,10 +454,12 @@
 
 /* FAQ frame 191:20164: preserve its 1200px grid and 96px vertical rhythm. */
 .figma-landing .fl-faq{padding:96px 0;border-bottom:1px solid #e2e8f0}
-.figma-landing .fl-faq__top{grid-template-columns:570px minmax(0,606px);gap:24px}
+.figma-landing .fl-faq__top{display:flex;flex-direction:column;gap:24px}
+.figma-landing .fl-faq__intro{width:100%}
+.figma-landing .fl-faq__intro p{max-width:768px}
 .figma-landing .fl-faq__intro h2{font-size:42px;font-weight:600;line-height:60px;letter-spacing:-1px}
 .figma-landing .fl-faq__intro p{margin-top:16px;font-family:'Plus Jakarta Sans','Inter',Arial,sans-serif;font-size:18px;font-weight:400;line-height:29.25px}
-.figma-landing .fl-faq__list{gap:24px}
+.figma-landing .fl-faq__list{width:100%;gap:24px}
 .figma-landing .fl-faq__list button{display:grid;grid-template-columns:minmax(0,1fr) 40px;column-gap:16px;row-gap:6px;align-items:center;width:100%;height:auto;min-height:82px;padding:20px 24px;border-radius:12px}
 .figma-landing .fl-faq__list button.is-open{height:auto;min-height:112px}
 .figma-landing .fl-faq__question{font-size:20px;font-weight:600;line-height:22.95px;letter-spacing:-.425px}
@@ -463,6 +487,8 @@
 .figma-landing .fl-alumni-card .fl-person-head p{color:#0074c8;font-family:Spectral,Georgia,serif;font-size:14px;font-weight:400;line-height:20px}
 .figma-landing .fl-alumni-card .fl-company{display:flex;align-items:center;width:100%;height:30px;margin:0;color:#003b70}
 .figma-landing .fl-alumni-card .fl-company img{display:block;max-width:145px;max-height:30px;object-fit:contain;object-position:left center}
+.figma-landing .fl-alumni-card .fl-company{height:39px}
+.figma-landing .fl-alumni-card .fl-company img{max-width:188.5px;max-height:39px}
 .figma-landing .fl-alumni-card .fl-company strong{font-size:16px;font-weight:700}
 .figma-landing .fl-alumni-card .fl-down{height:37px;padding:0;text-align:left;color:#0074c8;font-family:'Plus Jakarta Sans',Inter,sans-serif;font-size:37px;font-weight:700;line-height:37px}
 .figma-landing .fl-alumni-card .fl-now{width:100%;min-height:67px;padding-top:12px;border-top:1px solid #f1f5f9}
@@ -574,8 +600,109 @@
   box-shadow:0 16px 22px -12px rgba(5,22,46,.24);
 }
 .figma-landing .fl-dean__copy h3{color:#003b70}
-.figma-landing .fl-dean__copy p{color:#174e80;background:#f2f7fc;border-radius:14px;padding:20px 28px}
-.figma-landing .fl-dean__copy small{color:#174e80}
+.figma-landing .fl-dean__copy p{color:#034f86;background:#b3ddfa;border-radius:14px;padding:20px 28px}
+.figma-landing .fl-dean__copy small{color:#006fe6}
+
+/* Prevent macOS rubber-band overscroll from exposing the white page behind the footer. */
+html,
+body{overscroll-behavior-y:none}
+
+/* Applied AI alumni logos are supplied brand marks; keep the 30% scale increase after card overrides. */
+.figma-landing .fl-alumni-card .fl-company{height:39px}
+.figma-landing .fl-alumni-card .fl-company img{max-width:188.5px;height:39px;max-height:39px}
+
+/* Give wrapped alumni roles enough room after the larger logo treatment. */
+.figma-landing .fl-alumni-card{gap:10px}
+.figma-landing .fl-alumni-card .fl-person-head{height:76px;overflow:visible}
+
+/* Final Figma stroke token, after all legacy landing overrides. */
+.figma-landing .fl-alumni-card,
+.figma-landing .fl-faculty-card,
+.figma-landing .fl-testimonial-card{border-color:#b4deff !important}
+
+/* Final Figma stroke token, after the legacy landing overrides. */
+.figma-landing .fl-alumni-card,
+.figma-landing .fl-faculty-card,
+.figma-landing .fl-testimonial-card{border-color:#b4deff}
+
+/* Figma 191:19634 — the reason cards use independent masked image layers. */
+.figma-landing .fl-ranking-grid article{
+  min-height:137px;
+  padding:24px;
+  border:1px solid rgba(226,232,240,.9);
+  border-radius:8px;
+  background:rgba(248,250,252,.9);
+}
+.figma-landing .fl-reason-grid{gap:24px;margin-top:24px}
+.figma-landing .fl-reason-grid article{
+  position:relative;
+  height:257px;
+  min-height:257px;
+  padding:24px 22px;
+  overflow:hidden;
+  border:1px solid #e5eaf2;
+  border-radius:8px;
+  background:#fff;
+  color:rgba(0,0,0,.8);
+}
+.figma-landing .fl-reason-card__mask{
+  position:absolute;
+  z-index:0;
+  left:0;
+  right:0;
+  bottom:0;
+  height:190.72px;
+  background-image:var(--reason-image);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  -webkit-mask-image:var(--reason-mask);
+  mask-image:var(--reason-mask);
+  -webkit-mask-position:center bottom;
+  mask-position:center bottom;
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  opacity:.9;
+}
+.figma-landing .fl-reason-grid article:nth-child(2) .fl-reason-card__mask{height:108px}
+.figma-landing .fl-reason-grid article:nth-child(3) .fl-reason-card__mask{height:164.5px}
+.figma-landing .fl-reason-grid article:nth-child(4) .fl-reason-card__mask{height:148.84px}
+.figma-landing .fl-reason-grid article p{
+  position:relative;
+  z-index:1;
+  max-width:none;
+  color:rgba(0,0,0,.8);
+  font-size:14px;
+  font-weight:400;
+  line-height:22px;
+}
+.figma-landing .fl-reason-grid article span{
+  position:relative;
+  z-index:1;
+  margin-top:auto;
+  padding-top:12px;
+  border-top:1px solid #f1f5f9;
+  color:#003b70;
+  font-size:16px;
+  font-weight:600;
+}
+.figma-landing .fl-outcomes-card{background:#003f75;border-color:#003f75}
+.figma-landing .fl-outcomes-card .fl-salary strong,
+.figma-landing .fl-outcomes-card .fl-salary p,
+.figma-landing .fl-outcomes-card .fl-salary p b,
+.figma-landing .fl-outcomes-card .fl-career-card__jobs h3,
+.figma-landing .fl-outcomes-card .fl-job span,
+.figma-landing .fl-outcomes-card .fl-job b{color:#fff}
+.figma-landing .fl-outcomes-card .fl-salary>span{color:#bfe3f8}
+.figma-landing .fl-outcomes-card .fl-job{border-bottom-color:rgba(255,255,255,.2)}
+@media(max-width:1000px){
+  .figma-landing .fl-reason-grid article{height:257px;min-height:257px}
+}
+@media(max-width:620px){
+  .figma-landing .fl-reason-grid article{height:257px;min-height:257px}
+}
 @media(max-width:620px){
   .figma-landing .fl-testimonial-grid{grid-template-columns:minmax(0,1fr)}
   .figma-landing .fl-testimonial-card{height:auto;min-height:155px}
@@ -747,6 +874,7 @@
 .figma-landing .fl-footer{
   padding:30px 80px 20px;
   background:#003b70;
+  overflow:hidden;
 }
 .figma-landing .fl-footer__grid,
 .figma-landing .fl-footer__bottom{
@@ -800,5 +928,5 @@
 .figma-landing .fl-dean{padding:0;color:#003b70;background:#fff;box-shadow:none}
 .figma-landing .fl-dean__video{border:1px solid #dbe8f7;box-shadow:0 16px 22px -12px rgba(5,22,46,.24)}
 .figma-landing .fl-dean__copy h3{color:#003b70}
-.figma-landing .fl-dean__copy p{color:#174e80;background:#f2f7fc;border-radius:14px;padding:20px 28px}
-.figma-landing .fl-dean__copy small{color:#174e80}
+.figma-landing .fl-dean__copy p{color:#034f86;background:#b3ddfa;border-radius:14px;padding:20px 28px}
+.figma-landing .fl-dean__copy small{color:#006fe6}

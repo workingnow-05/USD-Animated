@@ -29,9 +29,9 @@ function Onboarding({ journey, update, errors, takeOff }) {
     <SharedNav className="shared-nav--welcome" showLinks={false} />
     <div className="welcome-content">
       <section className="welcome-copy">
-        <h1>GUESS WHO’S GOING TO USD? YOU.</h1>
+        <h1>GUESS WHO’S GOING TO USD? YOU</h1>
         <p className="welcome-congrats">Congratulations on your admit!</p>
-        <p>San Diego is calling, and you’ve got a whole new chapter waiting for you. Curious about the people you’ll meet, the careers you’ll explore, and what your next two years could look like?<br />Let’s give you a sneak peek.</p>
+        <p>San Diego is calling, and you’ve got a whole new chapter waiting for you Curious about the people you’ll meet, the careers you’ll explore, and what your next two years could look like?<br />Let’s give you a sneak peek</p>
       </section>
       <WelcomePass journey={journey} update={update} errors={errors} takeOff={takeOff} />
     </div>
@@ -121,24 +121,25 @@ function WelcomePass({ journey, update, errors, takeOff }) {
   </form>;
 }
 
-function Flight({ journey, onComplete }) { const plane = useRef(null); const cloudA = useRef(null); const cloudB = useRef(null); useEffect(() => { const ctx = gsap.context(() => { const tl = gsap.timeline({ onComplete }); tl.fromTo('.flight-kicker', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .6 }).fromTo('.flight-title', { opacity: 0, scale: .9, y: 25 }, { opacity: 1, scale: 1, y: 0, duration: .8, ease: 'power3.out' }, '-=.25').fromTo('.runway', { scaleX: 0, transformOrigin: 'left center' }, { scaleX: 1, duration: 1.2, ease: 'power2.inOut' }, '-=.2').to(plane.current, { x: '15vw', y: -25, rotation: -4, duration: 1, ease: 'power1.in' }).to(plane.current, { x: '50vw', y: -155, rotation: -10, duration: 2.1, ease: 'power2.inOut' }).to(plane.current, { x: '84vw', y: -42, rotation: 8, duration: 2.5, ease: 'power2.out' }).to('.arrival-pulse', { scale: 1.4, opacity: 0, duration: 1.1, ease: 'power2.out' }, '-=.8'); gsap.to(cloudA.current, { x: '-15vw', duration: 7, ease: 'none', repeat: -1 }); gsap.to(cloudB.current, { x: '12vw', duration: 10, ease: 'none', repeat: -1 }); }, document.querySelector('.flight-screen')); return () => ctx.revert(); }, []); return <main className="flight-screen"><Header light /><div className="flight-cloud cloud-a" ref={cloudA} /><div className="flight-cloud cloud-b" ref={cloudB} /><div className="flight-center"><p className="eyebrow flight-kicker">PREPARING FOR DEPARTURE · FLIGHT USD 2027</p><h2 className="flight-title">{journey.name}, YOUR JOURNEY<br /><em>STARTS NOW.</em></h2><div className="flight-stage"><div className="airport airport--del">DELHI<span>INDIA · GATE A1</span></div><div className="airport airport--san">SAN DIEGO<span>USA · WELCOME HOME</span></div><div className="runway" /><div className="route-glow" /><img ref={plane} className="hero-plane" src="/airplane.png" alt="Animated airplane" /><div className="arrival-pulse" /></div><div className="flight-status"><span>BOARDING</span><strong>{journey.program.toUpperCase()}</strong><span>NONSTOP · SPRING 2027</span></div></div></main>; }
+function Flight({ journey, onComplete }) { const plane = useRef(null); const cloudA = useRef(null); const cloudB = useRef(null); useEffect(() => { const ctx = gsap.context(() => { const tl = gsap.timeline({ onComplete }); tl.fromTo('.flight-kicker', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .6 }).fromTo('.flight-title', { opacity: 0, scale: .9, y: 25 }, { opacity: 1, scale: 1, y: 0, duration: .8, ease: 'power3.out' }, '-=.25').fromTo('.runway', { scaleX: 0, transformOrigin: 'left center' }, { scaleX: 1, duration: 1.2, ease: 'power2.inOut' }, '-=.2').to(plane.current, { x: '15vw', y: -25, rotation: -4, duration: 1, ease: 'power1.in' }).to(plane.current, { x: '50vw', y: -155, rotation: -10, duration: 2.1, ease: 'power2.inOut' }).to(plane.current, { x: '84vw', y: -42, rotation: 8, duration: 2.5, ease: 'power2.out' }).to('.arrival-pulse', { scale: 1.4, opacity: 0, duration: 1.1, ease: 'power2.out' }, '-=.8'); gsap.to(cloudA.current, { x: '-15vw', duration: 7, ease: 'none', repeat: -1 }); gsap.to(cloudB.current, { x: '12vw', duration: 10, ease: 'none', repeat: -1 }); }, document.querySelector('.flight-screen')); return () => ctx.revert(); }, []); return <main className="flight-screen"><Header light /><div className="flight-cloud cloud-a" ref={cloudA} /><div className="flight-cloud cloud-b" ref={cloudB} /><div className="flight-center"><p className="eyebrow flight-kicker">PREPARING FOR DEPARTURE · FLIGHT USD 2027</p><h2 className="flight-title">{journey.name}, YOUR JOURNEY<br /><em>STARTS NOW</em></h2><div className="flight-stage"><div className="airport airport--del">DELHI<span>INDIA · GATE A1</span></div><div className="airport airport--san">SAN DIEGO<span>USA · WELCOME HOME</span></div><div className="runway" /><div className="route-glow" /><img ref={plane} className="hero-plane" src="/airplane.png" alt="Animated airplane" /><div className="arrival-pulse" /></div><div className="flight-status"><span>BOARDING</span><strong>{journey.program.toUpperCase()}</strong><span>NONSTOP · SPRING 2027</span></div></div></main>; }
 
 const reasons = ['Professors who know your name', 'Aligned to the federal RACE framework', 'Thoughtful people who do the work', 'Finish with what you can show', 'Mentors who have been there', 'Help from the first day']; const outcomes = ['AI Product Manager', 'Cybersecurity Architect', 'Applied AI Strategist', 'Data Science Lead', 'Technology Consultant', 'Innovation Director']; const alumni = [['Matthew Demczyk, Class of 2005', 'Founder, global tech and innovation leader'], ['Jony Gens, Class of 2012', 'Designing the future of intelligent systems'], ['Jim Phelan, MBA 2001', 'Building teams that make a difference'], ['Huda B., Class of 2019', 'From USD to a career without limits'], ['Yee Hernandez, 2010', 'Making change in every room']];
 
 const rankingCards = [
   ['#1', 'Most Beautiful Campus', 'The Princeton Review, 2027 Edition'],
   ['#11', 'Best Career Services', 'The Princeton Review, 2027 Edition'],
-  ['#45', 'Best Value Schools', 'U.S. News & World Report'],
-  ['#47', 'Best Colleges in the U.S.', 'The Wall Street Journal 2025'],
+  ['#45', 'Best Value Schools', 'U.S News & World Report'],
+  ['#47', 'Best Colleges in the U.S ', 'The Wall Street Journal 2025'],
 ];
 
 const usdReasons = [
-  'Join 87,000+ USD alumni across all 50 states and 100 countries – a global community that opens doors long after graduation.',
-  'Curriculum written by the people hiring you. Learn from courses shaped by leaders from Meta, Microsoft, Netflix, Qualcomm and Cisco - where Agentic AI and LLM Engineering are core courses, not electives.',
-  'Professors who know your name. Study in an average class of 23 with a 13:1 student-faculty ratio - personalized attention, mentorship and support from day one.',
-  "A career office with real connections. Step into 40,000+ employers on USD's job portal - guided by 3,300+ alumni mentors and Torero Treks that take you inside real companies.",
+  'Join 87,000+ USD alumni across all 50 states and 100 countries – a global community that opens doors long after graduation ',
+  'Curriculum written by the people hiring you Learn from courses shaped by leaders from Meta, Microsoft, Netflix, Qualcomm and Cisco - where Agentic AI and LLM Engineering are core courses, not electives ',
+  'Professors who know your name Study in an average class of 23 with a 13:1 student-faculty ratio - personalized attention, mentorship and support from day one ',
+  "A career office with real connections Step into 40,000+ employers on USD's job portal - guided by 3,300+ alumni mentors and Torero Treks that take you inside real companies ",
 ];
-const usdReasonImages = ['/landing/updated/cta-1.png', '/landing/updated/cta-2.png', '/landing/updated/cta-3.png', '/landing/hero-campus.png'];
+const usdReasonImages = ['/landing/reasons/image-1.png', '/landing/reasons/image-2.png', '/landing/reasons/image-3.png', '/landing/reasons/image-4.png'];
+const usdReasonMasks = ['/landing/reasons/mask-1.svg', '/landing/reasons/mask-2.svg', '/landing/reasons/mask-3.svg', '/landing/reasons/mask-4.svg'];
 
 const landingAlumni = [
   ['Prashant Khare', 'Director, Data Science', 'Morgan Stanley', 'Principal Data Scientist, Agentic AI Lead'],
@@ -155,37 +156,38 @@ const cseAlumni = [
 ];
 
 const alumniCompanyLogos = {
-  'Morgan Stanley': '/landing/logos/morgan-stanley-alumni.svg',
-  'AXA XL': '/landing/logos/axa-xl-alumni.svg',
-  'Intel Habana': '/landing/logos/intel-habana-alumni.svg',
-  RADCOM: '/landing/logos/radcom-alumni.svg',
+  'Morgan Stanley': '/landing/logos/alumni/morgan-stanley-real.png',
+  'AXA XL': '/landing/logos/alumni/axa-xl-real.png',
+  'Intel Habana': '/landing/logos/alumni/habana-real.png',
+  RADCOM: '/landing/logos/alumni/radcom-real.png',
+  'First American': '/landing/logos/first-american-alumni.svg',
   Dell: '/landing/logos/alumni/dell.svg',
   EY: '/landing/logos/alumni/ey.svg',
   DXC: '/landing/logos/alumni/dxc.svg',
 };
 
 const landingFaculty = [
-  ['Dr. Ebrahim Tarshizi', 'Academic Director, Applied AI & Data Science', 'Former senior technical advisor at CDC/NIOSH. Pioneers generative architectures & large agentic networks.'],
-  ['Vitor Carvalho, PhD', 'Principal Applied Science Manager, Microsoft', 'Works on Copilot, LLMs, and multimodal AI. Former Principal Data Scientist at Intuit.'],
-  ['Eric Colson', 'DS & ML Advisor', 'Led data science and algorithmic platforms at Netflix and Stitch Fix.'],
-  ['Dr. Chell Roberts', 'Founding Dean', 'Recognized by the National Academy of Engineering for innovations in engineering education.'],
+  ['Dr Ebrahim Tarshizi', 'Academic Director, Applied AI & Data Science', 'Former senior technical advisor at CDC/NIOSH Pioneers generative architectures & large agentic networks '],
+  ['Vitor Carvalho, PhD', 'Principal Applied Science Manager, Microsoft', 'Works on Copilot, LLMs, and multimodal AI Former Principal Data Scientist at Intuit '],
+  ['Eric Colson', 'DS & ML Advisor', 'Led data science and algorithmic platforms at Netflix and Stitch Fix '],
+  ['Dr Chell Roberts', 'Founding Dean', 'Recognized by the National Academy of Engineering for innovations in engineering education '],
 ];
 
 const cseFaculty = [
-  { name: 'Dr. Haydar Majeed', role: 'Academic Director, Cybersecurity Engineering', description: 'Award-winning military intelligence professional with 15+ years of experience. Former CISO at Privatyze.', image: '/landing/faculty/verified/cse-haydar-majeed.jpeg' },
-  { name: 'Wendi Whitmore', role: 'Chief Security Intelligence Officer, Palo Alto Networks', description: 'Led Unit 42 through major global cyber incidents. Former Global Lead at IBM X-Force.', image: '/landing/faculty/verified/cse-wendi-whitmore.jpg' },
-  { name: 'Nahid Farhady, PhD', role: 'Adjunct Professor', description: 'Built AI-powered security review automation at scale during her time at Google.', image: '/landing/faculty/verified/cse-nahid-farhady.jpg' },
-  { name: 'Alec Henning', role: 'Adjunct Professor', description: 'Supports U.S. Navy cybersecurity and high-assurance systems. Formerly at NIWC Pacific.', image: '/landing/faculty/verified/cse-alec-henning.jpg' },
+  { name: 'Dr Haydar Majeed', role: 'Academic Director, Cybersecurity Engineering', description: 'Award-winning military intelligence professional with 15+ years of experience Former CISO at Privatyze ', image: '/landing/faculty/verified/cse-haydar-majeed.jpeg' },
+  { name: 'Wendi Whitmore', role: 'Chief Security Intelligence Officer, Palo Alto Networks', description: 'Led Unit 42 through major global cyber incidents Former Global Lead at IBM X-Force ', image: '/landing/faculty/verified/cse-wendi-whitmore.jpg' },
+  { name: 'Nahid Farhady, PhD', role: 'Adjunct Professor', description: 'Built AI-powered security review automation at scale during her time at Google ', image: '/landing/faculty/verified/cse-nahid-farhady.jpg' },
+  { name: 'Alec Henning', role: 'Adjunct Professor', description: 'Supports U.S Navy cybersecurity and high-assurance systems Formerly at NIWC Pacific ', image: '/landing/faculty/verified/cse-alec-henning.jpg' },
 ];
 const alumniPhotos = {
   'MS in Applied AI (AAI)': ['/landing/faculty/aai/faculty-02.png', '/landing/faculty/aai/faculty-03.png', '/landing/faculty/aai/faculty-04.png', '/landing/faculty/aai/faculty-01.png'],
   'Cybersecurity (CSE)': ['/landing/faculty/cse/faculty-02.png', '/landing/faculty/cse/faculty-03.png', '/landing/faculty/cse/faculty-04.png', '/landing/faculty/cse/faculty-01.png'],
 };
 const facultyTestimonials = [
-  { name: 'Dr. Ebrahim Tarshizi', role: 'Academic Director, Applied AI & Applied Data Science', description: 'Former senior technical advisor at CDC/NIOSH.', image: '/landing/faculty/verified/aai-ebrahim-tarshizi.jpg' },
-  { name: 'Vitor Carvalho, PhD', role: 'Principal Applied Science Manager, Microsoft', description: 'Works on Copilot, LLMs, and multimodal AI. Former Principal Data Scientist at Intuit.', image: '/landing/faculty/verified/aai-vitor-carvalho.jpg' },
-  { name: 'Eric Colson', role: 'DS & ML Advisor', description: 'Led data science at Netflix and Stitch Fix.', image: '/landing/faculty/verified/aai-eric-colson.jpg' },
-  { name: 'Dr. Chell Roberts', role: 'Founding Dean', description: 'Recognized by the National Academy of Engineering.', image: '/landing/faculty/verified/aai-chell-roberts.jpg' },
+  { name: 'Dr Ebrahim Tarshizi', role: 'Academic Director, Applied AI & Applied Data Science', description: 'Former senior technical advisor at CDC/NIOSH ', image: '/landing/faculty/verified/aai-ebrahim-tarshizi.jpg' },
+  { name: 'Vitor Carvalho, PhD', role: 'Principal Applied Science Manager, Microsoft', description: 'Works on Copilot, LLMs, and multimodal AI Former Principal Data Scientist at Intuit ', image: '/landing/faculty/verified/aai-vitor-carvalho.jpg' },
+  { name: 'Eric Colson', role: 'DS & ML Advisor', description: 'Led data science at Netflix and Stitch Fix ', image: '/landing/faculty/verified/aai-eric-colson.jpg' },
+  { name: 'Dr Chell Roberts', role: 'Founding Dean', description: 'Recognized by the National Academy of Engineering ', image: '/landing/faculty/verified/aai-chell-roberts.jpg' },
 ];
 
 const employerBrands = {
@@ -209,7 +211,7 @@ const employerBrands = {
   accenture: ['/landing/logos/accenture-wordmark.svg'],
   DocuSign: ['/landing/logos/docusign-logo.svg'],
   RSI: ['/landing/logos/rsi-security.png'],
-  'U.S. Marine Corps': ['/landing/logos/us-marine-corps.png'],
+  'U.S Marine Corps': ['/landing/logos/us-marine-corps.png'],
   SPAWAR: ['/landing/logos/spawar.gif'],
 };
 
@@ -221,30 +223,30 @@ const programContent = {
   'MS in Applied AI (AAI)': {
     short: 'MS-AAI',
     salary: '$129,000',
-    careerIntro: 'Consistently ranked among the top private universities in the United States for campus experience, high-impact career services, and graduate ROI.',
+    careerIntro: 'Consistently ranked among the top private universities in the United States for campus experience, high-impact career services, and graduate ROI ',
     degree: 'MS in Applied Artificial Intelligence',
-    headline: 'Learn from people who build AI for a living.',
-    capstoneTitle: 'Your capstone is an AI solution to a real-world problem.',
-    capstoneCopy: 'Bring your AI skills together to solve an enterprise challenge. Work you can put directly in front of an employer, not just a transcript.',
+    headline: 'Learn from people who build AI for a living ',
+    capstoneTitle: 'Your capstone is an AI solution to a real-world problem ',
+    capstoneCopy: 'Bring your AI skills together to solve an enterprise challenge Work you can put directly in front of an employer, not just a transcript ',
     jobs: [['AI Engineer', '$164,769'], ['AI Programmer', '$126,472'], ['ML Applied Researcher', '$139,795'], ['Applied ML Specialist', '$121,299']],
     networkLabel: 'MS-AAI graduates work at',
     employers: ['amazon', 'Google', 'NVIDIA', 'CISCO', 'Apple', 'Microsoft', 'PEPSICO', 'DELTA'],
-    network: ['DocuSign', 'U.S. Navy', 'Meta', 'Netflix', 'Qualcomm', 'Deloitte'],
-    facultyLabel: 'Learn from people who build AI for a living.',
+    network: ['DocuSign', 'U.S Navy', 'Meta', 'Netflix', 'Qualcomm', 'Deloitte'],
+    facultyLabel: 'Learn from people who build AI for a living ',
   },
   'Cybersecurity (CSE)': {
     short: 'CSE',
     salary: '$102,000',
-    careerIntro: '59% of cybersecurity teams report critical or significant skills gaps. Explore the career paths, earning potential, and people who can prepare you for what is next.',
+    careerIntro: '59% of cybersecurity teams report critical or significant skills gaps Explore the career paths, earning potential, and people who can prepare you for what is next ',
     degree: 'MS in Cybersecurity Engineering',
-    headline: 'Build the systems that keep the world moving.',
-    capstoneTitle: 'Your capstone is a security solution to a real-world problem.',
-    capstoneCopy: 'Apply security engineering, threat intelligence, and secure systems thinking to an enterprise challenge. Graduate with work you can show an employer.',
+    headline: 'Build the systems that keep the world moving ',
+    capstoneTitle: 'Your capstone is a security solution to a real-world problem ',
+    capstoneCopy: 'Apply security engineering, threat intelligence, and secure systems thinking to an enterprise challenge Graduate with work you can show an employer ',
     jobs: [['CISO', '$223,000'], ['Cybersecurity Architect', '$136,000'], ['Cybersecurity Engineer', '$120,000+'], ['Information Security Analyst', '$103,590']],
     networkLabel: 'CSE graduates work at',
-    employers: ['Microsoft', 'RSI', 'U.S. Marine Corps', 'SPAWAR', 'Google', 'NVIDIA', 'CISCO', 'Apple', 'amazon', 'Deloitte'],
+    employers: ['Microsoft', 'RSI', 'U.S Marine Corps', 'SPAWAR', 'Google', 'NVIDIA', 'CISCO', 'Apple', 'amazon', 'Deloitte'],
     network: ['Intel', 'accenture', 'Morgan Stanley', 'CISCO', 'Deloitte'],
-    facultyLabel: 'Learn from people who protect critical systems.',
+    facultyLabel: 'Learn from people who protect critical systems ',
   },
 };
 
@@ -328,15 +330,15 @@ function LandingFooter() {
 function LandingFaq() {
   const [open, setOpen] = useState(0);
   const items = [
-    ['Is it still a sensible decision to study in the US given geopolitical uncertainty?', "A fair question, and we won't wave it away. Your offer, tuition and scholarship are confirmed in writing, and USD's support systems are built for uncertainty. What we won't do is promise world events won't touch your plans - no honest university will. For current official guidance, see travel.state.gov."],
-    ['Can my scholarship be reconsidered?', 'Scholarships are awarded with your offer. If your circumstances have changed, the admissions team can tell you what a review looks like - ask before you decide, not after.'],
-    ['Will I get a visa?', 'No university can promise a visa - the decision rests with the US consulate. What works in your favour: a confirmed admit and I-20 from an accredited US university, documented funding, and clear, honest answers at your interview. What you control: start early, keep your documents consistent, and prepare well - the team will walk you through typical interview questions and review your documents before you submit.'],
-    ['What support will I receive before travelling and after arriving in San Diego?', 'Before: document checklists, I-20 guidance and financial document review on the India line. After: mandatory international orientation, the Office of International Students and Scholars for anything visa-related, career support from day one, and on-campus housing below city prices.'],
-    ['How does the visa process work?', "Both programs are full-time and on-campus, which supports the standard F-1 student visa. Accept your offer, pay the enrollment deposit and claim your USDOne account - that unlocks your I-20 request. From there: submit financial documents (your scholarship counts toward the total), pay the SEVIS fee, complete the DS-160 and book your interview. You can enter the US up to 30 days before classes start, and work on campus up to 20 hours a week once you're here. Bringing family? A spouse and children under 21 can apply for F-2 visas - just mention it when you request your I-20. The team guides you through each step and can review your documents before you submit."],
+    ['Is it still a sensible decision to study in the US given geopolitical uncertainty?', "A fair question, and we won't wave it away Your offer, tuition and scholarship are confirmed in writing, and USD's support systems are built for uncertainty What we won't do is promise world events won't touch your plans - no honest university will For current official guidance, see travel.state.gov "],
+    ['Can my scholarship be reconsidered?', 'Scholarships are awarded with your offer If your circumstances have changed, the admissions team can tell you what a review looks like - ask before you decide, not after '],
+    ['Will I get a visa?', 'No university can promise a visa - the decision rests with the US consulate What works in your favour: a confirmed admit and I-20 from an accredited US university, documented funding, and clear, honest answers at your interview What you control: start early, keep your documents consistent, and prepare well - the team will walk you through typical interview questions and review your documents before you submit '],
+    ['What support will I receive before travelling and after arriving in San Diego?', 'Before: document checklists, I-20 guidance and financial document review on the India line After: mandatory international orientation, the Office of International Students and Scholars for anything visa-related, career support from day one, and on-campus housing below city prices '],
+    ['How does the visa process work?', "Both programs are full-time and on-campus, which supports the standard F-1 student visa Accept your offer, pay the enrollment deposit and claim your USDOne account - that unlocks your I-20 request From there: submit financial documents (your scholarship counts toward the total), pay the SEVIS fee, complete the DS-160 and book your interview You can enter the US up to 30 days before classes start, and work on campus up to 20 hours a week once you're here Bringing family? A spouse and children under 21 can apply for F-2 visas - just mention it when you request your I-20 The team guides you through each step and can review your documents before you submit "],
   ];
   return <section className="fl-faq" id="faq">
     <div className="fl-faq__top fl-shell">
-      <div className="fl-faq__intro"><h2>Your concerns, <span>answered</span></h2><p>These are the questions students asked most during the last intake. Straight answers from USD's own guidance - and a direct line to the team when you need more.</p></div>
+      <div className="fl-faq__intro"><h2>Your concerns, <span>answered</span></h2><p>These are the questions students asked most during the last intake Straight answers from USD's own guidance - and a direct line to the team when you need more</p></div>
       <div className="fl-faq__list">{items.map(([question, answer], index) => <button className={open === index ? 'is-open' : ''} type="button" key={question} onClick={() => setOpen(open === index ? -1 : index)}><span className="fl-faq__question">{question}</span><span className="fl-faq__toggle">{open === index ? '−' : '+'}</span>{open === index && <p>{answer}</p>}</button>)}</div>
     </div>
   </section>;
@@ -354,18 +356,18 @@ function LandingDean() {
 }
 
 function LandingFinalCta({ name }) {
-  return <section className="fl-final-cta"><div className="fl-final-cta__inner"><div className="fl-final-cta__copy"><h2>A year from now, you’ll be glad you started today.</h2><div className="fl-final-cta__body"><p>Applications close <b>November 1, 2026.</b></p><p>Take the next step toward USD. We’ll help you navigate what comes next.</p></div><a className="fl-button fl-button-blue" href="#investment">Confirm Your Seat <img src="/landing/arrow-right.svg" alt="" /></a></div><div className="fl-final-cta__collage" aria-hidden="true"><figure className="fl-final-cta__photo fl-final-cta__photo--one"><img src="/landing/updated/cta-figma-1.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--two"><img src="/landing/updated/cta-figma-8.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--three"><img src="/landing/updated/cta-figma-7.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--four"><img src="/landing/updated/cta-figma-2.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--five"><img src="/landing/updated/cta-figma-12.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--six"><img src="/landing/updated/cta-figma-10.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--seven"><img src="/landing/updated/cta-figma-11.png" alt="" /></figure></div></div></section>;
+  return <section className="fl-final-cta"><div className="fl-final-cta__inner"><div className="fl-final-cta__copy"><h2>A year from now, you’ll be glad you started today</h2><div className="fl-final-cta__body"><p>Applications close <b>November 1, 2026</b></p><p>Take the next step toward USD We’ll help you navigate what comes next</p></div><a className="fl-button fl-button-blue" href="#investment">Confirm Your Seat <img src="/landing/arrow-right.svg" alt="" /></a></div><div className="fl-final-cta__collage" aria-hidden="true"><figure className="fl-final-cta__photo fl-final-cta__photo--one"><img src="/landing/updated/cta-figma-1.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--two"><img src="/landing/updated/cta-figma-8.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--three"><img src="/landing/updated/cta-figma-7.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--four"><img src="/landing/updated/cta-figma-2.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--five"><img src="/landing/updated/cta-figma-12.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--six"><img src="/landing/updated/cta-figma-10.png" alt="" /></figure><figure className="fl-final-cta__photo fl-final-cta__photo--seven"><img src="/landing/updated/cta-figma-11.png" alt="" /></figure></div></div></section>;
 }
 
 function LifeAtUsdSection() {
   const moments = [
-    ['01', 'MONTHS 0–1', '/landing/life/arrival-figma.png', 'Arrive, connect and find your feet.', 'Get to know the campus, meet your classmates and access the resources that help you settle into graduate school.'],
-    ['02', 'MONTHS 1–4', '/landing/life/bazaar-figma.png', 'Experience the Torero spirit.', 'Join Weeks of Welcome, the Alcalá Bazaar and a range of clubs, cultural groups and student events.'],
-    ['03', 'MONTHS 4–12', '/landing/life/career-fair-figma.png', 'Connect with industry.', 'Attend career fairs, industry talks and professional development events to build your network and explore what’s next.'],
-    ['04', 'MONTHS 12–15', '/landing/life/campus-community-figma.png', 'Make campus your community.', 'Join student events, clubs and campus traditions, and find opportunities to explore your interests and meet people.'],
-    ['05', 'FINAL MONTH', '/landing/life/graduate-overlay-figma.png', 'Bring it all together and take the next step.', 'Apply what you’ve learned through advanced coursework and real-world projects, and join a global community of 87,000+ USD alumni.'],
+    ['01', 'MONTHS 0–1', '/landing/life/arrival-figma.png', 'Arrive, connect and find your feet ', 'Get to know the campus, meet your classmates and access the resources that help you settle into graduate school '],
+    ['02', 'MONTHS 1–4', '/landing/life/bazaar-figma.png', 'Experience the Torero spirit ', 'Join Weeks of Welcome, the Alcalá Bazaar and a range of clubs, cultural groups and student events '],
+    ['03', 'MONTHS 4–12', '/landing/life/career-fair-figma.png', 'Connect with industry ', 'Attend career fairs, industry talks and professional development events to build your network and explore what’s next '],
+    ['04', 'MONTHS 12–15', '/landing/life/campus-community-figma.png', 'Make campus your community ', 'Join student events, clubs and campus traditions, and find opportunities to explore your interests and meet people '],
+    ['05', 'FINAL MONTH', '/landing/life/graduate-overlay-figma.png', 'Bring it all together and take the next step ', 'Apply what you’ve learned through advanced coursework and real-world projects, and join a global community of 87,000+ USD alumni '],
   ];
-  return <section className="fl-life" aria-labelledby="life-title"><div className="fl-shell"><div className="fl-life__intro"><h2 id="life-title">See what life at USD has in <span>store for you.</span></h2><p>From your first welcome to the projects you take on and the people you meet, your time at USD is filled with experiences that can shape your future, inside and outside the classroom.</p></div><div className="fl-life__grid">{moments.map(([number, label, image, title, copy]) => <article key={number} className="fl-life-card"><div className="fl-life-card__meta"><b>{number}</b><span>{label}</span></div><img src={image} alt="" /><h3>{title}</h3><p>{copy}</p></article>)}</div><div className="fl-life__cta"><div><h3>Take a virtual tour of the campus in the city</h3><p>Walk under the arches, step inside the labs, and look out over Mission Bay - the whole campus is open to you, right from where you're sitting.</p><a className="fl-button fl-button-white" href="#investment">Explore Virtual campus tour</a></div><img src="/landing/capstone-campus.png" alt="University of San Diego campus" /></div></div></section>;
+  return <section className="fl-life" aria-labelledby="life-title"><div className="fl-shell"><div className="fl-life__intro"><h2 id="life-title">See what life at USD has in <span>store for you</span></h2><p>From your first welcome to the projects you take on and the people you meet, your time at USD is filled with experiences that can shape your future, inside and outside the classroom</p></div><div className="fl-life__grid">{moments.map(([number, label, image, title, copy]) => <article key={number} className="fl-life-card"><div className="fl-life-card__meta"><b>{number}</b><span>{label}</span></div><img src={image} alt="" /><h3>{title}</h3><p>{copy}</p></article>)}</div><div className="fl-life__cta"><div><h3>Take a virtual tour of the campus in the city</h3><p>Walk under the arches, step inside the labs, and look out over Mission Bay - the whole campus is open to you, right from where you're sitting</p><a className="fl-button fl-button-white" href="https://massinteract.com/usd-2.0/" target="_blank" rel="noreferrer">Explore Virtual campus tour</a></div><img src="/landing/capstone-campus.png" alt="University of San Diego campus" /></div></div></section>;
 }
 
 function Landing({ journey }) {
@@ -381,7 +383,7 @@ function Landing({ journey }) {
       <SharedNav className="shared-nav--landing" />
       <div className="fl-hero-copy">
         <h1>Welcome to USD, {studentName}!</h1>
-        <p>Everything you need to know before you make your decision.</p>
+        <p>Everything you need to know before you make your decision</p>
         <div className="fl-actions">
           <a className="fl-button fl-button-blue" href={enrollmentUrl} target="_blank" rel="noreferrer">Confirm your seat</a>
           <a className="fl-button fl-button-white" href={brochureUrl} target="_blank" rel="noreferrer">Download Brochure <img src="/landing/download.svg" alt="" /></a>
@@ -394,13 +396,13 @@ function Landing({ journey }) {
       <div className="fl-shell">
         <div className="fl-section-heading">
           <h2>One of America’s best and it <span>shows from day one</span></h2>
-          <p>Consistently ranked among the top private universities in the United States for campus experience, high-impact career services, and graduate ROI.</p>
+          <p>Consistently ranked among the top private universities in the United States for campus experience, high-impact career services, and graduate ROI</p>
         </div>
         <div className="fl-ranking-grid">
           {rankingCards.map(([rank, title, source]) => <article key={rank + title}><strong>{rank}</strong><h3>{title}</h3><p>{source}</p></article>)}
         </div>
         <div className="fl-reason-grid">
-          {usdReasons.map((reason, index) => <article key={reason}><img src={usdReasonImages[index]} alt="" /><div className="fl-reason-card__shade" /><p>{reason}</p><span>0{index + 1}</span></article>)}
+          {usdReasons.map((reason, index) => <article key={reason}><div className="fl-reason-card__mask" style={{ '--reason-image': `url(${usdReasonImages[index]})`, '--reason-mask': `url(${usdReasonMasks[index]})` }} aria-hidden="true" /><p>{reason}</p></article>)}
         </div>
       </div>
     </section>
@@ -415,13 +417,13 @@ function Landing({ journey }) {
         </div>
 
         <article className="fl-outcomes-card">
-          <div className="fl-salary"><span>GRADUATE OUTCOMES</span><div className="fl-salary__figures"><strong>{content.salary}</strong><p>Average salary reported by graduates of USD’s <b>{content.degree}.</b></p></div><small>Source: USD program page</small></div>
-          <div className="fl-career-card__jobs"><div className="fl-career-card__jobs-head"><h3>Where could your skills take you?</h3><div className="fl-carousel-buttons"><ArrowButton direction="left" label="Previous career outcomes" onClick={() => setCareerPage(0)} disabled={careerPage === 0} /><ArrowButton direction="right" label="Next career outcomes" onClick={() => setCareerPage(1)} disabled={careerPage === 1} /></div></div><div aria-live="polite">{content.jobs.slice(careerPage * 2, careerPage * 2 + 2).map(([role, salary]) => <div className="fl-job" key={role}><span>{role}</span><b>{salary}</b></div>)}</div><small>U.S. salary benchmarks from the Career Outcomes Brochure.</small></div>
+          <div className="fl-salary"><span>GRADUATE OUTCOMES</span><div className="fl-salary__figures"><strong>{content.salary}</strong><p>Average salary reported by graduates of USD’s <b>{content.degree}</b></p></div></div>
+          <div className="fl-career-card__jobs"><div className="fl-career-card__jobs-head"><h3>Where could your skills take you?</h3><div className="fl-carousel-buttons"><ArrowButton direction="left" label="Previous career outcomes" onClick={() => setCareerPage(0)} disabled={careerPage === 0} /><ArrowButton direction="right" label="Next career outcomes" onClick={() => setCareerPage(1)} disabled={careerPage === 1} /></div></div><div aria-live="polite">{content.jobs.slice(careerPage * 2, careerPage * 2 + 2).map(([role, salary]) => <div className="fl-job" key={role}><span>{role}</span><b>{salary}</b></div>)}</div></div>
         </article>
 
         <article className="fl-employer-strip"><h3>Where Our Alumni &amp; Students Work</h3><EmployerTicker names={content.employers} /></article>
 
-        <PeopleCarousel key={program} className="fl-alumni-panel" title="Meet the Indian alumni in your network." description="Graduates from USD’s on-campus, online and part-time programs — people who stood where you’re standing." previousLabel="Previous alumni" nextLabel="Next alumni">
+        <PeopleCarousel key={program} className="fl-alumni-panel" title="Meet the Indian alumni in your network " description="Graduates from USD’s on-campus, online and part-time programs — people who stood where you’re standing " previousLabel="Previous alumni" nextLabel="Next alumni">
           {(program === 'Cybersecurity (CSE)' ? cseAlumni : landingAlumni).map(([name, before, company, now], index) => <div className="fl-alumni-card" key={name}><div className="fl-person-head"><img className="fl-alumni-portrait" src={alumniPhotos[program][index]} alt={name} /><div><h4>{name}</h4><p>{before}</p></div></div><div className="fl-company">{alumniCompanyLogos[company] ? <img src={alumniCompanyLogos[company]} alt={company} /> : <strong>{company}</strong>}</div><div className="fl-down" aria-hidden="true">↓</div><div className="fl-now"><span>NOW</span><p>{now}</p></div></div>)}
         </PeopleCarousel>
 
@@ -431,7 +433,7 @@ function Landing({ journey }) {
 
         <article className="fl-capstone">
           <div><h3>{content.capstoneTitle}</h3><p>{content.capstoneCopy}</p><a className="fl-button fl-button-white" href={brochureUrl} target="_blank" rel="noreferrer">Download Brochure <img src="/landing/download.svg" alt="" /></a></div>
-          <img src="/landing/capstone-campus.png" alt="University of San Diego campus" />
+    <img src="/landing/capstone-campus-figma.png" alt="University of San Diego campus" />
         </article>
       </div>
     </section>
