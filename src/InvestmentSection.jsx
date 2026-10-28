@@ -63,14 +63,7 @@ export default function InvestmentSection({ selectedProgram, studentName = '' })
               <img src={`${assets}chevron.svg`} alt="" />
             </div>
             <div className="investment-calculator__select">
-              <select aria-label="Scholarship (if any)" value={values.scholarship} onChange={(event) => update('scholarship', event.target.value)} data-empty={!values.scholarship}>
-                <option value="">Scholarship (if any)</option>
-                <option value="30024">$30,024 USD Award (offer reference)</option>
-                <option value="10000">$10,000 Torero Merit Scholarship</option>
-                <option value="5000">$5,000 Scholarship</option>
-                <option value="0">No scholarship</option>
-              </select>
-              <img src={`${assets}chevron.svg`} alt="" />
+              <input aria-label="Scholarship amount (USD)" type="number" min="0" step="1" inputMode="decimal" placeholder="Scholarship amount (USD)" value={values.scholarship} onChange={(event) => update('scholarship', event.target.value)} />
             </div>
           </div>
           <button className="investment-calculator__submit" type="submit">Calculate My Cost <img src={`${assets}arrow.svg`} alt="" /></button>

@@ -14,7 +14,8 @@
 .investment-calculator h3 { color: #0b1c3d; font-size: 24px; font-weight: 600; line-height: 36px; letter-spacing: -1px; }
 .investment-calculator__fields { display: grid; gap: 16px; margin-top: 24px; }
 .investment-calculator__select { position: relative; min-width: 0; }
-.investment-calculator__select select { appearance: none; display: block; width: 100%; height: 42px; padding: 0 48px 0 24px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; color: #314158; box-shadow: 0 1px 0 rgb(0 0 0 / 5%); font: 500 14px/20px 'Inter', Arial, sans-serif; cursor: pointer; text-overflow: ellipsis; }
+.investment-calculator__select select,.investment-calculator__select input { appearance: none; display: block; width: 100%; height: 42px; padding: 0 48px 0 24px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; color: #314158; box-shadow: 0 1px 0 rgb(0 0 0 / 5%); font: 500 14px/20px 'Inter', Arial, sans-serif; cursor: pointer; text-overflow: ellipsis; }
+.investment-calculator__select input { padding-right: 24px; }
 .investment-calculator__select select[data-empty="true"] { color: rgb(49 65 88 / 50%); }
 .investment-calculator__select option { color: #314158; }
 .investment-calculator__select img { position: absolute; top: 13px; right: 25px; pointer-events: none; }
