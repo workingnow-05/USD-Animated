@@ -781,12 +781,13 @@ body{overscroll-behavior-y:none}
 .shared-nav__menu{display:none;border:0;background:transparent;color:inherit;font-size:20px}
 .shared-nav--welcome{position:absolute;top:0;left:50%;transform:translateX(-50%);color:#fff}
 .shared-nav--landing{color:#fff}.shared-nav--calculator{width:min(1200px,calc(100% - 64px));color:#fff}
-.cost-page>.shared-nav{width:100%;max-width:none;padding-left:max(32px,calc((100% - 1200px)/2));padding-right:max(32px,calc((100% - 1200px)/2));background:#003b70}
+.cost-page>.shared-nav{width:100%;max-width:none;padding-left:max(32px,calc((100% - 900px)/2));padding-right:max(32px,calc((100% - 900px)/2));background:#003b70}
 .figma-landing .fl-footer__bottom{justify-content:space-between;align-items:center}
 .figma-landing .fl-footer__socials{display:flex;align-items:center;gap:14px}
 .figma-landing .fl-footer__socials a{display:flex;width:20px;height:20px;align-items:center;justify-content:center;margin:0}
 .figma-landing .fl-footer__socials img{display:block;width:16px;height:16px;filter:brightness(0) invert(1);opacity:.9}
 .shared-nav{justify-content:flex-start}.shared-nav nav,.shared-nav__menu{display:none!important}
+@media(max-width:720px){.cost-page>.shared-nav{padding-left:16px;padding-right:16px}}
 .figma-landing .fl-footer{position:relative;padding-bottom:44px}
 .figma-landing .fl-footer__grid{grid-template-columns:1.15fr .9fr 1.55fr;align-items:start}
 .figma-landing .fl-footer__logo{width:250px}

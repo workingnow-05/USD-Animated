@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/cost-calculator", "destination": "/index.html" },
+    { "source": "/cost-calculator/(.*)", "destination": "/index.html" }
+  ]
+}
