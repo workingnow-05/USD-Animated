@@ -392,7 +392,6 @@ function Landing({ journey }) {
         <h1>Welcome to USD,<br />{studentName}!</h1>
         <p>Everything you need to know before you make your decision</p>
         <div className="fl-actions">
-          <a className="fl-button fl-button-blue" href={enrollmentUrl} target="_blank" rel="noreferrer">Confirm your seat</a>
           <a className="fl-button fl-button-white" href={brochureUrl} target="_blank" rel="noreferrer">Download Brochure <img src="/landing/download.svg" alt="" /></a>
         </div>
       </div>
